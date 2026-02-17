@@ -33,13 +33,15 @@ a{color:inherit}
   margin:0 auto;
   background:#fff;
   border-radius:20px;
-  overflow:visible;
+  overflow:hidden;   /* 컨텐츠 전체 라운드 유지용 */
 }
 
 .top-wrap{
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:20px;
-  overflow:hidden; /* 상단 그라데이션 하단 좌우도 둥글게 */
+  border-radius:20px 20px 0 0; /* 위만 둥글게 */
+  overflow:visible;            /* ✅ 이미지가 아래로 걸치게: 절대 hidden 금지 */
+  position:relative;
+  z-index:1;
 }
 
 /* HEADER */
@@ -176,7 +178,8 @@ a{color:inherit}
   padding:80px 70px 60px;
   border-radius:0 0 20px 20px;
   position:relative;
-  z-index:2;
+  z-index:0;
+  margin-top:0; /* 혹시 여백 꼬이면 0 유지 */
 }
 
 .he-section-title{
