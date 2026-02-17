@@ -6,7 +6,6 @@
 <title>Horizon Europe Help Desk</title>
 
 <style>
-
 :root{
   --panel:#ffffff;
   --text:#0b0f19;
@@ -26,9 +25,7 @@ body{
 
 a{color:inherit}
 
-.page-wrap{
-  padding:20px 0 200px;
-}
+.page-wrap{padding:20px 0 200px;}
 
 .content-wrap{
   max-width:1080px;
@@ -40,26 +37,31 @@ a{color:inherit}
 
 .top-wrap{
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:20px;
+  border-radius:20px 20px 0 0;
+  position:relative;
 }
 
 /* HEADER */
-
 .he-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:40px 70px 20px;
+  position:relative;
+  z-index:10;
 }
 
-.he-brand-img{height:18px}
+.he-brand-img{height:18px; display:block;}
 
-.he-nav{display:flex; gap:18px; font-size:14px}
+.he-nav{
+  display:flex;
+  gap:18px;
+  font-size:14px;
+}
 .he-nav a{text-decoration:none; opacity:.9}
 .he-nav a:hover{opacity:1; text-decoration:underline}
 
 /* HERO */
-
 .he-hero{position:relative}
 
 .he-hero-inner{
@@ -76,7 +78,6 @@ a{color:inherit}
   line-height:1.02;
   letter-spacing:-1px;
 }
-
 .he-title-accent{color:var(--blue)}
 
 .he-subtitle{
@@ -86,7 +87,6 @@ a{color:inherit}
 }
 
 /* SEARCH */
-
 .he-searchrow{display:flex; gap:14px; flex-wrap:wrap}
 
 .he-search{
@@ -106,6 +106,7 @@ a{color:inherit}
   outline:none;
   flex:1;
   font-size:14px;
+  background:transparent;
 }
 
 .he-iconbtn{
@@ -120,10 +121,9 @@ a{color:inherit}
   justify-content:center;
 }
 
-.he-icon-img{width:18px}
+.he-icon-img{width:18px; height:18px; display:block;}
 
 /* CTA */
-
 .he-cta{
   display:inline-flex;
   align-items:center;
@@ -134,12 +134,11 @@ a{color:inherit}
   padding:12px 16px;
   border-radius:999px;
   font-weight:700;
+  cursor:pointer;
 }
-
-.he-cta-icon{height:26px}
+.he-cta-icon{height:26px; width:auto; display:block;}
 
 /* HERO IMAGE */
-
 .he-hero-media{
   display:flex;
   justify-content:center;
@@ -157,7 +156,6 @@ a{color:inherit}
 }
 
 /* BELOW SECTION */
-
 .he-latest{
   background:#fff;
   padding:80px 70px 60px;
@@ -183,12 +181,13 @@ a{color:inherit}
   min-height:220px;
   display:flex;
   flex-direction:column;
+  background:#fff;
 }
 
 .he-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
 .he-card-title{margin:0 0 10px;font-size:18px}
 .he-card-desc{margin:0 0 16px;color:var(--muted);font-size:14px}
-.he-card-foot{display:flex;justify-content:space-between;margin-top:auto}
+.he-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
 .he-views{font-size:12px;color:var(--muted)}
 
 .he-read{
@@ -198,54 +197,45 @@ a{color:inherit}
   border-radius:999px;
   border:1px solid var(--line);
   background:#f7f8fd;
+  cursor:pointer;
 }
 
-/* MOBILE */
-
+/* MOBILE / RESPONSIVE */
 @media(max-width:980px){
-
-.he-header{padding:30px 20px 15px}
-
-.he-hero-inner{
-  grid-template-columns:1fr;
-  padding:30px 20px 0;
+  .he-header{padding:30px 20px 15px}
+  .he-hero-inner{
+    grid-template-columns:1fr;
+    padding:30px 20px 0;
+  }
+  .he-title{font-size:42px}
+  .he-latest{padding:100px 20px 40px}
+  .he-cards{grid-template-columns:1fr}
 }
 
-.he-title{font-size:42px}
-
-.he-latest{
-  padding:100px 20px 40px;
-}
-
-.he-cards{grid-template-columns:1fr}
-
-}
-
+/* HAMBURGER BUTTON */
 .he-menu-btn{
   display:none;
   background:none;
   border:none;
   font-size:26px;
   cursor:pointer;
-  color:#1e293b; /* ☰ 기본 */
+  color:#1e293b; /* ☰ 기본(닫힘) */
+  line-height:1;
+  padding:6px 8px;
 }
 
 .he-menu-btn.active{
   color:#fff; /* ✕ 열림 */
 }
 
+/* 모바일에서 PC 메뉴 숨기고, 버튼 + 오버레이 메뉴 사용 */
 @media(max-width:768px){
+  .he-nav{display:none;}
   .he-menu-btn{display:block; z-index:1001;}
+  .he-brand-img{width:70%; height:auto;}
 }
 
-@media(max-width:768px){
-  .he-brand-img{
-    width:90%;
-    height:auto;
-  }
-}
-
-
+/* MOBILE OVERLAY MENU */
 .he-nav-mobile{
   position:fixed;
   top:0;
@@ -262,23 +252,19 @@ a{color:inherit}
   gap:28px;
   font-size:20px;
   transform:translateY(-100%);
-  transition:.3s;
+  transition:transform .3s ease;
   z-index:1000;
 }
 
-.he-nav-mobile.active{
-  transform:translateY(0);
-}
+.he-nav-mobile.active{transform:translateY(0);}
 
 .he-nav-mobile a{
   color:#fff;
   text-decoration:none;
 }
-
-}
-
-
 </style>
+
+
 </head>
 
 <body>
