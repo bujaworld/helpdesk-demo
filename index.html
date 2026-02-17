@@ -25,6 +25,7 @@ body{
 
 a{color:inherit}
 
+/* PAGE FRAME */
 .page-wrap{padding:20px 0 200px;}
 
 .content-wrap{
@@ -37,8 +38,8 @@ a{color:inherit}
 
 .top-wrap{
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:20px 20px 0 0;
-  position:relative;
+  border-radius:20px;
+  overflow:hidden; /* 상단 그라데이션 하단 좌우도 둥글게 */
 }
 
 /* HEADER */
@@ -47,12 +48,14 @@ a{color:inherit}
   justify-content:space-between;
   align-items:center;
   padding:40px 70px 20px;
-  position:relative;
+  position:relative; /* 모바일 오버레이 기준 */
   z-index:10;
 }
 
-.he-brand-img{height:18px; display:block;}
+.he-brand{display:flex; align-items:center;}
+.he-brand-img{height:18px; width:auto; display:block;}
 
+/* PC 메뉴 (기본) */
 .he-nav{
   display:flex;
   gap:18px;
@@ -62,7 +65,7 @@ a{color:inherit}
 .he-nav a:hover{opacity:1; text-decoration:underline}
 
 /* HERO */
-.he-hero{position:relative}
+.he-hero{position:relative; z-index:1;}
 
 .he-hero-inner{
   display:grid;
@@ -123,7 +126,7 @@ a{color:inherit}
 
 .he-icon-img{width:18px; height:18px; display:block;}
 
-/* CTA */
+/* CTA + READ cursor */
 .he-cta{
   display:inline-flex;
   align-items:center;
@@ -134,9 +137,21 @@ a{color:inherit}
   padding:12px 16px;
   border-radius:999px;
   font-weight:700;
-  cursor:pointer;
+  cursor:pointer;          /* 손가락 */
 }
+.he-cta:hover{filter:brightness(.98);}
 .he-cta-icon{height:26px; width:auto; display:block;}
+
+.he-read{
+  font-size:13px;
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#f7f8fd;
+  cursor:pointer;          /* 손가락 */
+}
+.he-read:hover{background:#eef1ff; border-color:#dde2ff;}
 
 /* HERO IMAGE */
 .he-hero-media{
@@ -151,15 +166,17 @@ a{color:inherit}
   height:auto;
   display:block;
   position:relative;
-  bottom:-40px;
+  bottom:-40px; /* 대표님이 이미지 올리면 이 값을 줄이세요 (예: -10px) */
   filter:drop-shadow(0 18px 30px rgba(0,0,0,.12));
 }
 
-/* BELOW SECTION */
+/* BELOW SECTION (화이트 영역) */
 .he-latest{
   background:#fff;
   padding:80px 70px 60px;
   border-radius:0 0 20px 20px;
+  position:relative;
+  z-index:2;
 }
 
 .he-section-title{
@@ -186,57 +203,28 @@ a{color:inherit}
 
 .he-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
 .he-card-title{margin:0 0 10px;font-size:18px}
-.he-card-desc{margin:0 0 16px;color:var(--muted);font-size:14px}
+.he-card-desc{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.45}
 .he-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
 .he-views{font-size:12px;color:var(--muted)}
 
-.he-read{
-  font-size:13px;
-  text-decoration:none;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:#f7f8fd;
-  cursor:pointer;
-}
-
-/* MOBILE / RESPONSIVE */
-@media(max-width:980px){
-  .he-header{padding:30px 20px 15px}
-  .he-hero-inner{
-    grid-template-columns:1fr;
-    padding:30px 20px 0;
-  }
-  .he-title{font-size:42px}
-  .he-latest{padding:100px 20px 40px}
-  .he-cards{grid-template-columns:1fr}
-}
-
-/* HAMBURGER BUTTON */
+/* MOBILE MENU BUTTON + OVERLAY */
 .he-menu-btn{
-  display:none;
+  display:none;            /* PC에서는 숨김 */
   background:none;
   border:none;
   font-size:26px;
   cursor:pointer;
-  color:#1e293b; /* ☰ 기본(닫힘) */
+  color:#1e293b;           /* 햄버거: 짙은색 */
   line-height:1;
-  padding:6px 8px;
 }
 
 .he-menu-btn.active{
-  color:#fff; /* ✕ 열림 */
+  color:#fff;              /* X: 흰색 */
 }
 
-/* 모바일에서 PC 메뉴 숨기고, 버튼 + 오버레이 메뉴 사용 */
-@media(max-width:768px){
-  .he-nav{display:none;}
-  .he-menu-btn{display:block; z-index:1001;}
-  .he-brand-img{width:70%; height:auto;}
-}
-
-/* MOBILE OVERLAY MENU */
+/* 모바일 오버레이 nav (PC에서는 숨김) */
 .he-nav-mobile{
+  display:none;
   position:fixed;
   top:0;
   left:0;
@@ -244,23 +232,36 @@ a{color:inherit}
   height:65vh;
   background:#1e293b;
   color:#fff;
-  display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
   padding-top:120px;
   gap:28px;
   font-size:20px;
-  transform:translateY(-100%);
-  transition:transform .3s ease;
-  z-index:1000;
+  transform:translateY(-110%);
+  transition:.3s;
+  z-index:1000;            /* 메인 카피보다 위 */
 }
-
+.he-nav-mobile a{color:#fff; text-decoration:none;}
 .he-nav-mobile.active{transform:translateY(0);}
 
-.he-nav-mobile a{
-  color:#fff;
-  text-decoration:none;
+/* RESPONSIVE */
+@media(max-width:980px){
+  .he-header{padding:30px 20px 15px}
+  .he-hero-inner{grid-template-columns:1fr; padding:30px 20px 0;}
+  .he-title{font-size:42px}
+  .he-latest{padding:100px 20px 40px;}
+  .he-cards{grid-template-columns:1fr}
+}
+
+@media(max-width:768px){
+  /* PC 메뉴 숨기고, 햄버거 + 모바일 nav 사용 */
+  .he-nav{display:none;}
+  .he-menu-btn{display:block; z-index:1001;}
+  .he-nav-mobile{display:flex;}
+
+  /* 로고 70% */
+  .he-brand-img{height:auto; width:70%; max-width:220px;}
 }
 </style>
 
@@ -280,7 +281,13 @@ a{color:inherit}
 
 <button class="he-menu-btn" aria-label="menu">☰</button>
 
-<nav class="he-nav he-nav-mobile">
+<nav class="he-nav">
+<a href="#">질문하기</a>
+<a href="#">자료실</a>
+<a href="#">FAQ</a>
+<a href="#">주요 행사</a>
+</nav>
+<nav class="he-nav-mobile">
 <a href="#">질문하기</a>
 <a href="#">자료실</a>
 <a href="#">FAQ</a>
