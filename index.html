@@ -1,12 +1,410 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Helpdesk Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizon Europe Help Desk</title>
+
+<style>
+
+:root{
+  --panel:#ffffff;
+  --text:#0b0f19;
+  --muted:#5a6275;
+  --blue:#1e3aff;
+  --line:#e7eaf2;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:#1e293b;
+}
+
+a{color:inherit}
+
+.page-wrap{
+  padding:20px 0 200px;
+}
+
+.content-wrap{
+  max-width:1080px;
+  margin:0 auto;
+  background:#fff;
+  border-radius:20px;
+  overflow:visible;
+}
+
+.top-wrap{
+  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
+  border-radius:20px;
+}
+
+/* HEADER */
+
+.he-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:40px 70px 20px;
+}
+
+.he-brand-img{height:18px}
+
+.he-nav{display:flex; gap:18px; font-size:14px}
+.he-nav a{text-decoration:none; opacity:.9}
+.he-nav a:hover{opacity:1; text-decoration:underline}
+
+/* HERO */
+
+.he-hero{position:relative}
+
+.he-hero-inner{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+  padding:40px 70px 0;
+  align-items:center;
+}
+
+.he-title{
+  margin:0;
+  font-size:56px;
+  line-height:1.02;
+  letter-spacing:-1px;
+}
+
+.he-title-accent{color:var(--blue)}
+
+.he-subtitle{
+  margin:16px 0 26px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+/* SEARCH */
+
+.he-searchrow{display:flex; gap:14px; flex-wrap:wrap}
+
+.he-search{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 12px;
+  min-width:280px;
+  flex:1 1 320px;
+}
+
+.he-input{
+  border:none;
+  outline:none;
+  flex:1;
+  font-size:14px;
+}
+
+.he-iconbtn{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.he-icon-img{width:18px}
+
+/* CTA */
+
+.he-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+.he-cta-icon{height:26px}
+
+/* HERO IMAGE */
+
+.he-hero-media{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.he-hero-img{
+  width:min(420px,100%);
+  height:auto;
+  display:block;
+  position:relative;
+  bottom:-40px;
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.12));
+}
+
+/* BELOW SECTION */
+
+.he-latest{
+  background:#fff;
+  padding:80px 70px 60px;
+  border-radius:0 0 20px 20px;
+}
+
+.he-section-title{
+  margin:0 0 24px;
+  text-align:center;
+  font-size:28px;
+}
+
+.he-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.he-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+}
+
+.he-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
+.he-card-title{margin:0 0 10px;font-size:18px}
+.he-card-desc{margin:0 0 16px;color:var(--muted);font-size:14px}
+.he-card-foot{display:flex;justify-content:space-between;margin-top:auto}
+.he-views{font-size:12px;color:var(--muted)}
+
+.he-read{
+  font-size:13px;
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#f7f8fd;
+}
+
+/* MOBILE */
+
+@media(max-width:980px){
+
+.he-header{padding:30px 20px 15px}
+
+.he-hero-inner{
+  grid-template-columns:1fr;
+  padding:30px 20px 0;
+}
+
+.he-title{font-size:42px}
+
+.he-latest{
+  padding:100px 20px 40px;
+}
+
+.he-cards{grid-template-columns:1fr}
+
+}
+
+.he-menu-btn{
+  display:none;
+  background:none;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#1e293b; /* ☰ 기본 */
+}
+
+.he-menu-btn.active{
+  color:#fff; /* ✕ 열림 */
+}
+
+@media(max-width:768px){
+  .he-menu-btn{display:block; z-index:1001;}
+}
+
+@media(max-width:768px){
+  .he-brand-img{
+    width:90%;
+    height:auto;
+  }
+}
+
+
+.he-nav-mobile{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:65vh;
+  background:#1e293b;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding-top:120px;
+  gap:28px;
+  font-size:20px;
+  transform:translateY(-100%);
+  transition:.3s;
+  z-index:1000;
+}
+
+.he-nav-mobile.active{
+  transform:translateY(0);
+}
+
+.he-nav-mobile a{
+  color:#fff;
+  text-decoration:none;
+}
+
+}
+
+
+</style>
 </head>
+
 <body>
 
-<h1>대표님 사이트 테스트 성공</h1>
+<div class="page-wrap">
+<div class="content-wrap">
+
+<div class="top-wrap">
+
+<header class="he-header">
+<a class="he-brand" href="#">
+<img class="he-brand-img" src="brand-logo.svg">
+</a>
+
+<button class="he-menu-btn" aria-label="menu">☰</button>
+
+<nav class="he-nav he-nav-mobile">
+<a href="#">질문하기</a>
+<a href="#">자료실</a>
+<a href="#">FAQ</a>
+<a href="#">주요 행사</a>
+</nav>
+</header>
+
+<section class="he-hero">
+<div class="he-hero-inner">
+
+<div>
+<h1 class="he-title">
+<span class="he-title-accent">Your Gateway</span><br>
+Horizon Europe<br>
+Support
+</h1>
+
+<p class="he-subtitle">
+Ask your questions and get guidance through our helpdesk.
+</p>
+
+<div class="he-searchrow">
+
+<div class="he-search">
+<input class="he-input" placeholder="your questions">
+<button class="he-iconbtn">
+<img class="he-icon-img" src="icon-search.svg">
+</button>
+</div>
+
+<a class="he-cta" href="submit.html">
+<span>Submit a Question</span>
+<img class="he-cta-icon" src="icon-arrow.svg">
+</a>
+
+</div>
+</div>
+
+<div class="he-hero-media">
+<img class="he-hero-img" src="hero.png">
+</div>
+
+</div>
+</section>
+
+</div>
+
+<section class="he-latest">
+
+<h2 class="he-section-title">
+Explore the Latest Questions Submitted to the Helpdesk
+</h2>
+
+<div class="he-cards">
+
+<article class="he-card">
+<div class="he-meta">22 Mar 2026</div>
+<h3 class="he-card-title">Horizon Europe Eligibility for Research Institutes</h3>
+<p class="he-card-desc">
+Clarification on eligibility criteria for national research institutes applying as coordinators in Horizon Europe collaborative projects.
+</p>
+<div class="he-card-foot">
+<div class="he-views">124 views</div>
+<a class="he-read" href="detail.html">Read ›</a>
+</div>
+</article>
+
+<article class="he-card">
+<div class="he-meta">14 Mar 2026</div>
+<h3 class="he-card-title">Horizon Europe Eligibility for Research Institutes</h3>
+<p class="he-card-desc">
+Looking for guidance on finding EU partners and validating consortium requirements for a Cluster 4 digital innovation proposal.
+</p>
+<div class="he-card-foot">
+<div class="he-views">89 views</div>
+<a class="he-read" href="detail.html">Read ›</a>
+</div>
+</article>
+
+<article class="he-card">
+<div class="he-meta">4 Mar 2026</div>
+<h3 class="he-card-title">Budget Rules for Personnel Costs</h3>
+<p class="he-card-desc">
+Questions regarding personnel cost calculation methods, eligible rates, and reporting rules under Horizon Europe funding guidelines.
+</p>
+<div class="he-card-foot">
+<div class="he-views">156 views</div>
+<a class="he-read" href="detail.html">Read ›</a>
+</div>
+</article>
+
+</div>
+
+</section>
+
+</div>
+</div>
+
+<script>
+const btn=document.querySelector('.he-menu-btn');
+const nav=document.querySelector('.he-nav-mobile');
+
+btn.onclick=()=>{
+  nav.classList.toggle('active');
+  btn.classList.toggle('active');
+  btn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+};
+</script>
+
 
 </body>
 </html>
