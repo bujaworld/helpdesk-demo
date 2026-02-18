@@ -631,6 +631,105 @@ a{color:inherit}
   display:inline-block;
 }
 
+/* EVENTS (주요행사) */
+.he-events{ background:#fff; }
+
+.he-events-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.he-events-head-text{ max-width:700px; }
+
+.he-events-title{
+  margin:0 0 8px;
+  font-size:28px;
+}
+
+.he-events-sub{
+  margin:0;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.he-events-page-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:#f7f8fd;
+  border:1px solid var(--line);
+  text-decoration:none;
+  font-weight:600;
+  white-space:nowrap;
+  cursor:pointer;
+}
+.he-events-page-btn:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+.he-events-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.he-event-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+}
+
+.he-event-img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:14px;
+  background:#f3f6fb;
+}
+
+.he-event-name{
+  margin:14px 0 14px;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.2px;
+}
+
+.he-event-btn{
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:#0018f8;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  width:fit-content;
+}
+.he-event-btn:hover{ filter:brightness(.95); }
+
+@media(max-width:980px){
+  .he-events-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .he-events-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 .he-section{
   padding:0 70px 80px;  /* 좌우는 유지, 하단만 80px */
 }
@@ -944,6 +1043,40 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
   <a class="he-faq-link" href="#">Download Proposal Template</a>
 </div>
 </article>
+
+  </div>
+</section>
+
+<section class="he-events he-section" id="events">
+
+  <div class="he-events-head">
+    <div class="he-events-head-text">
+      <h2 class="he-events-title">Upcoming Key Events</h2>
+      <p class="he-events-sub">Stay updated on major briefings, workshops, and networking opportunities related to Horizon Europe.</p>
+    </div>
+
+    <a class="he-events-page-btn" href="#">View All Events</a>
+  </div>
+
+  <div class="he-events-grid">
+
+    <article class="he-event-card">
+      <img class="he-event-img" src="images/event-main01.svg" alt="Horizon Europe Info Day 2026">
+      <h3 class="he-event-name">Horizon Europe Info Day 2026</h3>
+      <a class="he-event-btn" href="#">View</a>
+    </article>
+
+    <article class="he-event-card">
+      <img class="he-event-img" src="images/event-main02.svg" alt="Proposal Writing Workshop">
+      <h3 class="he-event-name">Proposal Writing Workshop</h3>
+      <a class="he-event-btn" href="#">View</a>
+    </article>
+
+    <article class="he-event-card">
+      <img class="he-event-img" src="images/event-main03.svg" alt="EU–Korea Research Networking Forum">
+      <h3 class="he-event-name">EU–Korea Research Networking Forum</h3>
+      <a class="he-event-btn" href="#">View</a>
+    </article>
 
   </div>
 </section>
