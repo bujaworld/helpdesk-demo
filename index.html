@@ -682,11 +682,11 @@ a{color:inherit}
 .he-event-card{
   border:1px solid var(--line);
   border-radius:18px;
-  padding:0 18px 18px;   /* 상단 0, 좌우 0 */
+  padding:0;              /* 상단/좌우 여백 제거 */
   background:#fff;
   display:flex;
   flex-direction:column;
-  overflow:hidden;       /* 이미지 모서리 맞춤 */
+  overflow:hidden;        /* 모서리 맞춤 */
 }
 
 .he-event-img{
@@ -698,7 +698,7 @@ a{color:inherit}
 }
 
 .he-event-name{
-  margin:14px 0 14px;
+  margin:18px 18px 14px;
   font-size:18px;
   font-weight:800;
   letter-spacing:-.2px;
@@ -718,6 +718,7 @@ a{color:inherit}
   font-size:13px;
   cursor:pointer;
   width:fit-content;
+  margin:0 18px 18px;
 }
 .he-event-btn:hover{ filter:brightness(.95); }
 
