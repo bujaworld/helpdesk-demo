@@ -43,6 +43,7 @@ a{color:inherit}
   overflow:visible;            /* 이미지 걸치게 */
   position:relative;
   z-index:1;
+  margin-bottom:80px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
 }
 
 /* HEADER */
@@ -270,8 +271,8 @@ a{color:inherit}
 /* RESOURCES (자료실) */
 .he-resources{
   margin-top:34px;
-  margin-bottom:100px;
-  padding:0;        /* 공통 .he-section이 여백 담당 */
+  margin-bottom:0;   /* ⬅ 100px 제거해서 다른 섹션과 동일 간격 */
+  padding:0;         /* 공통 .he-section이 여백 담당 */
 }
 
 .he-resources-panel{
