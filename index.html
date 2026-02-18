@@ -423,7 +423,12 @@ a{color:inherit}
   .he-res-item{flex-direction:column; align-items:flex-start;}
   .he-res-right{align-items:flex-start; min-width:auto;}
   .he-res-meta{justify-content:start; text-align:left;}
-  .he-res-action{flex-direction:column; align-items:flex-start;}
+
+  .he-res-action{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;              /* ✅ Resource Library ↔ 버튼 간 여백 */
+  }
 }
 
 /* FAQ */
