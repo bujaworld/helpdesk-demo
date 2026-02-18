@@ -281,20 +281,19 @@
 
 /* RESPONSIVE */
 @media(max-width:768px){
+  /* layout */
   .he-header{padding:30px 20px 15px}
   .he-hero-inner{grid-template-columns:1fr; padding:30px 20px 0;}
   .he-title{font-size:42px}
   .he-cards{grid-template-columns:1fr}
-}
 
-@media(max-width:768px){
-  /* PC 메뉴 숨기고, 햄버거 + 모바일 nav 사용 */
+  /* nav: PC 메뉴 숨김 + 햄버거/오버레이 사용 */
   .he-nav{display:none;}
   .he-menu-btn{display:block; z-index:1001;}
   .he-nav-mobile{display:flex;}
 
   /* 로고 70% */
-  .he-brand-img{height:auto; width:95%;}
+  .he-brand-img{height:13px; width:auto;}
 }
 
 /* RESOURCES (자료실) */
@@ -583,41 +582,6 @@
     align-items:flex-start;
   }
 }
-
-/* FAQ: Q 배지 + 질문행 전체 클릭 + 아이콘 버튼 */
-
-.he-faq-q{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-}
-
-.he-faq-qtext{
-  margin:0;
-  font-size:16px;
-  line-height:1.4;
-  flex:1;
-}
-
-/* 버튼: 아이콘만 */
-.he-faq-btn{
-  border:0 !important;
-  background:transparent !important;
-  box-shadow:none !important;
-  border-radius:0 !important;
-  width:auto !important;
-  height:auto !important;
-  padding:0 !important;
-  line-height:1 !important;
-  cursor:pointer;
-}
-
-.he-faq-icon{
-  font-size:14px;
-  line-height:1;
-}
-
-.he-faq-btn:hover{background:#eef1ff; border-color:#dde2ff;}
 
 .he-faq-left{
   display:flex;
@@ -1347,14 +1311,37 @@
 </div>
 
 <script>
-  const btn=document.querySelector('.he-menu-btn');
-  const nav=document.querySelector('.he-nav-mobile');
+  const btn = document.querySelector('.he-menu-btn');
+  const nav = document.querySelector('.he-nav-mobile');
 
-  btn.onclick=()=>{
-    nav.classList.toggle('active');
-    btn.classList.toggle('active');
-    btn.textContent = nav.classList.contains('active') ? '✕' : '☰';
+  const closeMobileNav = () => {
+    nav.classList.remove('active');
+    btn.classList.remove('active');
+    btn.textContent = '☰';
   };
+
+  btn.addEventListener('click', () => {
+    const willOpen = !nav.classList.contains('active');
+    if(willOpen){
+      nav.classList.add('active');
+      btn.classList.add('active');
+      btn.textContent = '✕';
+    }else{
+      closeMobileNav();
+    }
+  });
+
+  // 가로/세로 회전, 리사이즈 시(특히 모바일) 열린 상태 강제 종료
+  window.addEventListener('resize', closeMobileNav);
+  window.addEventListener('orientationchange', closeMobileNav);
+
+  // 오버레이 바깥 클릭 시 닫기
+  document.addEventListener('click', (e) => {
+    if(!nav.classList.contains('active')) return;
+    if(e.target === btn || btn.contains(e.target)) return;
+    if(nav.contains(e.target)) return;
+    closeMobileNav();
+  });
 </script>
 
 <script>
