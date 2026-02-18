@@ -428,6 +428,93 @@ a{color:inherit}
   .he-res-action{flex-direction:column; align-items:flex-start;}
 }
 
+/* FAQ */
+.he-faq{
+  background:#fff;
+  padding:70px 70px 60px;
+}
+
+.he-faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.he-faq-item{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.he-faq-qrow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:18px 18px;
+}
+
+.he-faq-q{
+  margin:0;
+  font-size:16px;
+  line-height:1.35;
+}
+
+.he-faq-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--line);
+  background:#f7f8fd;
+  padding:10px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  white-space:nowrap;
+}
+.he-faq-btn:hover{background:#eef1ff; border-color:#dde2ff;}
+.he-faq-icon{font-size:14px; line-height:1; transform:translateY(-1px);}
+
+.he-faq-a{
+  border-top:1px solid var(--line);
+  padding:16px 18px 18px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  max-height:92px;            /* 기본: 일부만 보이게 */
+  overflow:hidden;
+  position:relative;
+}
+
+.he-faq-a[data-collapsed="true"]::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:44px;
+  background:linear-gradient(to bottom, rgba(255,255,255,0), #fff);
+}
+
+.he-faq-a[data-collapsed="false"]{
+  max-height:300px;           /* 펼침: 300px까지만 열림 */
+  overflow:auto;              /* 내부 스크롤 */
+}
+
+.he-faq-link{
+  display:inline-flex;
+  margin-top:10px;
+  color:var(--text);
+  text-decoration:none;
+  border-bottom:1px solid rgba(11,15,25,.25);
+}
+.he-faq-link:hover{border-bottom-color:rgba(11,15,25,.6);}
+
+@media(max-width:980px){
+  .he-faq{padding:60px 20px 50px;}
+}
+
 </style>
 
 </head>
@@ -630,6 +717,86 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 </section>
 <!-- /RESOURCES -->
 
+<section class="he-faq" id="faq">
+  <h2 class="he-section-title">Frequently Asked Questions About Horizon Europe Participation</h2>
+
+  <div class="he-faq-list">
+
+    <article class="he-faq-item">
+      <div class="he-faq-qrow">
+        <h3 class="he-faq-q">Q1. What are the eligibility criteria for research institutes applying to Horizon Europe calls?</h3>
+        <button class="he-faq-btn" type="button" aria-expanded="false">
+          <span class="he-faq-btn-text">View</span>
+          <span class="he-faq-icon" aria-hidden="true">▾</span>
+        </button>
+      </div>
+
+      <div class="he-faq-a" data-collapsed="true">
+        <p>
+          Research institutes must comply with the general eligibility rules defined in the Horizon Europe Work Programme. In most collaborative calls, at least three independent legal entities from three different EU Member States or Associated Countries are required. Research institutes may participate either as coordinators or partners, depending on the specific call conditions.
+        </p>
+        <p>
+          Applicants must ensure that their organisation is properly registered in the EU Participant Register and holds a valid PIC (Participant Identification Code). Financial and operational capacity may be assessed during the evaluation phase. In addition, certain calls may impose specific eligibility requirements such as technology readiness level (TRL), thematic scope, or geographic balance.
+        </p>
+        <p>
+          For detailed legal and financial eligibility conditions, please refer to the official Horizon Europe Work Programme documentation.
+        </p>
+
+        <a class="he-faq-link" href="#">Download Eligibility Guidelines (PDF)</a>
+      </div>
+    </article>
+
+    <article class="he-faq-item">
+      <div class="he-faq-qrow">
+        <h3 class="he-faq-q">Q2. How should personnel costs be calculated under Horizon Europe funding rules?</h3>
+        <button class="he-faq-btn" type="button" aria-expanded="false">
+          <span class="he-faq-btn-text">View</span>
+          <span class="he-faq-icon" aria-hidden="true">▾</span>
+        </button>
+      </div>
+
+      <div class="he-faq-a" data-collapsed="true">
+        <p>
+          Personnel costs must be calculated in accordance with the rules outlined in the Annotated Grant Agreement. Beneficiaries must use their usual accounting practices to determine hourly rates, ensuring that costs are actual, recorded in the beneficiary’s accounts, and incurred during the project implementation period.
+        </p>
+        <p>
+          The calculation typically involves dividing annual personnel costs by the number of productive hours per year. Only costs directly linked to project activities are eligible. Overtime payments, bonuses, and additional allowances may be eligible if they are part of the organisation’s standard remuneration policy.
+        </p>
+        <p>
+          All personnel costs must be properly documented and supported by time records. During audits, beneficiaries may be required to provide payroll records, employment contracts, and timesheets.
+        </p>
+
+        <a class="he-faq-link" href="#">View Financial Rules Document</a>
+      </div>
+    </article>
+
+    <article class="he-faq-item">
+      <div class="he-faq-qrow">
+        <h3 class="he-faq-q">Q3. What documents are required before submitting a collaborative proposal?</h3>
+        <button class="he-faq-btn" type="button" aria-expanded="false">
+          <span class="he-faq-btn-text">View</span>
+          <span class="he-faq-icon" aria-hidden="true">▾</span>
+        </button>
+      </div>
+
+      <div class="he-faq-a" data-collapsed="true">
+        <p>
+          Before submission, the coordinating institution must ensure that all consortium members have completed their legal registration and validated their Participant Identification Code (PIC). A draft Consortium Agreement is strongly recommended prior to submission, even though it is formally signed after grant award.
+        </p>
+        <p>
+          The proposal itself must include the administrative forms (Part A) and the technical annex (Part B), structured according to the call template. This includes excellence, impact, and implementation sections. Ethical self-assessment, data management planning, and gender dimension considerations may also be required depending on the call.
+        </p>
+        <p>
+          It is advisable to review the official proposal template and submission guidelines well in advance of the deadline to avoid technical or compliance issues.
+        </p>
+
+        <a class="he-faq-link" href="#">Download Proposal Template</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 </div>
 </div>
 
@@ -644,6 +811,22 @@ btn.onclick=()=>{
 };
 </script>
 
+<script>
+document.querySelectorAll('.he-faq-item').forEach((item)=>{
+  const btn = item.querySelector('.he-faq-btn');
+  const aBox = item.querySelector('.he-faq-a');
+  const txt = item.querySelector('.he-faq-btn-text');
+  const icon = item.querySelector('.he-faq-icon');
+
+  btn.addEventListener('click', ()=>{
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    aBox.setAttribute('data-collapsed', isOpen ? 'true' : 'false');
+    txt.textContent = isOpen ? 'View' : 'Close';
+    icon.textContent = isOpen ? '▾' : '▴';
+  });
+});
+</script>
 
 </body>
 </html>
