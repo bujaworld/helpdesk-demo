@@ -939,18 +939,21 @@
 
 .he-logo-viewport{
   position:relative;
-  overflow:hidden;
+  overflow-x:auto;
+  overflow-y:hidden;
   flex:1 1 auto;
   border:1px solid var(--line);
   border-radius:16px;
   background:#fff;
-  padding:14px 16px;
+  padding:34px 16px;
+  scrollbar-width:none;
 }
+.he-logo-viewport::-webkit-scrollbar{ display:none; }
 
 .he-logo-rail{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:38px;
   white-space:nowrap;
   will-change:transform;
 }
@@ -1004,7 +1007,7 @@
 
 @media(max-width:768px){
   .he-logo-item img{ height:24px; }
-  .he-logo-viewport{ padding:12px 12px; }
+  .he-logo-viewport{ padding:32px 12px; }
   .he-logo-arrow{ width:34px; height:34px; }
 }
 /* /PARTNER LOGO STRIP */
@@ -1389,9 +1392,6 @@
           <img src="images/footer-logo-a6.svg" alt="KNTEC">
         </a>
 
-        <!-- 참여기관 6번째(KNTEC) 로고 파일명이 제공되지 않아, 우선 텍스트 링크로 넣었습니다. -->
-        <a class="he-logo-text" href="https://kntec.se/about-kntec/" target="_blank" rel="noopener">KNTEC</a>
-
         <span class="he-logo-spacer" aria-hidden="true"></span>
 
         <span class="he-logo-label">관리기관</span>
@@ -1574,7 +1574,7 @@
     wrap.className = 'he-logo-wrap';
     wrap.style.display = 'inline-flex';
     wrap.style.alignItems = 'center';
-    wrap.style.gap = '18px';
+    wrap.style.gap = '38px';
     wrap.appendChild(rail);
     wrap.appendChild(clone);
 
