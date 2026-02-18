@@ -38,16 +38,8 @@ a{color:inherit}
 }
 
 .top-wrap{
-  background:#fff;             /* 바깥은 흰색 유지 */
-  border-radius:20px;
-  overflow:visible;            /* ✅ 절대 hidden 금지 */
-  position:relative;
-  z-index:1;
-}
-
-.top-wrap{
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:20px 20px 0 0; /* 위만 둥글게 */
+  border-radius:20px;          /* 하단 좌우 둥글게 포함 */
   overflow:visible;            /* 이미지 걸치게 */
   position:relative;
   z-index:1;
@@ -185,10 +177,10 @@ a{color:inherit}
 .he-latest{
   background:#fff;
   padding:80px 70px 60px;
-  border-radius:20px;     /* 위쪽도 둥글게 */
+  border-radius:0 0 20px 20px;
   position:relative;
-  z-index:2;              /* 그라데이션보다 위로 */
-  margin-top:-20px;       /* 위로 당겨서 그라데이션 하단 둥근 모서리가 보이게 */
+  z-index:0;
+  margin-top:0;
 }
 
 .he-section-title{
