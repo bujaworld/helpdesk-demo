@@ -1151,12 +1151,8 @@
 
 @media(max-width:768px){
   .he-ai-fab{
-    width:63px;
-    height:86px;
-  }
-  .he-ai-fab img{
-    width:63px;
-    height:86px;
+    transform: translateY(-50%) scale(0.65);
+    transform-origin: right center;
   }
 }
 /* /AI ASSIST FLOATING */
@@ -1781,7 +1777,7 @@
   const positionFab = () => {
     const rect = contentWrap.getBoundingClientRect();
     const rightGap = Math.max(10, window.innerWidth - rect.right);
-    fab.style.right = rightGap + 'px';
+    fab.style.right = (rightGap - 15) + 'px';
   };
 
   const openOverlay = () => {
