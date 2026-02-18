@@ -1126,6 +1126,41 @@
   }
 }
 
+/* AI ASSIST FLOATING */
+.he-ai-fab{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  right:0;
+  width:79px;
+  height:108px;
+  border:none;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+  display:block;
+  z-index:2500;
+}
+
+.he-ai-fab img{
+  width:79px;
+  height:108px;
+  display:block;
+  object-fit:contain;
+}
+
+@media(max-width:768px){
+  .he-ai-fab{
+    width:63px;
+    height:86px;
+  }
+  .he-ai-fab img{
+    width:63px;
+    height:86px;
+  }
+}
+/* /AI ASSIST FLOATING */
+
 </style>
 
 </head>
@@ -1777,41 +1812,5 @@
 })();
 </script>
 
-/* AI ASSIST FLOATING */
-.he-ai-fab{
-  position:fixed;
-  top:50%;
-  transform:translateY(-50%);
-  right:30px;               /* JS가 content-wrap 우측에 맞춰 덮어씀 */
-  width:79px;               /* PC: 79 x 108 */
-  height:108px;
-  border:none;
-  background:transparent;
-  box-shadow:none;
-  padding:0;
-  border-radius:0;
-  cursor:pointer;
-  display:block;
-  z-index:2500;
-}
-
-.he-ai-fab img{
-  width:79px;
-  height:108px;
-  display:block;
-  object-fit:contain;
-}
-
-@media(max-width:768px){
-  .he-ai-fab{
-    width:63px;             /* 80% */
-    height:86px;
-  }
-  .he-ai-fab img{
-    width:63px;
-    height:86px;
-  }
-}
-/* /AI ASSIST FLOATING */
 </body>
 </html>
