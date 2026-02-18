@@ -1029,6 +1029,125 @@
 }
 /* /PARTNER LOGO STRIP */
 
+/* AI ASSIST FLOATING */
+.he-ai-fab{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  right:30px; /* JS로 content-wrap 우측에 맞춰 덮어씁니다 */
+  width:64px;
+  height:64px;
+  border:none;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2500;
+}
+.he-ai-fab img{
+  width:34px;
+  height:34px;
+  display:block;
+}
+
+@media(max-width:768px){
+  .he-ai-fab{
+    width:56px;
+    height:56px;
+    border-radius:16px;
+  }
+  .he-ai-fab img{ width:30px; height:30px; }
+}
+
+.he-ai-overlay{
+  position:fixed;
+  inset:0;
+  background:#1e293b;
+  z-index:5000;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:100px 20px 40px;
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateX(100%);
+  transition:transform .35s ease, opacity .25s ease, visibility .25s ease;
+}
+
+.he-ai-overlay.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(0);
+}
+
+.he-ai-panel{
+  width:min(780px, 100%);
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  padding:34px 28px;
+  color:#fff;
+  text-align:center;
+}
+
+.he-ai-title{
+  font-size:26px;
+  font-weight:900;
+  margin:0 0 10px;
+}
+.he-ai-subtitle{
+  font-size:14px;
+  font-weight:800;
+  opacity:.95;
+  margin:0 0 18px;
+}
+.he-ai-body{
+  font-size:14px;
+  line-height:1.7;
+  color:rgba(226,232,240,.92);
+  margin:0 auto 24px;
+  max-width:70ch;
+}
+
+.he-ai-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.he-ai-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:120px;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+
+.he-ai-accept{
+  background:#0018f8;
+  color:#fff;
+}
+
+.he-ai-decline{
+  background:transparent;
+  color:#fff;
+  border-color:rgba(255,255,255,.35);
+}
+/* /AI ASSIST FLOATING */
 
 .he-section{
   padding:0 70px 80px;  /* 좌우는 유지, 하단만 80px */
@@ -1483,6 +1602,27 @@
 
   </div>
 </footer>
+<!-- AI ASSIST FLOATING -->
+<button class="he-ai-fab" type="button" aria-label="AI Assist">
+  <img src="images/ai-assist.svg" alt="AI Assist">
+</button>
+
+<div class="he-ai-overlay" aria-hidden="true">
+  <div class="he-ai-panel" role="dialog" aria-modal="true" aria-label="AI Assist Consent">
+    <div class="he-ai-title">AI-Assist</div>
+    <div class="he-ai-subtitle">Consent to Statistics Tracking and Terms of Use</div>
+    <div class="he-ai-body">
+      To improve our chatbot, we collect usage data, including IP addresses. Data processing is carried out via Microsoft Azure in data centers located within the EU. The data is used exclusively for statistical purposes and is deleted after 90 days. By using the AI search, you agree to our Terms of Use.
+    </div>
+
+    <div class="he-ai-actions">
+      <a class="he-ai-btn he-ai-accept" href="#">Accept</a>
+      <button class="he-ai-btn he-ai-decline" type="button">Decline</button>
+    </div>
+  </div>
+</div>
+<!-- /AI ASSIST FLOATING -->
+
 </div>
 
 <script>
@@ -1626,6 +1766,48 @@
       });
     }
   })();
+</script>
+<script>
+(() => {
+  const contentWrap = document.querySelector('.content-wrap');
+  const fab = document.querySelector('.he-ai-fab');
+  const overlay = document.querySelector('.he-ai-overlay');
+  const decline = document.querySelector('.he-ai-decline');
+
+  if(!contentWrap || !fab || !overlay || !decline) return;
+
+  const positionFab = () => {
+    const rect = contentWrap.getBoundingClientRect();
+    const rightGap = Math.max(10, window.innerWidth - rect.right);
+    fab.style.right = rightGap + 'px';
+  };
+
+  const openOverlay = () => {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeOverlay = () => {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  positionFab();
+  window.addEventListener('resize', positionFab);
+
+  fab.addEventListener('click', openOverlay);
+  decline.addEventListener('click', closeOverlay);
+
+  overlay.addEventListener('click', (e) => {
+    if(e.target === overlay) closeOverlay;
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeOverlay();
+  });
+})();
 </script>
 
 </body>
