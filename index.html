@@ -30,6 +30,7 @@ a{color:inherit}
 
 .content-wrap{
   max-width:1080px;
+  width:calc(100% - 60px); /* 좌우 30px 확보 */
   margin:0 auto;
   background:#fff;
   border-radius:20px;
@@ -44,19 +45,13 @@ a{color:inherit}
   z-index:1;
 }
 
-.top-wrap::before{
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:20px;                   /* 좌우 30px */
-  right:20px;                  /* 좌우 30px */
+.top-wrap{
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:20px 20px 0 0;
-  z-index:0;
-  pointer-events:none;
+  border-radius:20px 20px 0 0; /* 위만 둥글게 */
+  overflow:visible;            /* 이미지 걸치게 */
+  position:relative;
+  z-index:1;
 }
-.top-wrap > *{position:relative; z-index:1;}
 
 /* HEADER */
 .he-header{
