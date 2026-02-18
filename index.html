@@ -923,6 +923,13 @@
     text-align:center;
   }
 }
+/* 모바일(터치기기)에서는 가로/세로 상관없이 항상 햄버거 모드 유지 */
+@media (hover: none) and (pointer: coarse){
+  .he-nav{display:none !important;}
+  .he-menu-btn{display:block !important; z-index:1001;}
+  .he-nav-mobile{display:flex !important;}
+}
+
 .he-section{
   padding:0 70px 80px;  /* 좌우는 유지, 하단만 80px */
 }
