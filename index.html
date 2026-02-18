@@ -951,7 +951,6 @@
 .he-logo-rail{
   display:flex;
   align-items:center;
-  gap:38px;
   white-space:nowrap;
   will-change:transform;
   flex:0 0 auto;
@@ -980,12 +979,17 @@
   text-decoration:none;
   cursor:pointer;
   flex:0 0 auto;
+  margin-left:38px;
 }
 .he-logo-item img{
   height:28px;
   width:auto;
   display:block;
   object-fit:contain;
+}
+
+.he-logo-label + .he-logo-item{
+  margin-left:12px;   /* ← 여기 값을 더 줄이면 더 붙습니다 */
 }
 
 .he-logo-text{
