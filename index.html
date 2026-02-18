@@ -848,8 +848,8 @@
 
   .he-footer-left{
     width:100%;
-    justify-content:center;
-    text-align:center;
+    justify-content:flex-start;
+    text-align:left;
   }
 
   .he-footer-right{
@@ -1571,61 +1571,61 @@
 </script>
 
 <script>
-(() => {
-  const viewport = document.querySelector('.he-logo-viewport');
-  const rail = document.querySelector('.he-logo-rail');
-  const prevBtn = document.querySelector('.he-logo-arrow[aria-label="previous"]');
-  const nextBtn = document.querySelector('.he-logo-arrow[aria-label="next"]');
+  (() => {
+    const viewport = document.querySelector('.he-logo-viewport');
+    const rail = document.querySelector('.he-logo-rail');
+    const prevBtn = document.querySelector('.he-logo-arrow[aria-label="previous"]');
+    const nextBtn = document.querySelector('.he-logo-arrow[aria-label="next"]');
 
-  if(!viewport || !rail) return;
+    if(!viewport || !rail) return;
 
-  const clone = rail.cloneNode(true);
+    const clone = rail.cloneNode(true);
 
-  const wrap = document.createElement('div');
-  wrap.className = 'he-logo-wrap';
-  wrap.style.display = 'flex';
-  wrap.style.alignItems = 'center';
-  wrap.style.gap = '38px';
-  wrap.style.width = 'max-content';
+    const wrap = document.createElement('div');
+    wrap.className = 'he-logo-wrap';
+    wrap.style.display = 'flex';
+    wrap.style.alignItems = 'center';
+    wrap.style.gap = '38px';
+    wrap.style.width = 'max-content';
 
-  wrap.appendChild(rail);
-  wrap.appendChild(clone);
+    wrap.appendChild(rail);
+    wrap.appendChild(clone);
 
-  viewport.innerHTML = '';
-  viewport.appendChild(wrap);
+    viewport.innerHTML = '';
+    viewport.appendChild(wrap);
 
-  let speed = 0.4;
-  let paused = false;
-  let position = 0;
+    let speed = 0.4;
+    let paused = false;
+    let position = 0;
 
-  function animate(){
-    if(!paused){
-      position += speed;
-      if(position >= wrap.scrollWidth / 2){
-        position = 0;
+    function animate(){
+      if(!paused){
+        position += speed;
+        if(position >= wrap.scrollWidth / 2){
+          position = 0;
+        }
+        wrap.style.transform = `translateX(-${position}px)`;
       }
-      wrap.style.transform = `translateX(-${position}px)`;
+      requestAnimationFrame(animate);
     }
+
     requestAnimationFrame(animate);
-  }
 
-  requestAnimationFrame(animate);
+    viewport.addEventListener('mouseenter', () => paused = true);
+    viewport.addEventListener('mouseleave', () => paused = false);
 
-  viewport.addEventListener('mouseenter', () => paused = true);
-  viewport.addEventListener('mouseleave', () => paused = false);
+    if(prevBtn){
+      prevBtn.addEventListener('click', () => {
+        position -= 250;
+      });
+    }
 
-  if(prevBtn){
-    prevBtn.addEventListener('click', () => {
-      position -= 250;
-    });
-  }
-
-  if(nextBtn){
-    nextBtn.addEventListener('click', () => {
-      position += 250;
-    });
-  }
-})();
+    if(nextBtn){
+      nextBtn.addEventListener('click', () => {
+        position += 250;
+      });
+    }
+  })();
 </script>
 
 </body>
