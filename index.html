@@ -735,7 +735,7 @@ a{color:inherit}
 .he-footer{
   max-width:1080px;
   width:calc(100% - 60px);
-  margin:10px auto 0;   /* ← 여기만 줄임 */
+  margin:30px auto 0;   /* ← 여기만 줄임 */
   padding:22px 24px;
   border-radius:18px;
   border:1px solid rgba(255,255,255,.12);
@@ -825,8 +825,10 @@ a{color:inherit}
   position:absolute;
   right:0;
   bottom:calc(100% + 10px); /* 위로 뜨게 */
-  min-width:360px;
-  max-width:420px;
+  min-width:unset;
+  max-width:unset;
+  width:max-content;       /* 글자 길이에 맞게 */
+  white-space:nowrap;      /* 줄바꿈 방지 */
   border-radius:14px;
   border:1px solid rgba(255,255,255,.14);
   background:#0b1220;
