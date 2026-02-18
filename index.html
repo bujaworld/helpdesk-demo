@@ -39,10 +39,11 @@ a{color:inherit}
 
 .top-wrap{
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:30px;          /* 하단 좌우 둥글게 포함 */
-  overflow:visible;            /* 이미지 걸치게 */
+  border-radius:30px;
+  overflow:visible;
   position:relative;
   z-index:1;
+  padding-bottom:40px;   /* ⬅ 하단 여백 추가 */
 }
 
 /* HEADER */
@@ -270,8 +271,8 @@ a{color:inherit}
 /* RESOURCES (자료실) */
 .he-resources{
   margin-top:34px;
-  margin-bottom:100px;
-  padding:0;        /* 공통 .he-section이 여백 담당 */
+  margin-bottom:0;   /* ⬅ 100px 제거 */
+  padding:0;
 }
 
 .he-resources-panel{
