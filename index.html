@@ -393,7 +393,7 @@ a{color:inherit}
   margin-top:18px;
   background:#0018f8;
   border-radius:0 0 22px 22px;
-  padding:22px 30px;
+  padding:28px 30px 32px;   /* 위/아래 여백 증가 */
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -554,11 +554,16 @@ a{color:inherit}
 }
 
 .he-section{
-  padding:80px 70px;
+  padding:80px 70px 0;   /* 아래 여백 제거 */
 }
+
+.he-section + .he-section{
+  margin-top:80px;       /* 섹션 간 정확히 80px */
+}
+
 @media(max-width:980px){
   .he-section{
-    padding:60px 20px;
+    padding:80px 20px 0;
   }
 }
 
