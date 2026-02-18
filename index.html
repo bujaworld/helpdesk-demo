@@ -964,7 +964,7 @@
 .he-logo-label{
   font-weight:800;
   color:var(--text);
-  margin-right:6px;
+  margin-right:3px;
   flex:0 0 auto;
 }
 
@@ -1374,7 +1374,7 @@
 
     <div class="he-logo-viewport" aria-label="logo carousel">
       <div class="he-logo-rail">
-        <span class="he-logo-label">참여기관</span>
+        <span class="he-logo-label">참여기관: </span>
 
         <a class="he-logo-item" href="http://www.kist-europe.de" target="_blank" rel="noopener">
           <img src="images/footer-logo-a1.svg" alt="KIST Europe">
@@ -1395,9 +1395,7 @@
           <img src="images/footer-logo-a6.svg" alt="KNTEC">
         </a>
 
-        <span class="he-logo-spacer" aria-hidden="true"></span>
-
-        <span class="he-logo-label">관리기관</span>
+        <span class="he-logo-label">관리기관: </span>
 
         <a class="he-logo-item" href="https://www.nrf.re.kr/" target="_blank" rel="noopener">
           <img src="images/footer-logo-b1.svg" alt="NRF">
@@ -1406,9 +1404,7 @@
           <img src="images/footer-logo-b2.svg" alt="NST">
         </a>
 
-        <span class="he-logo-spacer" aria-hidden="true"></span>
-
-        <span class="he-logo-label">총괄기관</span>
+        <span class="he-logo-label">총괄기관: </span>
 
         <a class="he-logo-item" href="https://www.msit.go.kr/index.do" target="_blank" rel="noopener">
           <img src="images/footer-logo-c.svg" alt="MSIT">
@@ -1564,12 +1560,11 @@
 (() => {
   const viewport = document.querySelector('.he-logo-viewport');
   const rail = document.querySelector('.he-logo-rail');
-  const prevBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="previous"]');
-  const nextBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="next"]');
+  const prevBtn = document.querySelector('.he-logo-arrow[aria-label="previous"]');
+  const nextBtn = document.querySelector('.he-logo-arrow[aria-label="next"]');
 
   if(!viewport || !rail) return;
 
-  // 기존 내용 복제 (무한 롤링용)
   const clone = rail.cloneNode(true);
 
   const wrap = document.createElement('div');
@@ -1585,16 +1580,17 @@
   viewport.innerHTML = '';
   viewport.appendChild(wrap);
 
-  let speed = 0.5;
+  let speed = 0.4;
   let paused = false;
+  let position = 0;
 
   function animate(){
     if(!paused){
-      viewport.scrollLeft += speed;
-
-      if(viewport.scrollLeft >= wrap.scrollWidth / 2){
-        viewport.scrollLeft = 0;
+      position += speed;
+      if(position >= wrap.scrollWidth / 2){
+        position = 0;
       }
+      wrap.style.transform = `translateX(-${position}px)`;
     }
     requestAnimationFrame(animate);
   }
@@ -1606,17 +1602,13 @@
 
   if(prevBtn){
     prevBtn.addEventListener('click', () => {
-      paused = true;
-      viewport.scrollBy({ left: -250, behavior: 'smooth' });
-      setTimeout(() => paused = false, 600);
+      position -= 250;
     });
   }
 
   if(nextBtn){
     nextBtn.addEventListener('click', () => {
-      paused = true;
-      viewport.scrollBy({ left: 250, behavior: 'smooth' });
-      setTimeout(() => paused = false, 600);
+      position += 250;
     });
   }
 })();
