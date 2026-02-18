@@ -596,26 +596,46 @@ a{color:inherit}
 }
 
 .he-faq-qtext{
+  margin:0;
+  font-size:16px;
+  line-height:1.4;
   flex:1;
 }
 
 /* 버튼: 아이콘만 */
 .he-faq-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--line);
-  background:#fff;
-  width:38px;
-  height:38px;
-  padding:0;
-  border-radius:999px;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  width:auto !important;
+  height:auto !important;
+  padding:0 !important;
+  line-height:1 !important;
   cursor:pointer;
-  font-weight:700;
-  white-space:nowrap;
 }
+
+.he-faq-icon{
+  font-size:14px;
+  line-height:1;
+}
+
 .he-faq-btn:hover{background:#eef1ff; border-color:#dde2ff;}
-.he-faq-icon{font-size:14px; line-height:1;}
+
+.he-faq-left{
+  display:flex;
+  align-items:center;   /* 세로 중앙정렬 */
+  gap:14px;
+  flex:1;
+  min-width:0;
+}
+
+.he-faq-circle{
+  width:42px;
+  height:42px;
+  display:block;
+  flex-shrink:0;
+}
 
 .he-section{
   padding:0 70px 80px;  /* 좌우는 유지, 하단만 80px */
@@ -847,79 +867,60 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 
 <article class="he-faq-item">
   <div class="he-faq-qrow">
-    <h3 class="he-faq-q">
-      <span class="he-faq-qbadge">Q</span>
-      <span class="he-faq-qtext">What are the eligibility criteria for research institutes applying to Horizon Europe calls?</span>
-    </h3>
-    <button class="he-faq-btn" type="button" aria-expanded="false" aria-label="Toggle answer">
-      <span class="he-faq-icon" aria-hidden="true">▼</span>
+    <div class="he-faq-left">
+      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+      <span class="he-faq-number">1</span>
+      <h3 class="he-faq-qtext">
+        What are the eligibility criteria for research institutes applying to Horizon Europe calls?
+      </h3>
+    </div>
+    <button class="he-faq-btn" type="button" aria-expanded="false">
+      <span class="he-faq-icon">▼</span>
     </button>
   </div>
 
   <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Research institutes must comply with the general eligibility rules defined in the Horizon Europe Work Programme. In most collaborative calls, at least three independent legal entities from three different EU Member States or Associated Countries are required. Research institutes may participate either as coordinators or partners, depending on the specific call conditions.
-    </p>
-    <p>
-      Applicants must ensure that their organisation is properly registered in the EU Participant Register and holds a valid PIC (Participant Identification Code). Financial and operational capacity may be assessed during the evaluation phase. In addition, certain calls may impose specific eligibility requirements such as technology readiness level (TRL), thematic scope, or geographic balance.
-    </p>
-    <p>
-      For detailed legal and financial eligibility conditions, please refer to the official Horizon Europe Work Programme documentation.
-    </p>
-
-    <a class="he-faq-link" href="#">Download Eligibility Guidelines (PDF)</a>
+    ...
   </div>
 </article>
 
+
 <article class="he-faq-item">
   <div class="he-faq-qrow">
-    <h3 class="he-faq-q">
-      <span class="he-faq-qbadge">Q</span>
-      <span class="he-faq-qtext">How should personnel costs be calculated under Horizon Europe funding rules?</span>
-    </h3>
-    <button class="he-faq-btn" type="button" aria-expanded="false" aria-label="Toggle answer">
-      <span class="he-faq-icon" aria-hidden="true">▼</span>
+    <div class="he-faq-left">
+      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+      <span class="he-faq-number">2</span>
+      <h3 class="he-faq-qtext">
+        How should personnel costs be calculated under Horizon Europe funding rules?
+      </h3>
+    </div>
+    <button class="he-faq-btn" type="button" aria-expanded="false">
+      <span class="he-faq-icon">▼</span>
     </button>
   </div>
 
   <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Personnel costs must be calculated in accordance with the rules outlined in the Annotated Grant Agreement. Beneficiaries must use their usual accounting practices to determine hourly rates, ensuring that costs are actual, recorded in the beneficiary’s accounts, and incurred during the project implementation period.
-    </p>
-    <p>
-      The calculation typically involves dividing annual personnel costs by the number of productive hours per year. Only costs directly linked to project activities are eligible. Overtime payments, bonuses, and additional allowances may be eligible if they are part of the organisation’s standard remuneration policy.
-    </p>
-    <p>
-      All personnel costs must be properly documented and supported by time records. During audits, beneficiaries may be required to provide payroll records, employment contracts, and timesheets.
-    </p>
-
-    <a class="he-faq-link" href="#">View Financial Rules Document</a>
+    ...
   </div>
 </article>
 
+
 <article class="he-faq-item">
   <div class="he-faq-qrow">
-    <h3 class="he-faq-q">
-      <span class="he-faq-qbadge">Q</span>
-      <span class="he-faq-qtext">What documents are required before submitting a collaborative proposal?</span>
-    </h3>
-    <button class="he-faq-btn" type="button" aria-expanded="false" aria-label="Toggle answer">
-      <span class="he-faq-icon" aria-hidden="true">▼</span>
+    <div class="he-faq-left">
+      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+      <span class="he-faq-number">3</span>
+      <h3 class="he-faq-qtext">
+        What documents are required before submitting a collaborative proposal?
+      </h3>
+    </div>
+    <button class="he-faq-btn" type="button" aria-expanded="false">
+      <span class="he-faq-icon">▼</span>
     </button>
   </div>
 
   <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Before submission, the coordinating institution must ensure that all consortium members have completed their legal registration and validated their Participant Identification Code (PIC). A draft Consortium Agreement is strongly recommended prior to submission, even though it is formally signed after grant award.
-    </p>
-    <p>
-      The proposal itself must include the administrative forms (Part A) and the technical annex (Part B), structured according to the call template. This includes excellence, impact, and implementation sections. Ethical self-assessment, data management planning, and gender dimension considerations may also be required depending on the call.
-    </p>
-    <p>
-      It is advisable to review the official proposal template and submission guidelines well in advance of the deadline to avoid technical or compliance issues.
-    </p>
-
-    <a class="he-faq-link" href="#">Download Proposal Template</a>
+    ...
   </div>
 </article>
 
