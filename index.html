@@ -475,15 +475,15 @@ a{color:inherit}
 .he-faq-btn{
   display:inline-flex;
   align-items:center;
-  gap:10px;
-  border:1px solid var(--line);
-  background:#ffffff;   /* ⬅ 흰색으로 변경 */
-  padding:10px 12px;
-  border-radius:999px;
+  justify-content:center;
+  border:none;             /* 테두리 제거 */
+  background:transparent;  /* 흰 원 제거 */
+  width:auto;
+  height:auto;
+  padding:0;
   cursor:pointer;
-  font-weight:700;
-  white-space:nowrap;
 }
+
 .he-faq-btn:hover{
   background:#eef1ff;
   border-color:#dde2ff;
@@ -582,18 +582,17 @@ a{color:inherit}
 
 .he-faq-qbadge{
   flex:0 0 auto;
-  width:28px;
-  height:28px;
+  width:40px;              /* 더 크게 */
+  height:40px;
   border-radius:999px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  background:var(--blue); /* 필요하면 #1e293b 로 변경 */
+  background:var(--blue);
   color:#fff;
-  font-weight:800;
-  font-size:12px;
+  font-weight:900;         /* 더 볼드 */
+  font-size:18px;          /* 글자 크게 */
   line-height:1;
-  transform:translateY(1px);
 }
 
 .he-faq-qtext{
@@ -849,7 +848,7 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 <article class="he-faq-item">
   <div class="he-faq-qrow">
     <h3 class="he-faq-q">
-      <span class="he-faq-qbadge">Q1</span>
+      <span class="he-faq-qbadge">Q</span>
       <span class="he-faq-qtext">What are the eligibility criteria for research institutes applying to Horizon Europe calls?</span>
     </h3>
     <button class="he-faq-btn" type="button" aria-expanded="false" aria-label="Toggle answer">
@@ -875,7 +874,7 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 <article class="he-faq-item">
   <div class="he-faq-qrow">
     <h3 class="he-faq-q">
-      <span class="he-faq-qbadge">Q2</span>
+      <span class="he-faq-qbadge">Q</span>
       <span class="he-faq-qtext">How should personnel costs be calculated under Horizon Europe funding rules?</span>
     </h3>
     <button class="he-faq-btn" type="button" aria-expanded="false" aria-label="Toggle answer">
@@ -901,7 +900,7 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 <article class="he-faq-item">
   <div class="he-faq-qrow">
     <h3 class="he-faq-q">
-      <span class="he-faq-qbadge">Q3</span>
+      <span class="he-faq-qbadge">Q</span>
       <span class="he-faq-qtext">What documents are required before submitting a collaborative proposal?</span>
     </h3>
     <button class="he-faq-btn" type="button" aria-expanded="false" aria-label="Toggle answer">
