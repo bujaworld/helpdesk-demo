@@ -240,13 +240,13 @@ a{color:inherit}
   top:0;
   left:0;
   right:0;
-  height:65vh;
+  height:calc(65vh - 200px);
   background:#1e293b;
   color:#fff;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;   /* 좌측 정렬 */
   justify-content:flex-start;
-  padding-top:120px;
+  padding:120px 0 0 30px;   /* 상단 유지 + 좌측 30px */
   gap:28px;
   font-size:20px;
   transform:translateY(-110%);
@@ -662,10 +662,10 @@ a{color:inherit}
 <a href="#">주요 행사</a>
 </nav>
 <nav class="he-nav-mobile">
-<a href="#">질문하기</a>
-<a href="#">자료실</a>
-<a href="#">FAQ</a>
-<a href="#">주요 행사</a>
+<a href="#">✎ 질문하기</a>
+<a href="#">📁 자료실</a>
+<a href="#">❓ FAQ</a>
+<a href="#">📅 주요 행사</a>
 </nav>
 </header>
 
