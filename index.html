@@ -1029,39 +1029,6 @@
 }
 /* /PARTNER LOGO STRIP */
 
-/* AI ASSIST FLOATING */
-.he-ai-fab{
-  position:fixed;
-  top:50%;
-  transform:translateY(-50%);
-  right:30px; /* JS가 content-wrap 우측에 맞춰 덮어씀 */
-  border:none;
-  background:transparent;     /* 흰 박스 제거 */
-  box-shadow:none;            /* 그림자 제거 */
-  padding:0;                  /* 여백 제거 */
-  width:auto;                 /* 고정 64px 제거 */
-  height:auto;
-  border-radius:0;            /* 라운드 제거 */
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:2500;
-}
-
-.he-ai-fab img{
-  width:44px;                 /* 아이콘 크기(필요시 조절) */
-  height:auto;
-  display:block;
-}
-
-@media(max-width:768px){
-  .he-ai-fab img{
-    width:40px;               /* 모바일 아이콘 크기 */
-  }
-}
-/* /AI ASSIST FLOATING */
-
 .he-ai-overlay{
   position:fixed;
   inset:0;
@@ -1810,5 +1777,41 @@
 })();
 </script>
 
+/* AI ASSIST FLOATING */
+.he-ai-fab{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  right:30px;               /* JS가 content-wrap 우측에 맞춰 덮어씀 */
+  width:79px;               /* PC: 79 x 108 */
+  height:108px;
+  border:none;
+  background:transparent;
+  box-shadow:none;
+  padding:0;
+  border-radius:0;
+  cursor:pointer;
+  display:block;
+  z-index:2500;
+}
+
+.he-ai-fab img{
+  width:79px;
+  height:108px;
+  display:block;
+  object-fit:contain;
+}
+
+@media(max-width:768px){
+  .he-ai-fab{
+    width:63px;             /* 80% */
+    height:86px;
+  }
+  .he-ai-fab img{
+    width:63px;
+    height:86px;
+  }
+}
+/* /AI ASSIST FLOATING */
 </body>
 </html>
