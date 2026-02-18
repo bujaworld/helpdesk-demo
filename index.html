@@ -498,6 +498,12 @@ a{color:inherit}
   color:var(--muted);
   font-size:14px;
   line-height:1.6;
+  max-height:120px;      /* 처음에는 일부만 보이게 */
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+.he-faq-a[data-collapsed="false"]{
+  max-height:2000px;   /* 펼치면 전체 보이게 */
 }
 
 .he-faq-link{
