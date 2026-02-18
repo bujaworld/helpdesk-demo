@@ -876,26 +876,27 @@ a{color:inherit}
 }
 
 /* FOOTER DROPDOWN - MOBILE CENTERED */
+/* FOOTER DROPDOWN - MOBILE (버튼 바로 위로) */
 @media (max-width: 768px){
   .he-footer-links{
     justify-content:center;
   }
 
   .he-footer-dd{
-    position:static; /* 기준 제거 */
+    position:relative; /* 메뉴 기준점 */
   }
 
   .he-footer-menu{
-    position:fixed;
+    position:absolute;
     left:50%;
-    top:50%;
+    bottom:calc(100% + 10px);   /* 버튼 바로 위 */
+    top:auto;
     right:auto;
-    bottom:auto;
-    transform:translate(-50%,-50%);
-    width:calc(100vw - 40px);
-    max-width:420px;
+    transform:translateX(-50%);
+    width:min(420px, calc(100vw - 40px)); /* 화면에 맞게 */
+    max-width:none;
     min-width:unset;
-    white-space:normal; /* 모바일은 줄바꿈 허용 */
+    white-space:normal;
     z-index:3000;
   }
 
