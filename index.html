@@ -906,6 +906,110 @@
   .he-nav-mobile{display:flex !important;}
 }
 
+/* PARTNER LOGO STRIP */
+.he-partners-strip{
+  background:#fff;
+}
+
+.he-partners-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:100%;
+}
+
+.he-logo-arrow{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#f7f8fd;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  line-height:1;
+  flex:0 0 auto;
+}
+.he-logo-arrow:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+.he-logo-viewport{
+  position:relative;
+  overflow:hidden;
+  flex:1 1 auto;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  padding:14px 16px;
+}
+
+.he-logo-rail{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  white-space:nowrap;
+  will-change:transform;
+}
+
+.he-logo-label{
+  font-weight:800;
+  color:var(--text);
+  margin-right:6px;
+  flex:0 0 auto;
+}
+
+.he-logo-spacer{
+  width:22px;
+  flex:0 0 auto;
+}
+
+.he-logo-item{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  cursor:pointer;
+  flex:0 0 auto;
+}
+.he-logo-item img{
+  height:28px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.he-logo-text{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:28px;
+  padding:0 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#f7f8fd;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  flex:0 0 auto;
+}
+.he-logo-text:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+@media(max-width:768px){
+  .he-logo-item img{ height:24px; }
+  .he-logo-viewport{ padding:12px 12px; }
+  .he-logo-arrow{ width:34px; height:34px; }
+}
+/* /PARTNER LOGO STRIP */
+
+
 .he-section{
   padding:0 70px 80px;  /* 좌우는 유지, 하단만 80px */
 }
@@ -1257,6 +1361,63 @@
   </div>
 </section>
 
+<!-- PARTNER LOGO STRIP -->
+<section class="he-partners-strip he-section" aria-label="기관 로고">
+  <div class="he-partners-row">
+    <button class="he-logo-arrow" type="button" aria-label="previous">‹</button>
+
+    <div class="he-logo-viewport" aria-label="logo carousel">
+      <div class="he-logo-rail">
+        <span class="he-logo-label">참여기관</span>
+
+        <a class="he-logo-item" href="http://www.kist-europe.de" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a1.svg" alt="KIST Europe">
+        </a>
+        <a class="he-logo-item" href="https://k-erc.eu/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a2.svg" alt="KERC">
+        </a>
+        <a class="he-logo-item" href="https://kiceurope.eu/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a3.svg" alt="KIC Europe">
+        </a>
+        <a class="he-logo-item" href="https://k-erc.eu/ke-qstcc/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a4.svg" alt="KE-QSTCC">
+        </a>
+        <a class="he-logo-item" href="https://kchipsrnd.org/kore/about/about_ke_srcc.html" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a5.svg" alt="KE-SRCC">
+        </a>
+        <a class="he-logo-item" href="https://kntec.se/about-kntec/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a6.svg" alt="KNTEC">
+        </a>
+
+        <!-- 참여기관 6번째(KNTEC) 로고 파일명이 제공되지 않아, 우선 텍스트 링크로 넣었습니다. -->
+        <a class="he-logo-text" href="https://kntec.se/about-kntec/" target="_blank" rel="noopener">KNTEC</a>
+
+        <span class="he-logo-spacer" aria-hidden="true"></span>
+
+        <span class="he-logo-label">관리기관</span>
+
+        <a class="he-logo-item" href="https://www.nrf.re.kr/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-b1.svg" alt="NRF">
+        </a>
+        <a class="he-logo-item" href="https://www.nst.re.kr/www/index.do" target="_blank" rel="noopener">
+          <img src="images/footer-logo-b2.svg" alt="NST">
+        </a>
+
+        <span class="he-logo-spacer" aria-hidden="true"></span>
+
+        <span class="he-logo-label">총괄기관</span>
+
+        <a class="he-logo-item" href="https://www.msit.go.kr/index.do" target="_blank" rel="noopener">
+          <img src="images/footer-logo-c.svg" alt="MSIT">
+        </a>
+      </div>
+    </div>
+
+    <button class="he-logo-arrow" type="button" aria-label="next">›</button>
+  </div>
+</section>
+<!-- /PARTNER LOGO STRIP -->
+
 </div>
 <footer class="he-footer">
   <div class="he-footer-inner">
@@ -1392,6 +1553,58 @@
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape') closeAll();
     });
+  })();
+</script>
+
+<script>
+  (() => {
+    const viewport = document.querySelector('.he-logo-viewport');
+    const rail = document.querySelector('.he-logo-rail');
+    const prevBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="previous"]');
+    const nextBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="next"]');
+
+    if(!viewport || !rail || !prevBtn || !nextBtn) return;
+
+    // 무한 롤링용 복제(1회)
+    const clone = rail.cloneNode(true);
+    rail.parentNode.appendChild(clone);
+
+    // 두 레일을 한 줄로 이어서 스크롤
+    const wrap = document.createElement('div');
+    wrap.className = 'he-logo-wrap';
+    wrap.style.display = 'inline-flex';
+    wrap.style.alignItems = 'center';
+    wrap.style.gap = '18px';
+    wrap.appendChild(rail);
+    wrap.appendChild(clone);
+
+    // viewport 내부 교체
+    viewport.innerHTML = '';
+    viewport.appendChild(wrap);
+
+    let paused = false;
+    let speed = 0.35; // px/frame (느리게)
+    const step = () => {
+      if(!paused){
+        viewport.scrollLeft += speed;
+        const half = wrap.scrollWidth / 2;
+        if(viewport.scrollLeft >= half) viewport.scrollLeft = 0;
+      }
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+
+    viewport.addEventListener('mouseenter', () => paused = true);
+    viewport.addEventListener('mouseleave', () => paused = false);
+
+    const scrollByAmount = (dir) => {
+      paused = true;
+      viewport.scrollBy({ left: dir * 220, behavior: 'smooth' });
+      window.setTimeout(() => paused = false, 600);
+    };
+
+    prevBtn.addEventListener('click', () => scrollByAmount(-1));
+    nextBtn.addEventListener('click', () => scrollByAmount(1));
   })();
 </script>
 
