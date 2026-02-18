@@ -945,10 +945,10 @@
   border:1px solid var(--line);
   border-radius:16px;
   background:#fff;
-  padding:34px 16px;
+  padding:14px 16px;
   scrollbar-width:none;
 }
-.he-logo-viewport::-webkit-scrollbar{ display:none; }
+.he-logo-viewport::-webkit-scrollbar{display:none;}
 
 .he-logo-rail{
   display:flex;
@@ -956,6 +956,11 @@
   gap:38px;
   white-space:nowrap;
   will-change:transform;
+  flex:0 0 auto;
+}
+
+.he-logo-wrap{
+  width:max-content;
 }
 
 .he-logo-label{
@@ -1410,6 +1415,8 @@
         <a class="he-logo-item" href="https://www.msit.go.kr/index.do" target="_blank" rel="noopener">
           <img src="images/footer-logo-c.svg" alt="MSIT">
         </a>
+
+        <span class="he-logo-spacer" aria-hidden="true"></span>
       </div>
     </div>
 
@@ -1557,55 +1564,65 @@
 </script>
 
 <script>
-  (() => {
-    const viewport = document.querySelector('.he-logo-viewport');
-    const rail = document.querySelector('.he-logo-rail');
-    const prevBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="previous"]');
-    const nextBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="next"]');
+(() => {
+  const viewport = document.querySelector('.he-logo-viewport');
+  const rail = document.querySelector('.he-logo-rail');
+  const prevBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="previous"]');
+  const nextBtn = document.querySelector('.he-partners-row .he-logo-arrow[aria-label="next"]');
 
-    if(!viewport || !rail || !prevBtn || !nextBtn) return;
+  if(!viewport || !rail) return;
 
-    // 무한 롤링용 복제(1회)
-    const clone = rail.cloneNode(true);
-    rail.parentNode.appendChild(clone);
+  // 기존 내용 복제 (무한 롤링용)
+  const clone = rail.cloneNode(true);
 
-    // 두 레일을 한 줄로 이어서 스크롤
-    const wrap = document.createElement('div');
-    wrap.className = 'he-logo-wrap';
-    wrap.style.display = 'inline-flex';
-    wrap.style.alignItems = 'center';
-    wrap.style.gap = '38px';
-    wrap.appendChild(rail);
-    wrap.appendChild(clone);
+  const wrap = document.createElement('div');
+  wrap.className = 'he-logo-wrap';
+  wrap.style.display = 'flex';
+  wrap.style.alignItems = 'center';
+  wrap.style.gap = '38px';
+  wrap.style.width = 'max-content';
 
-    // viewport 내부 교체
-    viewport.innerHTML = '';
-    viewport.appendChild(wrap);
+  wrap.appendChild(rail);
+  wrap.appendChild(clone);
 
-    let paused = false;
-    let speed = 0.35; // px/frame (느리게)
-    const step = () => {
-      if(!paused){
-        viewport.scrollLeft += speed;
-        const half = wrap.scrollWidth / 2;
-        if(viewport.scrollLeft >= half) viewport.scrollLeft = 0;
+  viewport.innerHTML = '';
+  viewport.appendChild(wrap);
+
+  let speed = 0.5;
+  let paused = false;
+
+  function animate(){
+    if(!paused){
+      viewport.scrollLeft += speed;
+
+      if(viewport.scrollLeft >= wrap.scrollWidth / 2){
+        viewport.scrollLeft = 0;
       }
-      requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+    }
+    requestAnimationFrame(animate);
+  }
 
-    viewport.addEventListener('mouseenter', () => paused = true);
-    viewport.addEventListener('mouseleave', () => paused = false);
+  requestAnimationFrame(animate);
 
-    const scrollByAmount = (dir) => {
+  viewport.addEventListener('mouseenter', () => paused = true);
+  viewport.addEventListener('mouseleave', () => paused = false);
+
+  if(prevBtn){
+    prevBtn.addEventListener('click', () => {
       paused = true;
-      viewport.scrollBy({ left: dir * 220, behavior: 'smooth' });
-      window.setTimeout(() => paused = false, 600);
-    };
+      viewport.scrollBy({ left: -250, behavior: 'smooth' });
+      setTimeout(() => paused = false, 600);
+    });
+  }
 
-    prevBtn.addEventListener('click', () => scrollByAmount(-1));
-    nextBtn.addEventListener('click', () => scrollByAmount(1));
-  })();
+  if(nextBtn){
+    nextBtn.addEventListener('click', () => {
+      paused = true;
+      viewport.scrollBy({ left: 250, behavior: 'smooth' });
+      setTimeout(() => paused = false, 600);
+    });
+  }
+})();
 </script>
 
 </body>
