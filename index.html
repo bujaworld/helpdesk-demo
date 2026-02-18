@@ -177,7 +177,6 @@ a{color:inherit}
 /* BELOW SECTION (화이트 영역) */
 .he-latest{
   background:#fff;
-  padding:80px 70px 60px;
   border-radius:0 0 20px 20px;
   position:relative;
   z-index:0;
@@ -255,7 +254,6 @@ a{color:inherit}
   .he-header{padding:30px 20px 15px}
   .he-hero-inner{grid-template-columns:1fr; padding:30px 20px 0;}
   .he-title{font-size:42px}
-  .he-latest{padding:100px 20px 40px;}
   .he-cards{grid-template-columns:1fr}
 }
 
@@ -273,7 +271,7 @@ a{color:inherit}
 .he-resources{
   margin-top:34px;
   margin-bottom:100px;
-  padding:0 40px;   /* 🔥 좌우 20px 강제 적용 */
+  padding:0;        /* 공통 .he-section이 여백 담당 */
 }
 
 .he-resources-panel{
@@ -431,7 +429,6 @@ a{color:inherit}
 /* FAQ */
 .he-faq{
   background:#fff;
-  padding:70px 70px 60px;
 }
 
 .he-faq-list{
@@ -509,10 +506,6 @@ a{color:inherit}
 }
 .he-faq-link:hover{border-bottom-color:rgba(11,15,25,.6);}
 
-@media(max-width:980px){
-  .he-faq{padding:60px 20px 50px;}
-}
-
 .he-faq-head{
   display:flex;
   justify-content:space-between;
@@ -559,9 +552,13 @@ a{color:inherit}
     align-items:flex-start;
   }
 }
+
+.he-section{
+  padding:80px 70px;
+}
 @media(max-width:980px){
-  .he-library{
-    padding:60px 20px 50px;   /* 다른 섹션과 동일 */
+  .he-section{
+    padding:60px 20px;
   }
 }
 
@@ -637,7 +634,7 @@ Ask your questions and get guidance through our helpdesk.
 
 </div>
 
-<section class="he-latest">
+<section class="he-latest he-section">
 
 <h2 class="he-section-title">
   Are You Looking for the Latest Helpdesk Questions?
@@ -686,7 +683,7 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 </section>
 
 <!-- RESOURCES (자료실) -->
-<section class="he-resources">
+<section class="he-resources he-section">
 
   <h2 class="he-section-title">
     Explore Key Documents and Official Guidelines
@@ -767,7 +764,7 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 </section>
 <!-- /RESOURCES -->
 
-<section class="he-faq" id="faq">
+<section class="he-faq he-section" id="faq">
 
   <div class="he-faq-head">
     <div class="he-faq-head-text">
