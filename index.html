@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Horizon Europe Help Desk</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon Europe Help Desk</title>
 
-<style>
-:root{
-  --panel:#ffffff;
-  --text:#0b0f19;
-  --muted:#5a6275;
-  --blue:#1e3aff;
-  --line:#e7eaf2;
-}
+  <style>
+    :root{
+      --panel:#ffffff;
+      --text:#0b0f19;
+      --muted:#5a6275;
+      --blue:#1e3aff;
+      --line:#e7eaf2;
+    }
 
-*{box-sizing:border-box}
+    *{box-sizing:border-box}
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  color:var(--text);
-  background:#1e293b;
-}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:#1e293b;
+    }
 
-a{color:inherit}
+    a{color:inherit}
 
 /* PAGE FRAME */
 .page-wrap{padding:20px 0 60px;}
@@ -901,11 +901,11 @@ a{color:inherit}
   }
 
   .he-footer-menu{
-    position:absolute;
-    left:50%;
-    bottom:calc(100% + 10px);
-    top:auto;
+    position:fixed;                 /* ← 화면 기준 */
+    left:50%;                       /* ← 모바일 창 가로 중앙 */
     right:auto;
+    bottom:calc(env(safe-area-inset-bottom) + 110px); /* ← 버튼 위쪽에 뜨게 */
+    top:auto;
     transform:translateX(-50%);
     width:min(420px, calc(100vw - 40px));
     max-width:none;
@@ -913,6 +913,9 @@ a{color:inherit}
     white-space:normal;
     text-align:center;
     z-index:3000;
+
+    max-height:calc(100vh - 180px); /* ← 위로 넘치면 스크롤 */
+    overflow:auto;
   }
 
   .he-footer-menu a{
@@ -936,119 +939,119 @@ a{color:inherit}
 
 <body>
 
-<div class="page-wrap">
-<div class="content-wrap">
+  <div class="page-wrap">
+    <div class="content-wrap">
 
-<div class="top-wrap">
+      <div class="top-wrap">
 
-<header class="he-header">
-<a class="he-brand" href="#">
-<img class="he-brand-img" src="images/brand-logo.svg">
-</a>
+        <header class="he-header">
+          <a class="he-brand" href="#">
+            <img class="he-brand-img" src="images/brand-logo.svg">
+          </a>
 
-<button class="he-menu-btn" aria-label="menu">☰</button>
+          <button class="he-menu-btn" aria-label="menu">☰</button>
 
-<nav class="he-nav">
-<a href="#">질문하기</a>
-<a href="#">자료실</a>
-<a href="#">FAQ</a>
-<a href="#">주요 행사</a>
-</nav>
-<nav class="he-nav-mobile">
-<a href="#"><span class="menu-dot"></span>질문하기</a>
-<a href="#"><span class="menu-dot"></span>자료실</a>
-<a href="#"><span class="menu-dot"></span>FAQ</a>
-<a href="#"><span class="menu-dot"></span>주요 행사</a>
-</nav>
-</header>
+          <nav class="he-nav">
+            <a href="#">질문하기</a>
+            <a href="#">자료실</a>
+            <a href="#">FAQ</a>
+            <a href="#">주요 행사</a>
+          </nav>
+          <nav class="he-nav-mobile">
+            <a href="#"><span class="menu-dot"></span>질문하기</a>
+            <a href="#"><span class="menu-dot"></span>자료실</a>
+            <a href="#"><span class="menu-dot"></span>FAQ</a>
+            <a href="#"><span class="menu-dot"></span>주요 행사</a>
+          </nav>
+        </header>
 
-<section class="he-hero">
-<div class="he-hero-inner">
+        <section class="he-hero">
+          <div class="he-hero-inner">
 
-<div>
-<h1 class="he-title">
-<span class="he-title-accent">Your Gateway</span><br>
-Horizon Europe<br>
-Support
-</h1>
+            <div>
+              <h1 class="he-title">
+                <span class="he-title-accent">Your Gateway</span><br>
+                Horizon Europe<br>
+                Support
+              </h1>
 
-<p class="he-subtitle">
-Ask your questions and get guidance through our helpdesk.
-</p>
+              <p class="he-subtitle">
+                Ask your questions and get guidance through our helpdesk.
+              </p>
 
-<div class="he-searchrow">
+              <div class="he-searchrow">
 
-<div class="he-search">
-<input class="he-input" placeholder="your questions">
-<button class="he-iconbtn">
-<img class="he-icon-img" src="images/icon-search.svg">
-</button>
-</div>
+                <div class="he-search">
+                  <input class="he-input" placeholder="your questions">
+                  <button class="he-iconbtn">
+                    <img class="he-icon-img" src="images/icon-search.svg">
+                  </button>
+                </div>
 
-<a class="he-cta" href="submit.html">
-<span>Submit a Question</span>
-<img class="he-cta-icon" src="images/icon-arrow.svg">
-</a>
+                <a class="he-cta" href="submit.html">
+                  <span>Submit a Question</span>
+                  <img class="he-cta-icon" src="images/icon-arrow.svg">
+                </a>
 
-</div>
-</div>
+              </div>
+            </div>
 
-<div class="he-hero-media">
-<img class="he-hero-img" src="images/hero.svg">
-</div>
+            <div class="he-hero-media">
+              <img class="he-hero-img" src="images/hero.svg">
+            </div>
 
-</div>
-</section>
+          </div>
+        </section>
 
-</div>
+      </div>
 
-<section class="he-latest he-section">
+      <section class="he-latest he-section">
 
-<h2 class="he-section-title">
-  Are You Looking for the Latest Helpdesk Questions?
-</h2>
+        <h2 class="he-section-title">
+          Are You Looking for the Latest Helpdesk Questions?
+        </h2>
 
-<div class="he-cards">
+        <div class="he-cards">
 
-<article class="he-card">
-<div class="he-meta">22 Mar 2026</div>
-<h3 class="he-card-title">Horizon Europe Eligibility for Research Institutes</h3>
-<p class="he-card-desc">
-Clarification on eligibility criteria for national research institutes applying as coordinators in Horizon Europe collaborative projects.
-</p>
-<div class="he-card-foot">
-<div class="he-views">124 views</div>
-<a class="he-read" href="detail.html">Read ›</a>
-</div>
-</article>
+          <article class="he-card">
+            <div class="he-meta">22 Mar 2026</div>
+            <h3 class="he-card-title">Horizon Europe Eligibility for Research Institutes</h3>
+            <p class="he-card-desc">
+              Clarification on eligibility criteria for national research institutes applying as coordinators in Horizon Europe collaborative projects.
+            </p>
+            <div class="he-card-foot">
+              <div class="he-views">124 views</div>
+              <a class="he-read" href="detail.html">Read ›</a>
+            </div>
+          </article>
 
-<article class="he-card">
-<div class="he-meta">14 Mar 2026</div>
-<h3 class="he-card-title">Partner Search for Cluster 4 Proposal</h3>
-<p class="he-card-desc">
-Looking for guidance on finding EU partners and validating consortium requirements for a Cluster 4 digital innovation proposal.
-</p>
-<div class="he-card-foot">
-<div class="he-views">89 views</div>
-<a class="he-read" href="detail.html">Read ›</a>
-</div>
-</article>
+          <article class="he-card">
+            <div class="he-meta">14 Mar 2026</div>
+            <h3 class="he-card-title">Partner Search for Cluster 4 Proposal</h3>
+            <p class="he-card-desc">
+              Looking for guidance on finding EU partners and validating consortium requirements for a Cluster 4 digital innovation proposal.
+            </p>
+            <div class="he-card-foot">
+              <div class="he-views">89 views</div>
+              <a class="he-read" href="detail.html">Read ›</a>
+            </div>
+          </article>
 
-<article class="he-card">
-<div class="he-meta">4 Mar 2026</div>
-<h3 class="he-card-title">Budget Rules for Personnel Costs</h3>
-<p class="he-card-desc">
-Questions regarding personnel cost calculation methods, eligible rates, and reporting rules under Horizon Europe funding guidelines.
-</p>
-<div class="he-card-foot">
-<div class="he-views">156 views</div>
-<a class="he-read" href="detail.html">Read ›</a>
-</div>
-</article>
+          <article class="he-card">
+            <div class="he-meta">4 Mar 2026</div>
+            <h3 class="he-card-title">Budget Rules for Personnel Costs</h3>
+            <p class="he-card-desc">
+              Questions regarding personnel cost calculation methods, eligible rates, and reporting rules under Horizon Europe funding guidelines.
+            </p>
+            <div class="he-card-foot">
+              <div class="he-views">156 views</div>
+              <a class="he-read" href="detail.html">Read ›</a>
+            </div>
+          </article>
 
-</div>
+        </div>
 
-</section>
+      </section>
 
 <!-- RESOURCES (자료실) -->
 <section class="he-resources he-section">
@@ -1148,91 +1151,91 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 
   <div class="he-faq-list">
 
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        1. What are the eligibility criteria for research institutes applying to Horizon Europe calls?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
+    <article class="he-faq-item">
+      <div class="he-faq-qrow">
+        <div class="he-faq-left">
+          <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+          <h3 class="he-faq-qtext">
+            1. What are the eligibility criteria for research institutes applying to Horizon Europe calls?
+          </h3>
+        </div>
+        <button class="he-faq-btn" type="button" aria-expanded="false">
+          <span class="he-faq-icon">▼</span>
+        </button>
+      </div>
 
-<div class="he-faq-a" data-collapsed="true">
-  <p>
-    Research institutes must comply with the general eligibility rules defined in the Horizon Europe Work Programme. In most collaborative calls, at least three independent legal entities from three different EU Member States or Associated Countries are required. Research institutes may participate either as coordinators or partners, depending on the specific call conditions.
-  </p>
-  <p>
-    Applicants must ensure that their organisation is properly registered in the EU Participant Register and holds a valid PIC (Participant Identification Code). Financial and operational capacity may be assessed during the evaluation phase. In addition, certain calls may impose specific eligibility requirements such as technology readiness level (TRL), thematic scope, or geographic balance.
-  </p>
-  <p>
-    For detailed legal and financial eligibility conditions, please refer to the official Horizon Europe Work Programme documentation.
-  </p>
+      <div class="he-faq-a" data-collapsed="true">
+        <p>
+          Research institutes must comply with the general eligibility rules defined in the Horizon Europe Work Programme. In most collaborative calls, at least three independent legal entities from three different EU Member States or Associated Countries are required. Research institutes may participate either as coordinators or partners, depending on the specific call conditions.
+        </p>
+        <p>
+          Applicants must ensure that their organisation is properly registered in the EU Participant Register and holds a valid PIC (Participant Identification Code). Financial and operational capacity may be assessed during the evaluation phase. In addition, certain calls may impose specific eligibility requirements such as technology readiness level (TRL), thematic scope, or geographic balance.
+        </p>
+        <p>
+          For detailed legal and financial eligibility conditions, please refer to the official Horizon Europe Work Programme documentation.
+        </p>
 
-  <a class="he-faq-link" href="#">Download Eligibility Guidelines (PDF)</a>
-</div>
-</article>
-
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        2. How should personnel costs be calculated under Horizon Europe funding rules?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-<div class="he-faq-a" data-collapsed="true">
-  <p>
-    Personnel costs must be calculated in accordance with the rules outlined in the Annotated Grant Agreement. Beneficiaries must use their usual accounting practices to determine hourly rates, ensuring that costs are actual, recorded in the beneficiary’s accounts, and incurred during the project implementation period.
-  </p>
-  <p>
-    The calculation typically involves dividing annual personnel costs by the number of productive hours per year. Only costs directly linked to project activities are eligible. Overtime payments, bonuses, and additional allowances may be eligible if they are part of the organisation’s standard remuneration policy.
-  </p>
-  <p>
-    All personnel costs must be properly documented and supported by time records. During audits, beneficiaries may be required to provide payroll records, employment contracts, and timesheets.
-  </p>
-
-  <a class="he-faq-link" href="#">View Financial Rules Document</a>
-</div>
-</article>
+        <a class="he-faq-link" href="#">Download Eligibility Guidelines (PDF)</a>
+      </div>
+    </article>
 
 
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        3. What documents are required before submitting a collaborative proposal?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
+    <article class="he-faq-item">
+      <div class="he-faq-qrow">
+        <div class="he-faq-left">
+          <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+          <h3 class="he-faq-qtext">
+            2. How should personnel costs be calculated under Horizon Europe funding rules?
+          </h3>
+        </div>
+        <button class="he-faq-btn" type="button" aria-expanded="false">
+          <span class="he-faq-icon">▼</span>
+        </button>
+      </div>
 
-<div class="he-faq-a" data-collapsed="true">
-  <p>
-    Before submission, the coordinating institution must ensure that all consortium members have completed their legal registration and validated their Participant Identification Code (PIC). A draft Consortium Agreement is strongly recommended prior to submission, even though it is formally signed after grant award.
-  </p>
-  <p>
-    The proposal itself must include the administrative forms (Part A) and the technical annex (Part B), structured according to the call template. This includes excellence, impact, and implementation sections. Ethical self-assessment, data management planning, and gender dimension considerations may also be required depending on the call.
-  </p>
-  <p>
-    It is advisable to review the official proposal template and submission guidelines well in advance of the deadline to avoid technical or compliance issues.
-  </p>
+      <div class="he-faq-a" data-collapsed="true">
+        <p>
+          Personnel costs must be calculated in accordance with the rules outlined in the Annotated Grant Agreement. Beneficiaries must use their usual accounting practices to determine hourly rates, ensuring that costs are actual, recorded in the beneficiary’s accounts, and incurred during the project implementation period.
+        </p>
+        <p>
+          The calculation typically involves dividing annual personnel costs by the number of productive hours per year. Only costs directly linked to project activities are eligible. Overtime payments, bonuses, and additional allowances may be eligible if they are part of the organisation’s standard remuneration policy.
+        </p>
+        <p>
+          All personnel costs must be properly documented and supported by time records. During audits, beneficiaries may be required to provide payroll records, employment contracts, and timesheets.
+        </p>
 
-  <a class="he-faq-link" href="#">Download Proposal Template</a>
-</div>
-</article>
+        <a class="he-faq-link" href="#">View Financial Rules Document</a>
+      </div>
+    </article>
+
+
+    <article class="he-faq-item">
+      <div class="he-faq-qrow">
+        <div class="he-faq-left">
+          <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+          <h3 class="he-faq-qtext">
+            3. What documents are required before submitting a collaborative proposal?
+          </h3>
+        </div>
+        <button class="he-faq-btn" type="button" aria-expanded="false">
+          <span class="he-faq-icon">▼</span>
+        </button>
+      </div>
+
+      <div class="he-faq-a" data-collapsed="true">
+        <p>
+          Before submission, the coordinating institution must ensure that all consortium members have completed their legal registration and validated their Participant Identification Code (PIC). A draft Consortium Agreement is strongly recommended prior to submission, even though it is formally signed after grant award.
+        </p>
+        <p>
+          The proposal itself must include the administrative forms (Part A) and the technical annex (Part B), structured according to the call template. This includes excellence, impact, and implementation sections. Ethical self-assessment, data management planning, and gender dimension considerations may also be required depending on the call.
+        </p>
+        <p>
+          It is advisable to review the official proposal template and submission guidelines well in advance of the deadline to avoid technical or compliance issues.
+        </p>
+
+        <a class="he-faq-link" href="#">Download Proposal Template</a>
+      </div>
+    </article>
 
   </div>
 </section>
@@ -1325,65 +1328,65 @@ Questions regarding personnel cost calculation methods, eligible rates, and repo
 </div>
 
 <script>
-const btn=document.querySelector('.he-menu-btn');
-const nav=document.querySelector('.he-nav-mobile');
+  const btn=document.querySelector('.he-menu-btn');
+  const nav=document.querySelector('.he-nav-mobile');
 
-btn.onclick=()=>{
-  nav.classList.toggle('active');
-  btn.classList.toggle('active');
-  btn.textContent = nav.classList.contains('active') ? '✕' : '☰';
-};
-</script>
-
-<script>
-document.querySelectorAll('.he-faq-item').forEach((item)=>{
-  const qrow = item.querySelector('.he-faq-qrow');
-  const btn  = item.querySelector('.he-faq-btn');
-  const aBox = item.querySelector('.he-faq-a');
-  const icon = item.querySelector('.he-faq-icon');
-
-  const toggle = ()=>{
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    aBox.setAttribute('data-collapsed', isOpen ? 'true' : 'false');
-    icon.textContent = isOpen ? '▼' : '▲';
+  btn.onclick=()=>{
+    nav.classList.toggle('active');
+    btn.classList.toggle('active');
+    btn.textContent = nav.classList.contains('active') ? '✕' : '☰';
   };
+</script>
 
-  qrow.addEventListener('click', toggle);
-});
+<script>
+  document.querySelectorAll('.he-faq-item').forEach((item)=>{
+    const qrow = item.querySelector('.he-faq-qrow');
+    const btn  = item.querySelector('.he-faq-btn');
+    const aBox = item.querySelector('.he-faq-a');
+    const icon = item.querySelector('.he-faq-icon');
+
+    const toggle = ()=>{
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      aBox.setAttribute('data-collapsed', isOpen ? 'true' : 'false');
+      icon.textContent = isOpen ? '▼' : '▲';
+    };
+
+    qrow.addEventListener('click', toggle);
+  });
 </script>
 <script>
-(() => {
-  const dds = Array.from(document.querySelectorAll('.he-footer-dd'));
+  (() => {
+    const dds = Array.from(document.querySelectorAll('.he-footer-dd'));
 
-  const closeAll = () => {
+    const closeAll = () => {
+      dds.forEach(dd => {
+        dd.classList.remove('open');
+        const btn = dd.querySelector('.he-footer-dd-btn');
+        if(btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    };
+
     dds.forEach(dd => {
-      dd.classList.remove('open');
       const btn = dd.querySelector('.he-footer-dd-btn');
-      if(btn) btn.setAttribute('aria-expanded', 'false');
+      if(!btn) return;
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dd.classList.contains('open');
+        closeAll();
+        if(!isOpen){
+          dd.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
     });
-  };
 
-  dds.forEach(dd => {
-    const btn = dd.querySelector('.he-footer-dd-btn');
-    if(!btn) return;
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = dd.classList.contains('open');
-      closeAll();
-      if(!isOpen){
-        dd.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
+    document.addEventListener('click', closeAll);
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeAll();
     });
-  });
-
-  document.addEventListener('click', closeAll);
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') closeAll();
-  });
-})();
+  })();
 </script>
 
 </body>
