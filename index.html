@@ -682,10 +682,11 @@ a{color:inherit}
 .he-event-card{
   border:1px solid var(--line);
   border-radius:18px;
-  padding:18px;
+  padding:0 18px 18px;   /* 상단 0, 좌우 0 */
   background:#fff;
   display:flex;
   flex-direction:column;
+  overflow:hidden;       /* 이미지 모서리 맞춤 */
 }
 
 .he-event-img{
