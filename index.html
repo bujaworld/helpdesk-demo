@@ -515,6 +515,53 @@ a{color:inherit}
   .he-faq{padding:60px 20px 50px;}
 }
 
+.he-faq-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.he-faq-head-text{
+  max-width:700px;
+}
+
+.he-faq-title{
+  margin:0 0 8px;
+  font-size:28px;
+}
+
+.he-faq-sub{
+  margin:0;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.he-faq-page-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:#f7f8fd;
+  border:1px solid var(--line);
+  text-decoration:none;
+  font-weight:600;
+  white-space:nowrap;
+}
+.he-faq-page-btn:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+@media(max-width:980px){
+  .he-faq-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+
 </style>
 
 </head>
@@ -589,9 +636,18 @@ Ask your questions and get guidance through our helpdesk.
 
 <section class="he-latest">
 
-<h2 class="he-section-title">
-Are You Looking for the Latest Helpdesk Questions?
-</h2>
+<div class="he-faq-head">
+  <div class="he-faq-head-text">
+    <h2 class="he-faq-title">FAQ Section Header</h2>
+    <p class="he-faq-sub">
+      Frequently Asked Questions About Horizon Europe Participation
+    </p>
+  </div>
+
+  <a class="he-faq-page-btn" href="faq.html">
+    Go to FAQ Page
+  </a>
+</div>
 
 <div class="he-cards">
 
