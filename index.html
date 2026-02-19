@@ -1805,7 +1805,7 @@
   const positionFab = () => {
     const rect = contentWrap.getBoundingClientRect();
     const rightGap = Math.max(10, window.innerWidth - rect.right);
-    const offset = window.innerWidth <= 768 ? 0 : 15;
+    const offset = window.innerWidth <= 768 ? 1 : 15;
     fab.style.right = (rightGap - offset) + 'px';
   };
 
