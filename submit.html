@@ -1235,12 +1235,12 @@
 /* BOARD */
 .he-board{
   background:#fff;
-  margin-top:0;
 
-  /* ✅ Recent Questions 위 여백 +20px (회색이 아니라 흰색으로 확보) */
-  padding-top:20px;
-  section.he-board{ margin-top:60px; }
+  /* subhero(회색 그라데이션 박스) 아래 “흰색 영역” 여백 */
+  margin-top:26px;     /* 원하시는 만큼 조절 */
+  padding-top:0;       /* 중복 여백 방지 */
 }
+
 .he-board-head{
   display:flex;
   justify-content:space-between;
@@ -1301,12 +1301,10 @@
 
 .he-board-row{
   display:grid;
-
-  /* PC에서 Views 폭 줄이고, No 영역/좌측 여백 확실히 */
-  grid-template-columns:100px 1fr 150px 80px;
+  grid-template-columns:100px 1fr 150px 160px;
 
   gap:0;
-  padding:0 24px;          /* 좌측 여백 증가 (No도 같이 밀림) */
+  padding:0 30px;          /* 좌측 여백 증가 (No도 같이 밀림) */
   min-height:70px;         /* 리스트 행 높이 70 */
   align-items:center;      /* 세로 중앙 정렬 */
 
@@ -1384,12 +1382,10 @@
 }
 .he-board-row-action .he-board-cell.views{
   display:flex;
-  justify-content:flex-end;
   align-items:center;
+  justify-content:flex-end;
+  padding-right:4px; /* 버튼이 테두리에 붙어 보이는 느낌 제거 */
 }
-
-html, body{ background:#fff !important; }
-.top-wrap, main, .he-wrap, .he-section{ background:#fff; }
 
 </style>
 
