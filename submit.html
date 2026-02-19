@@ -1182,7 +1182,13 @@
 }
 /* /AI ASSIST FLOATING */
 /* SUB PAGE HERO */
-.he-subhero{ position:relative; z-index:1; }
+.he-subhero{ 
+  position:relative; z-index:1; 
+padding-bottom: 26px;
+border-bottom-left-radius: 26px;
+border-bottom-right-radius: 26px;
+overflow: hidden;
+}
 .he-subhero-inner{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -1217,7 +1223,7 @@
 }
 
 /* BOARD */
-.he-board{ background:#fff; }
+.he-board{ background:#fff; margin-top: 18px; }
 .he-board-head{
   display:flex;
   justify-content:space-between;
@@ -1273,12 +1279,13 @@
   border:1px solid var(--line);
   border-radius:16px;
   overflow:hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .06);
 }
 .he-board-row{
   display:grid;
   grid-template-columns:80px 1fr 150px 110px;
   gap:0;
-  padding:14px 16px;
+  padding: 16px 16px;
   border-top:1px solid var(--line);
   text-decoration:none;
   color:inherit;
@@ -1300,6 +1307,9 @@
   justify-content:center;
   gap:8px;
 }
+.he-board-page:hover{
+background:#f7f8fd;
+}
 .he-board-page{
   width:34px;
   height:34px;
@@ -1318,8 +1328,17 @@
 @media(max-width:768px){
   .he-board-head{ align-items:flex-start; flex-direction:column; }
   .he-board-search{ width:100%; min-width:unset; }
-  .he-board-row{ grid-template-columns:60px 1fr; }
-  .he-board-cell.date, .he-board-cell.views{ display:none; }
+.he-board-row{
+  grid-template-columns:60px 1fr;
+  grid-template-areas:
+    "num title"
+    "num meta";
+  row-gap:6px;
+}
+.he-board-cell.num{ grid-area:num; }
+.he-board-cell.title{ grid-area:title; font-weight:800; }
+.he-board-cell.date{ grid-area:meta; }
+.he-board-cell.views{ grid-area:meta; justify-self:end; }
 }
 
 </style>
@@ -1374,9 +1393,10 @@
     <div class="he-board-title">Recent Questions</div>
     <div class="he-board-actions">
       <div class="he-board-search">
+        <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
         <input class="he-board-input" type="search" placeholder="Search by keyword (demo)">
       </div>
-      <a class="he-board-btn" href="#">New Question</a>
+      <a class="he-board-btn" href="#">✏️ New Question</a>
     </div>
   </div>
 
@@ -1494,6 +1514,10 @@
       <div class="he-board-cell views">402</div>
     </a>
   </div>
+
+<div style="display:flex;justify-content:flex-end;margin-top:14px;">
+  <a class="he-board-btn" href="#">✏️ New Question</a>
+</div>
 
   <div class="he-board-pager" aria-label="pagination">
     <a class="he-board-page" href="#">‹</a>
