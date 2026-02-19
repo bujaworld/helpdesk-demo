@@ -44,12 +44,11 @@
 }
 
 .top-wrap{
-  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:30px;          /* 하단 좌우 둥글게 포함 */
-  overflow:visible;            /* 이미지 걸치게 */
+  border-radius:30px;
+  overflow:visible;
   position:relative;
   z-index:1;
-  margin-bottom:80px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
+  margin-bottom:80px;
 }
 
 /* HEADER */
@@ -1185,14 +1184,10 @@
 /* SUB PAGE HERO */
 .he-subhero{
   position:relative;
+  margin-bottom:200px;  /* 테스트용 크게 */
   z-index:1;
-
-  /* 배경은 pseudo로 처리(라운드 유지 + 이미지 overflow 가능) */
-  overflow:hidden;
+  overflow:visible;
   height:300px;
-
-  /* ✅ subhero 아래 회색 띠 제거 */
-  margin-bottom:0;
 }
 
 .he-subhero::before{
@@ -1359,8 +1354,8 @@
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
-      "num title"
-      "num meta";
+    "num title"
+    "num meta";
     row-gap:6px;
   }
 
@@ -1372,7 +1367,9 @@
   /* 헤더/추가행은 PC처럼 1줄 유지 */
   .he-board-row-head,
   .he-board-row-action{
-    grid-template-columns:100px 1fr 150px 80px;
+    background:#fff;
+    min-height:70px;
+    padding:0 30px;
   }
 }
 
