@@ -1777,7 +1777,8 @@
   const positionFab = () => {
     const rect = contentWrap.getBoundingClientRect();
     const rightGap = Math.max(10, window.innerWidth - rect.right);
-    fab.style.right = (rightGap - 15) + 'px';
+    const offset = window.innerWidth <= 768 ? 5 : 15;
+    fab.style.right = (rightGap - offset) + 'px';
   };
 
   const openOverlay = () => {
