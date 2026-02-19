@@ -1132,8 +1132,8 @@
   top:50%;
   transform:translateY(-50%);
   right:0;
-  width:79px;
-  height:108px;
+  width:76px;
+  height:121px;
   border:none;
   background:transparent;
   padding:0;
@@ -1143,8 +1143,8 @@
 }
 
 .he-ai-fab img{
-  width:79px;
-  height:108px;
+  width:76px;
+  height:121px;
   display:block;
   object-fit:contain;
 }
@@ -1777,7 +1777,7 @@
   const positionFab = () => {
     const rect = contentWrap.getBoundingClientRect();
     const rightGap = Math.max(10, window.innerWidth - rect.right);
-    const offset = window.innerWidth <= 768 ? 5 : 15;
+    const offset = window.innerWidth <= 768 ? 5 : 9;
     fab.style.right = (rightGap - offset) + 'px';
   };
 
