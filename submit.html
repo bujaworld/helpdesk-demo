@@ -44,11 +44,19 @@
 }
 
 .top-wrap{
-  position:relative;
   border-radius:30px;
   overflow:hidden;
+  position:relative;
+  z-index:1;
   margin-bottom:80px;
+}
+.top-wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
+  border-radius:30px;
+  z-index:-1;
 }
 
 /* HEADER */
@@ -1189,13 +1197,12 @@
   overflow:visible;
   height:300px;
 }
-
-.top-wrap::before{
+.he-subhero::before{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:30px;
+  border-radius:0 0 30px 30px;
   z-index:-1;
 }
 
@@ -1228,10 +1235,8 @@
 /* BOARD */
 .he-board{
   background:#fff;
-
-  /* subhero(회색 그라데이션 박스) 아래 “흰색 영역” 여백 */
-  margin-top:26px;     /* 원하시는 만큼 조절 */
-  padding-top:0;       /* 중복 여백 방지 */
+  margin-top:60px;
+  border-radius:24px;
 }
 
 .he-board-head{
