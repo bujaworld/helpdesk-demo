@@ -1182,15 +1182,28 @@
 }
 /* /AI ASSIST FLOATING */
 /* SUB PAGE HERO */
-.he-subhero{ 
-  position:relative; z-index:1; 
-padding-bottom: 26px;
-border-bottom-left-radius: 26px;
-border-bottom-right-radius: 26px;
-height:300px;
-overflow:visible;
-margin-bottom:50px;
+/* SUB PAGE HERO */
+.he-subhero{
+  position:relative;
+  z-index:1;
+
+  /* 회색 박스 배경을 여기로 “확정” (라운딩이 보이게) */
+  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
+
+  /* 하단 라운딩 */
+  border-bottom-left-radius:26px;
+  border-bottom-right-radius:26px;
+
+  /* 라운딩이 안 보이던 핵심 원인: overflow:visible → hidden으로 변경 */
+  overflow:hidden;
+
+  height:300px;
+
+  /* 대표님 이미지가 내려가 보이는 “여백감” 줄이기 */
+  padding-bottom:0;
+  margin-bottom:20px; /* 기존 50px → 20px */
 }
+
 .he-subhero-inner{
   display:grid;
   grid-template-columns:1.2fr .8fr;
@@ -1199,26 +1212,16 @@ margin-bottom:50px;
   align-items:center;
   height:100%;
 }
-.he-subhero-title{
-  margin:0;
-  font-size:42px;
-  line-height:1.08;
-  letter-spacing:-.6px;
-}
-.he-subhero-desc{
-  margin:12px 0 0;
-  color:var(--muted);
-  font-size:14px;
-}
-.he-subhero-media{ display:flex; justify-content:center; align-items:center; }
+
 .he-subhero-img{
   width:min(340px,100%);
   height:auto;
   display:block;
   position:relative;
-  bottom:-60px;
+  bottom:-15px; /* 기존 -60px → -40px (대표님이 여기서 추가 조절) */
   filter:drop-shadow(0 18px 30px rgba(0,0,0,.12));
 }
+
 @media(max-width:768px){
   .he-subhero-inner{ grid-template-columns:1fr; padding:26px 20px 0; }
   .he-subhero-title{ font-size:34px; }
@@ -1226,7 +1229,7 @@ margin-bottom:50px;
 }
 
 /* BOARD */
-.he-board{ background:#fff; margin-top: 18px; }
+.he-board{ background:#fff; margin-top:0; } /* 기존 18px → 0 */
 .he-board-head{
   display:flex;
   justify-content:space-between;
@@ -1284,32 +1287,43 @@ margin-bottom:50px;
   overflow:hidden;
   box-shadow: 0 10px 24px rgba(15, 23, 42, .06);
 }
+
 .he-board-row{
   display:grid;
-  grid-template-columns:80px 1fr 150px 110px;
+
+  /* PC에서 Views 폭 줄이고, No 영역/좌측 여백 확실히 */
+  grid-template-columns:100px 1fr 150px 80px;
+
   gap:0;
-  padding: 16px 16px;
+  padding:0 24px;          /* 좌측 여백 증가 (No도 같이 밀림) */
+  min-height:70px;         /* 리스트 행 높이 70 */
+  align-items:center;      /* 세로 중앙 정렬 */
+
   border-top:1px solid var(--line);
   text-decoration:none;
   color:inherit;
   background:#fff;
 }
+
 .he-board-row:first-child{ border-top:none; }
 .he-board-row:hover{ background:#f7f8fd; }
 .he-board-row-head{
   background:#f7f8fd;
   font-weight:900;
+  min-height:90px;         /* 타이틀(헤더) 90 */
 }
+
 .he-board-cell{ font-size:14px; }
 .he-board-cell.num, .he-board-cell.views, .he-board-cell.date{ color:var(--muted); }
 .he-board-row-head .he-board-cell{ color:var(--text); }
 
 .he-board-pager{
-  margin-top:16px;
+  margin-top:30px;         /* 기존 16px → 30px */
   display:flex;
   justify-content:center;
   gap:8px;
 }
+
 .he-board-page:hover{
 background:#f7f8fd;
 }
@@ -1342,6 +1356,11 @@ background:#f7f8fd;
 .he-board-cell.title{ grid-area:title; font-weight:800; }
 .he-board-cell.date{ grid-area:meta; }
 .he-board-cell.views{ grid-area:meta; justify-self:end; }
+}
+
+.he-board-row-action{
+  background:#fff;
+  min-height:90px;       /* 추가 행도 90 */
 }
 
 </style>
@@ -1517,10 +1536,15 @@ background:#f7f8fd;
       <div class="he-board-cell views">402</div>
     </a>
   </div>
-
-<div style="display:flex;justify-content:flex-end;margin-top:40px;">
-  <a class="he-board-btn" href="#">✏️ New Question</a>
-</div>
+    <!-- ACTION ROW (추가 행) -->
+    <div class="he-board-row he-board-row-action" role="row">
+      <div class="he-board-cell num"></div>
+      <div class="he-board-cell title"></div>
+      <div class="he-board-cell date"></div>
+      <div class="he-board-cell views" style="display:flex;justify-content:flex-end;">
+        <a class="he-board-btn" href="#">✏️ New Question</a>
+      </div>
+    </div>
 
   <div class="he-board-pager" aria-label="pagination">
     <a class="he-board-page" href="#">‹</a>
