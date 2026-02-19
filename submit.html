@@ -1188,7 +1188,7 @@
   z-index:1;
 
   /* 배경은 pseudo로 처리(라운드 유지 + 이미지 overflow 가능) */
-  overflow:visible;
+  overflow:hidden;
   height:300px;
 
   /* ✅ subhero 아래 회색 띠 제거 */
@@ -1220,12 +1220,9 @@
 .he-subhero-img{
   width:min(340px,100%);
   height:auto;
+  bottom:0;
   display:block;
   position:relative;
-
-  /* ✅ 이미지가 아래 흰영역 쪽으로 “걸치게” (잘림 없음) */
-  bottom:-30px;
-
   filter:drop-shadow(0 18px 30px rgba(0,0,0,.12));
 }
 
@@ -1242,11 +1239,12 @@
 
   /* ✅ Recent Questions 위 여백 +20px (회색이 아니라 흰색으로 확보) */
   padding-top:20px;
+  section.he-board{ margin-top:60px; }
 }
 .he-board-head{
   display:flex;
   justify-content:space-between;
-  align-items:flex-end;
+  align-items: center;
   gap:16px;
   margin-bottom:18px;
 }
@@ -1358,23 +1356,40 @@
 @media(max-width:768px){
   .he-board-head{ align-items:flex-start; flex-direction:column; }
   .he-board-search{ width:100%; min-width:unset; }
-  .he-board-row{
+
+  /* 본문 행만 2줄 레이아웃 */
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
-    "num title"
-    "num meta";
+      "num title"
+      "num meta";
     row-gap:6px;
   }
-  .he-board-cell.num{ grid-area:num; }
-  .he-board-cell.title{ grid-area:title; font-weight:800; }
-  .he-board-cell.date{ grid-area:meta; }
-  .he-board-cell.views{ grid-area:meta; justify-self:end; }
+
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{ grid-area:num; }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{ grid-area:title; font-weight:800; }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{ grid-area:meta; }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.views{ grid-area:meta; justify-self:end; }
+
+  /* 헤더/추가행은 PC처럼 1줄 유지 */
+  .he-board-row-head,
+  .he-board-row-action{
+    grid-template-columns:100px 1fr 150px 80px;
+  }
 }
 
 .he-board-row-action{
   background:#fff;
   min-height:70px;       /* 추가 행도 90 */
 }
+.he-board-row-action .he-board-cell.views{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+}
+
+html, body{ background:#fff !important; }
+.top-wrap, main, .he-wrap, .he-section{ background:#fff; }
 
 </style>
 
@@ -1414,7 +1429,7 @@
           <div class="he-subhero-inner">
             <div class="he-subhero-left">
               <h1 class="he-subhero-title">Submit a Question</h1>
-              <p class="he-subhero-desc">Browse submitted questions in a board-style list. (Demo)</p>
+              <p class="he-subhero-desc">Browse submitted questions and track updates across Horizon Europe topics.</p>
             </div>
 
             <div class="he-subhero-media" aria-hidden="true">
@@ -1429,7 +1444,7 @@
             <div class="he-board-actions">
               <div class="he-board-search">
                 <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
-                <input class="he-board-input" type="search" placeholder="Search by keyword (demo)">
+                <input class="he-board-input" type="search" placeholder="Search by keyword">
               </div>
               <a class="he-board-btn" href="#">✏️ New Question</a>
             </div>
@@ -1553,7 +1568,7 @@
   <div class="he-board-cell num"></div>
   <div class="he-board-cell title"></div>
   <div class="he-board-cell date"></div>
-  <div class="he-board-cell views" style="display:flex;justify-content:flex-end;">
+  <div class="he-board-cell views">
     <a class="he-board-btn" href="#">✏️ New Question</a>
   </div>
 </div>
