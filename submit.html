@@ -1360,8 +1360,23 @@
     "num title"
     "num meta";
     row-gap:6px;
+
+  /* 모바일 헤더: Title만 표시 */
+  .he-board-row-head .he-board-cell.num,
+  .he-board-row-head .he-board-cell.date,
+  .he-board-row-head .he-board-cell.views{
+    display:none;
   }
 
+  .he-board-row-head{
+    grid-template-columns:1fr;
+  }
+
+  /* 모바일 리스트 행 상하 여백 */
+  .he-board-row{
+    padding:10px 20px;
+  }
+  
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{ grid-area:num; }
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{ grid-area:title; font-weight:800; }
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{ grid-area:meta; }
