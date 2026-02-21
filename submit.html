@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submit a Question | Horizon Europe Help Desk</title>
+  <title>Horizon Europe Help Desk</title>
 
   <style>
     :root{
@@ -30,11 +30,11 @@
 
 .content-wrap{
   max-width:1080px;
-  width:calc(100% - 60px);
+  width:calc(100% - 60px); /* 좌우 30px 확보 */
   margin:0 auto;
-  background:transparent;
+  background:#fff;
   border-radius:20px;
-  overflow:hidden;
+  overflow:hidden;   /* 컨텐츠 전체 라운드 유지용 */
 }
 
 @media(max-width:768px){
@@ -43,24 +43,14 @@
   }
 }
 
-/* 기존 .top-wrap 통째로 교체 */
 .top-wrap{
-  background:transparent;
-  border-radius:0;
-  overflow:visible;
+  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
+  border-radius:30px;          /* 하단 좌우 둥글게 포함 */
+  overflow:visible;            /* 이미지 걸치게 */
   position:relative;
   z-index:1;
-  margin-bottom:80px;
+  margin-bottom:80px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
 }
-
-/* 새로 추가: 라운딩/그라데이션/클리핑은 여기서 처리 */
-.top-clip{
-  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:30px;
-  overflow:hidden;      /* 하단 좌우 둥글게 “반드시” 보이게 */
-  position:relative;
-}
-
 
 /* HEADER */
 .he-header{
@@ -1191,7 +1181,6 @@
   }
 }
 /* /AI ASSIST FLOATING */
-
 /* BOARD */
 .he-board{
   background:#fff;
@@ -1371,7 +1360,7 @@
     <div class="content-wrap">
 
       <div class="top-wrap">
-        <div class="top-clip">
+
         <header class="he-header">
           <a class="he-brand" href="#">
             <img class="he-brand-img" src="images/brand-logo.svg">
@@ -1385,28 +1374,40 @@
             <a href="#">FAQ</a>
             <a href="#">주요 행사</a>
           </nav>
-          <nav class="he-nav-mobile" aria-label="mobile menu">
-            <div class="he-nav-mobile-panel">
-              <a class="he-mnav-btn" href="#">질문하기</a>
-              <a class="he-mnav-btn" href="#">자료실</a>
-              <a class="he-mnav-btn" href="#">FAQ</a>
-              <a class="he-mnav-btn" href="#">주요 행사</a>
-            </div>
-          </nav>
+<nav class="he-nav-mobile" aria-label="mobile menu">
+  <div class="he-nav-mobile-panel">
+    <a class="he-mnav-btn" href="#">질문하기</a>
+    <a class="he-mnav-btn" href="#">자료실</a>
+    <a class="he-mnav-btn" href="#">FAQ</a>
+    <a class="he-mnav-btn" href="#">주요 행사</a>
+  </div>
+</nav>
         </header>
 
-        <section class="he-hero" aria-label="page hero">
+        <section class="he-hero">
           <div class="he-hero-inner">
-            <div class="he-hero-left">
-              <h1 class="he-hero-title">Submit a Question</h1>
-              <p class="he-hero-desc">Browse submitted questions and track updates across Horizon Europe topics.</p>
+
+            <div>
+              <h1 class="he-title">
+                <span class="he-title-accent">Your Gateway</span><br>
+                Horizon Europe<br>
+                Support
+              </h1>
+
+              <p class="he-subtitle">
+                Ask your questions and get guidance through our helpdesk.
+              </p>
             </div>
 
-            <div class="he-hero-media" aria-hidden="true">
-              <img class="he-hero-img" src="images/submit_main.svg" alt="">
+            <div class="he-hero-media">
+              <img class="he-hero-img" src="images/hero.svg">
             </div>
+
           </div>
         </section>
+
+      </div>
+
 
         <section class="he-section he-board" aria-label="question board">
           <div class="he-board-head">
@@ -1552,8 +1553,6 @@
 </div>
 </section>
 
-</div>
-
 <!-- PARTNER LOGO STRIP -->
 <section class="he-partners-strip he-section" aria-label="기관 로고">
   <div class="he-partners-row">
@@ -1604,7 +1603,7 @@
   </div>
 </section>
 <!-- /PARTNER LOGO STRIP -->
-</div> 
+
 </div>
 <footer class="he-footer">
   <div class="he-footer-inner">
@@ -1822,47 +1821,47 @@
   })();
 </script>
 <script>
-  (() => {
-    const contentWrap = document.querySelector('.content-wrap');
-    const fab = document.querySelector('.he-ai-fab');
-    const overlay = document.querySelector('.he-ai-overlay');
-    const decline = document.querySelector('.he-ai-decline');
+(() => {
+  const contentWrap = document.querySelector('.content-wrap');
+  const fab = document.querySelector('.he-ai-fab');
+  const overlay = document.querySelector('.he-ai-overlay');
+  const decline = document.querySelector('.he-ai-decline');
 
-    if(!contentWrap || !fab || !overlay || !decline) return;
+  if(!contentWrap || !fab || !overlay || !decline) return;
 
-    const positionFab = () => {
-      const rect = contentWrap.getBoundingClientRect();
-      const rightGap = Math.max(10, window.innerWidth - rect.right);
-      const offset = window.innerWidth <= 768 ? 1 : 15;
-      fab.style.right = (rightGap - offset) + 'px';
-    };
+  const positionFab = () => {
+    const rect = contentWrap.getBoundingClientRect();
+    const rightGap = Math.max(10, window.innerWidth - rect.right);
+    const offset = window.innerWidth <= 768 ? 1 : 15;
+    fab.style.right = (rightGap - offset) + 'px';
+  };
 
-    const openOverlay = () => {
-      overlay.classList.add('active');
-      overlay.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    };
+  const openOverlay = () => {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
 
-    const closeOverlay = () => {
-      overlay.classList.remove('active');
-      overlay.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
+  const closeOverlay = () => {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
 
-    positionFab();
-    window.addEventListener('resize', positionFab);
+  positionFab();
+  window.addEventListener('resize', positionFab);
 
-    fab.addEventListener('click', openOverlay);
-    decline.addEventListener('click', closeOverlay);
+  fab.addEventListener('click', openOverlay);
+  decline.addEventListener('click', closeOverlay);
 
-    overlay.addEventListener('click', (e) => {
-      if(e.target === overlay) closeOverlay;
-    });
+  overlay.addEventListener('click', (e) => {
+    if(e.target === overlay) closeOverlay;
+  });
 
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') closeOverlay();
-    });
-  })();
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeOverlay();
+  });
+})();
 </script>
 
 </body>
