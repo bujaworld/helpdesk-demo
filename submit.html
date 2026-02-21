@@ -1329,13 +1329,14 @@
 
   /* 핵심: No가 무조건 보이도록 강제 */
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{
-    grid-area:num;
     display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
   }
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{
-    grid-area:title;
-    font-weight:800;
-    display:block;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
   }
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{
     grid-area:meta;
