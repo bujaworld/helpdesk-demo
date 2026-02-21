@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizon Europe Help Desk</title>
+
+  <style>
+    :root{
+      --panel:#ffffff;
+      --text:#0b0f19;
+      --muted:#5a6275;
+      --blue:#1e3aff;
+      --line:#e7eaf2;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:#1e293b;
+    }
+
+    a{color:inherit}
+
+/* PAGE FRAME */
+.page-wrap{padding:20px 0 60px;}
+
+.content-wrap{
+  max-width:1080px;
+  width:calc(100% - 60px); /* 좌우 30px 확보 */
+  margin:0 auto;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;   /* 컨텐츠 전체 라운드 유지용 */
+}
+
+@media(max-width:768px){
+  .content-wrap{
+    width:calc(100% - 20px); /* ⬅ 모바일 좌우 10px */
+  }
+}
+
+.top-wrap{
+  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
+  border-radius:30px;          /* 하단 좌우 둥글게 포함 */
+  overflow:visible;            /* 이미지 걸치게 */
+  position:relative;
+  z-index:1;
+  margin-bottom:30px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
+}
+
+/* HEADER */
+.he-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:40px 70px 0px;
+  position:relative; /* 모바일 오버레이 기준 */
+  z-index:10;
+}
+
+.he-brand{display:flex; align-items:center;}
+.he-brand-img{height:18px; width:auto; display:block;}
+
+/* PC 메뉴 (기본) */
+.he-nav{
+  display:flex;
+  gap:18px;
+  font-size:14px;
+}
+.he-nav a{text-decoration:none; opacity:.9}
+.he-nav a:hover{opacity:1; text-decoration:underline}
+
+/* HERO */
+.he-hero{position:relative; z-index:1;}
+
+.he-hero-inner{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+  padding:0px 70px 0;
+  align-items:center;
+}
+
+.he-title{
+  margin:0;
+  font-size:56px;
+  line-height:1.02;
+  letter-spacing:-1px;
+}
+.he-title-accent{color:var(--blue)}
+
+.he-subtitle{
+  margin:16px 0 26px;
+  color:var(--muted);
+  font-size:16px;
+}
+
+/* SEARCH */
+.he-searchrow{display:flex; gap:14px; flex-wrap:wrap}
+
+.he-search{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 12px;
+  min-width:280px;
+  flex:1 1 320px;
+}
+
+.he-input{
+  border:none;
+  outline:none;
+  flex:1;
+  font-size:14px;
+  background:transparent;
+  padding-left:10px;   /* 좌측 여백 10px 추가 */
+}
+
+.he-iconbtn{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  width:36px;
+  height:36px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.he-icon-img{width:18px; height:18px; display:block;}
+
+/* CTA + READ cursor */
+.he-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:700;
+  cursor:pointer;          /* 손가락 */
+}
+.he-cta:hover{filter:brightness(.98);}
+.he-cta-icon{height:26px; width:auto; display:block;}
+
+.he-read{
+  font-size:13px;
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#f7f8fd;
+  cursor:pointer;          /* 손가락 */
+}
+.he-read:hover{background:#eef1ff; border-color:#dde2ff;}
+
+/* HERO IMAGE */
+.he-hero-media{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.he-hero-img{
+  width:min(260px,100%);
+  height:auto;
+  display:block;
+  position:relative;
+  bottom:-40px; /* 대표님이 이미지 올리면 이 값을 줄이세요 (예: -10px) */
+  filter:drop-shadow(0 18px 30px rgba(0,0,0,.12));
+}
+
+/* BELOW SECTION (화이트 영역) */
+.he-latest{
+  background:#fff;
+  border-radius:0 0 20px 20px;
+  position:relative;
+  z-index:0;
+  margin-top:0;
+}
+
+.he-section-title{
+  margin:0 0 24px;
+  text-align:left;   /* center → left */
+  font-size:28px;
+}
+
+.he-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.he-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:35px 25px;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+}
+
+.he-meta{font-size:12px;color:var(--muted);margin-bottom:10px}
+.he-card-title{margin:0 0 10px;font-size:18px}
+.he-card-desc{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.45}
+.he-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.he-views{font-size:12px;color:var(--muted)}
+
+/* MOBILE MENU BUTTON + OVERLAY */
+.he-menu-btn{
+  display:none;            /* PC에서는 숨김 */
+  background:none;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#1e293b;           /* 햄버거: 짙은색 */
+  line-height:1;
+}
+
+.he-menu-btn.active{
+  color:#fff;              /* X: 흰색 */
+}
+
+/* 모바일 오버레이 nav (PC에서는 숨김) */
+/* 모바일 오버레이 nav (PC에서는 숨김) */
+.he-nav-mobile{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:500px;               /* 대표님이 조절하는 값 */
+  background:#1e293b;
+  color:#fff;
+
+  display:flex;
+  justify-content:center;     /* 가로 중앙 */
+  align-items:flex-start;
+  padding:100px 20px 0;       /* TOP 100px 느낌 */
+  z-index:1000;
+
+  transform:translateY(-120vh);
+  transition:transform .3s, opacity .2s, visibility .2s;
+
+  border-bottom-left-radius:50px;
+  border-bottom-right-radius:50px;
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.he-nav-mobile.active{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+/* 중앙 패널(= AI 패널 느낌) */
+.he-nav-mobile-panel{
+  width:min(560px, 100%);
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  padding:22px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* 버튼형 메뉴 */
+.he-mnav-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  padding:14px 16px;
+  border-radius:999px;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:800;
+  color:#fff;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  cursor:pointer;
+}
+.he-mnav-btn:hover{
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.26);
+}
+
+.he-nav-mobile a{
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;     /* 약간 축소 */
+  font-weight:700;    /* 볼드 */
+  margin:0;
+  display:flex;
+  align-items:center;
+}
+
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  /* layout */
+  .he-header{padding:30px 20px 15px;} 
+  .he-hero-inner{
+    display:flex;                                   /* grid 강제 해제 */
+    flex-direction:column;                          /* 텍스트 → 이미지 순서로 세로 */
+    gap:0px;
+    padding:18px 20px 0;                            /* 좌우 20px 유지 */
+    align-items:stretch;
+  }
+  .he-title{
+    font-size:28px;
+    letter-spacing:-0.6px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .he-subtitle{
+    font-size:16px;
+    margin:10px 0 0px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+  }
+  .he-cards{grid-template-columns:1fr}
+
+  /* nav: PC 메뉴 숨김 + 햄버거/오버레이 사용 */
+  .he-nav{display:none;}
+  .he-menu-btn{
+    padding:0;                 /* 기본 버튼 padding 제거 */
+    width:40px; height:40px;   /* 터치영역 고정 */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:-6px;         /* 오른쪽이 넓어 보이는 현상 보정 */
+  }
+  .he-nav-mobile{display:flex;}
+
+  /* 로고 70% */
+  .he-brand-img{height:13px; width:auto;}
+
+  /* 이미지 위/아래 여백 줄이기 */
+  .he-hero-media{justify-content:flex-start;}       /* 이미지 좌측 정렬 */
+  .he-hero-img{bottom:-30px; width:min(240px,100%);}
+
+  .top-wrap{ margin-bottom:12px; }  /* 필요하면 10px까지 */
+}
+
+/* RESOURCES (자료실) */
+.he-resources{
+  margin-top:0;      /* 34px 제거 */
+  margin-bottom:0;   /* 불필요 여백 제거 */
+  padding:0;         /* 공통 .he-section이 담당 */
+}
+
+.he-resources-panel{
+  background:#10172a;
+  border-radius:22px;
+  overflow:hidden;
+  padding:18px 0 0;
+}
+
+.he-res-item{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 30px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.he-res-item:first-child{border-top:none;}
+
+.he-res-left{flex:1; min-width:0;}
+
+.he-res-kicker{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.he-res-type{
+  color:#cbd5e1;
+  font-size:12px;
+  font-weight:700;
+}
+
+.he-res-tag{
+  font-size:12px;
+  font-weight:800;
+  color:#fff;
+  background:#0018f8;
+  padding:3px 10px;
+  border-radius:999px;
+}
+
+.he-res-updated{
+  font-size:12px;
+  font-weight:800;
+  color:#fff;
+  background:#f80029;
+  padding:3px 10px;
+  border-radius:999px;
+}
+
+.he-res-lang{
+  font-size:12px;
+  font-weight:800;
+  color:#e2e8f0;
+  border:1px solid rgba(226,232,240,.25);
+  padding:3px 10px;
+  border-radius:999px;
+}
+
+.he-res-name{
+  margin:0 0 8px;
+  color:#fff;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.2px;
+}
+
+.he-res-desc{
+  margin:0;
+  color:rgba(255,255,255,.72);
+  font-size:14px;
+  line-height:1.45;
+  max-width:62ch;
+}
+
+.he-res-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+  gap:10px;
+  min-width:240px;
+}
+
+.he-res-meta{
+  display:grid;
+  grid-auto-flow:column;
+  gap:10px;
+  justify-content:end;
+  color:rgba(255,255,255,.55);
+  font-size:12px;
+  font-weight:600;
+  text-align:right;
+}
+
+.he-res-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:#0018f8;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.he-res-btn:hover{filter:brightness(.95);}
+
+/* bottom action bar */
+.he-res-action{
+  margin-top:18px;
+  background:#0018f8;
+  border-radius:0 0 22px 22px;
+  padding:28px 30px 32px;   /* 위/아래 여백 증가 */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.he-res-action-left{
+  color:#fff;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:-.2px;
+}
+
+.he-res-action-btn{
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.he-res-action-btn:hover{filter:brightness(.98);}
+
+/* Responsive */
+@media(max-width:768px){
+  .he-res-item{flex-direction:column; align-items:flex-start;}
+  .he-res-right{align-items:flex-start; min-width:auto;}
+  .he-res-meta{justify-content:start; text-align:left;}
+
+  .he-res-action{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;              /* ✅ Resource Library ↔ 버튼 간 여백 */
+  }
+}
+
+
+/* FOOTER */
+.he-footer{
+  max-width:1080px;
+  width:calc(100% - 60px);
+  margin:30px auto 0;   /* ← 여기만 줄임 */
+  padding:60px 24px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  color:#e2e8f0;
+}
+
+@media(max-width:768px){
+  .he-footer{
+    width:calc(100% - 20px); /* 모바일 좌우 10px */
+    padding:40px 16px;
+  }
+}
+
+.he-footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:center; /* ← 상단정렬이 아니라 중앙정렬 */
+}
+
+.he-footer-left{
+  display:flex;
+  align-items:center; /* ← 로고와 텍스트 세로 중앙 */
+  gap:14px;
+  flex:1;
+  min-width:0;
+}
+
+.he-footer-left p{margin:0}
+
+.he-footer-copy{
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(226,232,240,.92);
+}
+.he-footer-copy p{margin:0}
+
+.he-footer-right{
+  min-width:0;
+}
+
+.he-footer-logo{
+  height:34px;
+  width:auto;
+  display:block;
+}
+
+.he-footer-links{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.he-footer-dd{
+  position:relative;
+}
+
+.he-footer-dd-btn{
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.18);
+  color:#fff;
+  padding:10px 12px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.he-footer-dd-btn::after{
+  content:"▴";
+  font-size:12px;
+  opacity:.9;
+}
+
+.he-footer-menu{
+  position:absolute;
+  right:0;
+  bottom:calc(100% + 10px); /* 위로 뜨게 */
+  min-width:unset;
+  max-width:unset;
+  width:max-content;       /* 글자 길이에 맞게 */
+  white-space:nowrap;      /* 줄바꿈 방지 */
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:#0b1220;
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  padding:10px;
+  display:none;
+  z-index:2000;
+}
+
+.he-footer-dd.open .he-footer-menu{display:block;}
+
+.he-footer-menu a{
+  display:block;
+  padding:10px 10px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#fff;
+  font-size:13px;
+  font-weight:650;
+  line-height:1.35;
+}
+
+.he-footer-menu a:hover{
+  background:rgba(255,255,255,.08);
+}
+
+.he-footer-link{
+  color:rgba(226,232,240,.92);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:650;
+  border-bottom:1px solid rgba(226,232,240,.25);
+  padding-bottom:2px;
+}
+
+.he-footer-link:hover{
+  border-bottom-color:rgba(226,232,240,.55);
+}
+
+/* FOOTER - MOBILE (CENTERED + DROPDOWN ABOVE BUTTON) */
+@media (max-width: 768px){
+  .he-footer-inner{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .he-footer-left{
+    width:100%;
+    justify-content:flex-start;
+    text-align:left;
+  }
+
+  .he-footer-right{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+
+  .he-footer-links{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .he-footer-dd{
+    position:relative;
+  }
+
+  .he-footer-dd-btn{
+    justify-content:center;
+  }
+
+  .he-footer-menu{
+    position:fixed;                 /* ← 화면 기준 */
+    left:50%;                       /* ← 모바일 창 가로 중앙 */
+    right:auto;
+    bottom:calc(env(safe-area-inset-bottom) + 110px); /* ← 버튼 위쪽에 뜨게 */
+    top:auto;
+    transform:translateX(-50%);
+    width:min(420px, calc(100vw - 40px));
+    max-width:none;
+    min-width:unset;
+    white-space:normal;
+    text-align:center;
+    z-index:3000;
+
+    max-height:calc(100vh - 180px); /* ← 위로 넘치면 스크롤 */
+    overflow:auto;
+  }
+
+  .he-footer-menu a{
+    white-space:normal;
+    text-align:center;
+  }
+}
+/* 모바일(터치기기)에서는 가로/세로 상관없이 항상 햄버거 모드 유지 */
+@media (hover: none) and (pointer: coarse){
+  .he-nav{display:none !important;}
+  .he-menu-btn{display:flex !important;}
+  .he-nav-mobile{display:flex !important;}
+}
+
+/* PARTNER LOGO STRIP */
+.he-partners-strip{
+  background:#fff;
+}
+
+.he-partners-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  width:100%;
+}
+
+.he-logo-arrow{
+  width:38px;
+  height:38px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#f7f8fd;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  line-height:1;
+  flex:0 0 auto;
+}
+.he-logo-arrow:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+.he-logo-viewport{
+  position:relative;
+  overflow:hidden;
+  flex:1 1 auto;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  padding:34px 16px;
+}
+.he-logo-viewport::-webkit-scrollbar{display:none;}
+
+.he-logo-rail{
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+  will-change:transform;
+  flex:0 0 auto;
+}
+
+.he-logo-wrap{
+  width:max-content;
+}
+
+.he-logo-label{
+  font-weight:800;
+  color:var(--text);
+  margin-right:12px; /* 기관명 ↔ 첫 로고 간격(원하시면 여기만 더 줄이세요) */
+  flex:0 0 auto;
+}
+
+/* 로고들 마지막 ↔ 다음 기관명 간격(지금 붙는 문제 해결) */
+.he-logo-item + .he-logo-label{
+  margin-left:38px; /* 로고↔기관명 간격(원하시면 조절) */
+}
+
+/* 맨 첫 기관명은 왼쪽 여백 없음 */
+.he-logo-rail > .he-logo-label:first-child{
+  margin-left:0;
+}
+
+.he-logo-spacer{
+  width:22px;
+  flex:0 0 auto;
+}
+
+.he-logo-item{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  cursor:pointer;
+  flex:0 0 auto;
+  margin-left:38px;
+}
+.he-logo-item img{
+  height:28px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.he-logo-label + .he-logo-item{
+  margin-left:0;   /* ← 여기 값을 더 줄이면 더 붙습니다 */
+}
+
+.he-logo-text{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:28px;
+  padding:0 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#f7f8fd;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  flex:0 0 auto;
+}
+.he-logo-text:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+@media(max-width:768px){
+  .he-logo-item img{ height:24px; }
+  .he-logo-viewport{ padding:32px 12px; }
+  .he-logo-arrow{ width:34px; height:34px; }
+}
+/* /PARTNER LOGO STRIP */
+
+.he-ai-overlay{
+  position:fixed;
+  inset:0;
+  background:#1e293b;
+  z-index:5000;
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:100px 20px 40px;
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateX(100%);
+  transition:transform .35s ease, opacity .25s ease, visibility .25s ease;
+}
+
+.he-ai-overlay.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateX(0);
+}
+
+.he-ai-panel{
+  width:min(780px, 100%);
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  padding:34px 28px;
+  color:#fff;
+  text-align:center;
+}
+
+.he-ai-title{
+  font-size:26px;
+  font-weight:900;
+  margin:0 0 10px;
+}
+.he-ai-subtitle{
+  font-size:14px;
+  font-weight:800;
+  opacity:.95;
+  margin:0 0 18px;
+}
+.he-ai-body{
+  font-size:14px;
+  line-height:1.7;
+  color:rgba(226,232,240,.92);
+  margin:0 auto 24px;
+  max-width:70ch;
+}
+
+.he-ai-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.he-ai-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:120px;
+  padding:12px 16px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
+  cursor:pointer;
+  border:1px solid transparent;
+}
+
+.he-ai-accept{
+  background:#0018f8;
+  color:#fff;
+}
+
+.he-ai-decline{
+  background:transparent;
+  color:#fff;
+  border-color:rgba(255,255,255,.35);
+}
+/* /AI ASSIST FLOATING */
+
+.he-section{
+  padding:0 70px 80px;  /* 좌우는 유지, 하단만 80px */
+}
+
+@media(max-width:768px){
+  .he-section{
+    padding:0 20px 40px; /* 모바일하단 */
+  }
+}
+
+/* AI ASSIST FLOATING */
+.he-ai-fab{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  right:0;
+  width:76px;
+  height:121px;
+  border:none;
+  background:transparent;
+  padding:0;
+  cursor:pointer;
+  display:block;
+  z-index:2500;
+}
+
+.he-ai-fab img{
+  width:76px;
+  height:121px;
+  display:block;
+  object-fit:contain;
+}
+
+@media(max-width:768px){
+  .he-ai-fab{
+    transform: translateY(-50%) scale(0.65);
+    transform-origin: right center;
+  }
+}
+/* /AI ASSIST FLOATING */
+/* BOARD */
+.he-board{
+  background:#fff;
+  margin-top:0;
+  padding-top:50px;
+}
+
+.he-board-head{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  gap:16px;
+  margin-bottom:18px;
+}
+.he-board-title{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-.2px;
+}
+.he-board-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.he-board-search{
+  display:flex;
+  align-items:center;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:999px;
+  padding:10px 12px;
+  min-width:260px;
+}
+.he-board-input{
+  border:none;
+  outline:none;
+  width:100%;
+  font-size:14px;
+  background:transparent;
+  padding:0 6px;
+}
+.he-board-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:#0018f8;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.he-board-btn:hover{ filter:brightness(.95); }
+
+.he-board-table{
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .06);
+}
+
+.he-board-row{
+  display:grid;
+  grid-template-columns:60px 1fr 120px 40px;
+
+  gap:0;
+  padding:0 30px;          /* 좌측 여백 증가 (No도 같이 밀림) */
+  min-height:70px;         /* 리스트 행 높이 70 */
+  align-items:center;      /* 세로 중앙 정렬 */
+
+  border-top:1px solid var(--line);
+  text-decoration:none;
+  color:inherit;
+  background:#fff;
+}
+
+.he-board-row:first-child{ border-top:none; }
+.he-board-row:hover{ background:#f7f8fd; }
+.he-board-row-head{
+  background:#f7f8fd;
+  font-weight:900;
+  min-height:80px;         /* 타이틀(헤더) 90 */
+}
+
+.he-board-cell{ font-size:14px; }
+.he-board-cell.num, .he-board-cell.views, .he-board-cell.date{ color:var(--muted); }
+.he-board-row-head .he-board-cell{ color:var(--text); }
+
+.he-board-pager{
+  margin-top:30px;         /* 기존 16px → 30px */
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.he-board-page:hover{
+  background:#f7f8fd;
+}
+.he-board-page{
+  width:34px;
+  height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  text-decoration:none;
+  font-weight:800;
+  cursor:pointer;
+}
+.he-board-page.active{ background:#eef1ff; border-color:#dde2ff; }
+
+@media(max-width:768px){
+  .he-board-head{ align-items:flex-start; flex-direction:column; }
+  .he-board-search{ width:100%; min-width:unset; }
+
+  /* 모바일: 헤더는 No + Title만 */
+  .he-board-row-head{
+    grid-template-columns:60px 1fr;
+  }
+  .he-board-row-head .he-board-cell.date,
+  .he-board-row-head .he-board-cell.views{
+    display:none;
+  }
+
+  /* 모바일: 본문 행은 2줄 (No+Title / No+meta) */
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
+    grid-template-columns:60px 1fr;
+    grid-template-areas:
+      "num title"
+      "num meta";
+    row-gap:6px;
+    padding:16px 20px;
+  }
+
+  /* 핵심: grid-template-areas를 썼으면 grid-area 지정이 반드시 필요 */
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{
+    grid-area:num;
+    display:block;
+    visibility:visible;
+    opacity:1;
+    align-self:start; /* 위에 붙게 */
+  }
+
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{
+    grid-area:title;
+    font-weight:800;
+    min-width:0;
+  }
+
+  /* Date/Views는 아래줄 meta로 묶어서 표시 */
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{
+    grid-area:meta;
+    display:inline-block;
+  }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.views{
+    grid-area:meta;
+    display:inline-block;
+    justify-self:end;
+  }
+
+  /* 헤더/추가행은 1줄 유지 */
+  .he-board-row-head,
+  .he-board-row-action{
+    background:#f7f8fd;
+    min-height:90px;
+    padding:0 20px;
+  }
+  .he-board{ padding-top:30px; }
+}
+
+/* 추가행(하단 New Question 줄) */
+.he-board-row-action{
+  background:#f7f8fd;
+  min-height:90px;
+}
+.he-board-row-action .he-board-cell.views{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding-right:4px;
+}
+</style>
+
+</head>
+
+<body>
+
+  <div class="page-wrap">
+    <div class="content-wrap">
+
+      <div class="top-wrap">
+
+        <header class="he-header">
+          <a class="he-brand" href="#">
+            <img class="he-brand-img" src="images/brand-logo.svg">
+          </a>
+
+          <button class="he-menu-btn" aria-label="menu">☰</button>
+
+          <nav class="he-nav">
+            <a href="#">질문하기</a>
+            <a href="#">자료실</a>
+            <a href="#">FAQ</a>
+            <a href="#">주요 행사</a>
+          </nav>
+<nav class="he-nav-mobile" aria-label="mobile menu">
+  <div class="he-nav-mobile-panel">
+    <a class="he-mnav-btn" href="#">질문하기</a>
+    <a class="he-mnav-btn" href="#">자료실</a>
+    <a class="he-mnav-btn" href="#">FAQ</a>
+    <a class="he-mnav-btn" href="#">주요 행사</a>
+  </div>
+</nav>
+        </header>
+
+        <section class="he-hero">
+          <div class="he-hero-inner">
+
+            <div>
+              <h1 class="he-title">Submit a Question</h1>
+              <p class="he-subtitle">
+                Browse submitted questions and track updates across Horizon Europe topics.
+              </p>
+            </div>
+
+            <div class="he-hero-media">
+              <img class="he-hero-img" src="images/events_main.svg">
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+
+        <section class="he-section he-board" aria-label="question board">
+          <div class="he-board-head">
+            <div class="he-board-title">Recent Questions</div>
+            <div class="he-board-actions">
+              <div class="he-board-search">
+                <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
+                <input class="he-board-input" type="search" placeholder="Search by keyword">
+              </div>
+              <a class="he-board-btn" href="#">✏️ New Question</a>
+            </div>
+          </div>
+
+          <div class="he-board-table" role="table" aria-label="questions">
+            <div class="he-board-row he-board-row-head" role="row">
+              <div class="he-board-cell num" role="columnheader">No</div>
+              <div class="he-board-cell title" role="columnheader">Title</div>
+              <div class="he-board-cell date" role="columnheader">Date</div>
+              <div class="he-board-cell views" role="columnheader">Views</div>
+            </div>
+
+            <!-- 기존 메인 3개 + 추가 12개 (총 15개) -->
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">15</div>
+              <div class="he-board-cell title">Horizon Europe Eligibility for Research Institutes</div>
+              <div class="he-board-cell date">22 Mar 2026</div>
+              <div class="he-board-cell views">124</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">14</div>
+              <div class="he-board-cell title">Partner Search for Cluster 4 Proposal</div>
+              <div class="he-board-cell date">14 Mar 2026</div>
+              <div class="he-board-cell views">89</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">13</div>
+              <div class="he-board-cell title">Budget Rules for Personnel Costs</div>
+              <div class="he-board-cell date">04 Mar 2026</div>
+              <div class="he-board-cell views">156</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">12</div>
+              <div class="he-board-cell title">How to Validate PIC and Organisation Data in the Participant Register</div>
+              <div class="he-board-cell date">28 Feb 2026</div>
+              <div class="he-board-cell views">203</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">11</div>
+              <div class="he-board-cell title">Consortium Minimum Requirements for Collaborative Calls</div>
+              <div class="he-board-cell date">22 Feb 2026</div>
+              <div class="he-board-cell views">177</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">10</div>
+              <div class="he-board-cell title">Common Proposal Mistakes in “Impact” Section and How to Avoid Them</div>
+              <div class="he-board-cell date">18 Feb 2026</div>
+              <div class="he-board-cell views">312</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">9</div>
+              <div class="he-board-cell title">Ethics Self-Assessment: When Is It Required?</div>
+              <div class="he-board-cell date">12 Feb 2026</div>
+              <div class="he-board-cell views">98</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">8</div>
+              <div class="he-board-cell title">Eligible Subcontracting vs. Purchase of Services</div>
+              <div class="he-board-cell date">06 Feb 2026</div>
+              <div class="he-board-cell views">141</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">7</div>
+              <div class="he-board-cell title">Lump Sum Pilot Calls: Reporting Expectations in Practice</div>
+              <div class="he-board-cell date">01 Feb 2026</div>
+              <div class="he-board-cell views">220</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">6</div>
+              <div class="he-board-cell title">Do Associated Countries Count Toward the “Three Countries” Rule?</div>
+              <div class="he-board-cell date">27 Jan 2026</div>
+              <div class="he-board-cell views">164</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">5</div>
+              <div class="he-board-cell title">How to Structure Work Packages for a Cluster Proposal (Demo Template)</div>
+              <div class="he-board-cell date">21 Jan 2026</div>
+              <div class="he-board-cell views">287</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">4</div>
+              <div class="he-board-cell title">Data Management Plan: What Reviewers Usually Look For</div>
+              <div class="he-board-cell date">15 Jan 2026</div>
+              <div class="he-board-cell views">116</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">3</div>
+              <div class="he-board-cell title">Indirect Costs (25% Flat Rate): What Can Be Included?</div>
+              <div class="he-board-cell date">10 Jan 2026</div>
+              <div class="he-board-cell views">355</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">2</div>
+              <div class="he-board-cell title">Timesheets and Time Records: Minimum Requirements for Audits</div>
+              <div class="he-board-cell date">05 Jan 2026</div>
+              <div class="he-board-cell views">268</div>
+            </a>
+
+            <a class="he-board-row" role="row" href="detail.html">
+              <div class="he-board-cell num">1</div>
+              <div class="he-board-cell title">Where to Find Official Work Programme Documents and Call Templates</div>
+              <div class="he-board-cell date">02 Jan 2026</div>
+              <div class="he-board-cell views">402</div>
+            </a>
+<!-- ACTION ROW (추가 행) : ✅ 반드시 he-board-table 안 -->
+<div class="he-board-row he-board-row-action" role="row">
+  <div class="he-board-cell num"></div>
+  <div class="he-board-cell title"></div>
+  <div class="he-board-cell date"></div>
+  <div class="he-board-cell views">
+    <a class="he-board-btn" href="#">✏️ New Question</a>
+  </div>
+</div>
+</div>
+<div class="he-board-pager" aria-label="pagination">
+  <a class="he-board-page" href="#">‹</a>
+  <a class="he-board-page active" href="#">1</a>
+  <a class="he-board-page" href="#">2</a>
+  <a class="he-board-page" href="#">3</a>
+  <a class="he-board-page" href="#">›</a>
+</div>
+</section>
+
+<!-- PARTNER LOGO STRIP -->
+<section class="he-partners-strip he-section" aria-label="기관 로고">
+  <div class="he-partners-row">
+    <button class="he-logo-arrow" type="button" aria-label="previous">‹</button>
+
+    <div class="he-logo-viewport" aria-label="logo carousel">
+      <div class="he-logo-rail">
+        <span class="he-logo-label">참여기관: </span>
+
+        <a class="he-logo-item" href="http://www.kist-europe.de" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a1.svg" alt="KIST Europe">
+        </a>
+        <a class="he-logo-item" href="https://k-erc.eu/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a2.svg" alt="KERC">
+        </a>
+        <a class="he-logo-item" href="https://kiceurope.eu/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a3.svg" alt="KIC Europe">
+        </a>
+        <a class="he-logo-item" href="https://k-erc.eu/ke-qstcc/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a4.svg" alt="KE-QSTCC">
+        </a>
+        <a class="he-logo-item" href="https://kchipsrnd.org/kore/about/about_ke_srcc.html" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a5.svg" alt="KE-SRCC">
+        </a>
+        <a class="he-logo-item" href="https://kntec.se/about-kntec/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-a6.svg" alt="KNTEC">
+        </a>
+
+        <span class="he-logo-label">관리기관: </span>
+
+        <a class="he-logo-item" href="https://www.nrf.re.kr/" target="_blank" rel="noopener">
+          <img src="images/footer-logo-b1.svg" alt="NRF">
+        </a>
+        <a class="he-logo-item" href="https://www.nst.re.kr/www/index.do" target="_blank" rel="noopener">
+          <img src="images/footer-logo-b2.svg" alt="NST">
+        </a>
+
+        <span class="he-logo-label">총괄기관: </span>
+
+        <a class="he-logo-item" href="https://www.msit.go.kr/index.do" target="_blank" rel="noopener">
+          <img src="images/footer-logo-c.svg" alt="MSIT">
+        </a>
+
+      </div>
+    </div>
+
+    <button class="he-logo-arrow" type="button" aria-label="next">›</button>
+  </div>
+</section>
+<!-- /PARTNER LOGO STRIP -->
+
+</div>
+<footer class="he-footer">
+  <div class="he-footer-inner">
+
+    <div class="he-footer-left">
+      <img class="he-footer-logo" src="images/footer-main-logo.svg" alt="Footer Logo">
+
+      <div class="he-footer-copy">
+        <p>
+          Address : Campus E7 1, 66123 Saarbrücken, Germany<br>
+          Tel: +49-(0)681-9382-0 Fax: +49-(0)681-9382-109<br>
+          Copyright © 2024 KIST Europe Forschungsgesellschaft mbH. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+
+    <div class="he-footer-right">
+      <div class="he-footer-links">
+
+        <div class="he-footer-dd" data-dd="partners">
+          <button class="he-footer-dd-btn" type="button" aria-expanded="false">참여기관</button>
+          <div class="he-footer-menu" role="menu">
+            <a href="http://www.kist-europe.de" target="_blank" rel="noopener">KIST 유럽연구소</a>
+            <a href="https://k-erc.eu/" target="_blank" rel="noopener">한-EU연구협력센터(KERC)</a>
+            <a href="https://kiceurope.eu/" target="_blank" rel="noopener">KIC 유럽</a>
+            <a href="https://k-erc.eu/ke-qstcc/" target="_blank" rel="noopener">한-유럽 양자과학기술협력센터(KE-QSTCC)</a>
+            <a href="https://kchipsrnd.org/kore/about/about_ke_srcc.html" target="_blank" rel="noopener">한-EU 반도체 R&amp;D 협력센터(KE-SRCC)</a>
+            <a href="https://kntec.se/about-kntec/" target="_blank" rel="noopener">북유럽과학기술협력센터(KNTEC)</a>
+          </div>
+        </div>
+
+        <div class="he-footer-dd" data-dd="managers">
+          <button class="he-footer-dd-btn" type="button" aria-expanded="false">관리기관</button>
+          <div class="he-footer-menu" role="menu">
+            <a href="https://www.nrf.re.kr/" target="_blank" rel="noopener">한국연구재단 (NRF)</a>
+            <a href="https://www.nst.re.kr/www/index.do" target="_blank" rel="noopener">국가과학기술연구회 (NST)</a>
+          </div>
+        </div>
+
+        <div class="he-footer-dd" data-dd="msit">
+          <button class="he-footer-dd-btn" type="button" aria-expanded="false">총괄기관</button>
+          <div class="he-footer-menu" role="menu">
+            <a href="https://www.msit.go.kr/index.do" target="_blank" rel="noopener">과학기술정보통신부(MSIT)</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</footer>
+<!-- AI ASSIST FLOATING -->
+<button class="he-ai-fab" type="button" aria-label="AI Assist">
+  <img src="images/left_ai_icon.png" alt="AI Assist">
+</button>
+
+<div class="he-ai-overlay" aria-hidden="true">
+  <div class="he-ai-panel" role="dialog" aria-modal="true" aria-label="AI Assist Consent">
+    <div class="he-ai-title">AI-Assist</div>
+    <div class="he-ai-subtitle">Consent to Statistics Tracking and Terms of Use</div>
+    <div class="he-ai-body">
+      To improve our chatbot, we collect usage data, including IP addresses. Data processing is carried out via Microsoft Azure in data centers located within the EU. The data is used exclusively for statistical purposes and is deleted after 90 days. By using the AI search, you agree to our Terms of Use.
+    </div>
+
+    <div class="he-ai-actions">
+      <a class="he-ai-btn he-ai-accept" href="#">Accept</a>
+      <button class="he-ai-btn he-ai-decline" type="button">Decline</button>
+    </div>
+  </div>
+</div>
+<!-- /AI ASSIST FLOATING -->
+
+</div>
+
+<script>
+  const btn = document.querySelector('.he-menu-btn');
+  const nav = document.querySelector('.he-nav-mobile');
+
+  const closeMobileNav = () => {
+    nav.classList.remove('active');
+    btn.classList.remove('active');
+    btn.textContent = '☰';
+  };
+
+  btn.addEventListener('click', () => {
+    const willOpen = !nav.classList.contains('active');
+    if(willOpen){
+      nav.classList.add('active');
+      btn.classList.add('active');
+      btn.textContent = '✕';
+    }else{
+      closeMobileNav();
+    }
+  });
+
+  // 가로/세로 회전, 리사이즈 시(특히 모바일) 열린 상태 강제 종료
+  window.addEventListener('resize', closeMobileNav);
+  window.addEventListener('orientationchange', closeMobileNav);
+
+  // 오버레이 바깥 클릭 시 닫기
+  document.addEventListener('click', (e) => {
+    if(!nav.classList.contains('active')) return;
+    if(e.target === btn || btn.contains(e.target)) return;
+    if(nav.contains(e.target)) return;
+    closeMobileNav();
+  });
+</script>
+
+<script>
+  document.querySelectorAll('.he-faq-item').forEach((item)=>{
+    const qrow = item.querySelector('.he-faq-qrow');
+    const btn  = item.querySelector('.he-faq-btn');
+    const aBox = item.querySelector('.he-faq-a');
+    const icon = item.querySelector('.he-faq-icon');
+
+    const toggle = ()=>{
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      aBox.setAttribute('data-collapsed', isOpen ? 'true' : 'false');
+      icon.textContent = isOpen ? '▼' : '▲';
+    };
+
+    qrow.addEventListener('click', toggle);
+  });
+</script>
+<script>
+  (() => {
+    const dds = Array.from(document.querySelectorAll('.he-footer-dd'));
+
+    const closeAll = () => {
+      dds.forEach(dd => {
+        dd.classList.remove('open');
+        const btn = dd.querySelector('.he-footer-dd-btn');
+        if(btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    };
+
+    dds.forEach(dd => {
+      const btn = dd.querySelector('.he-footer-dd-btn');
+      if(!btn) return;
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dd.classList.contains('open');
+        closeAll();
+        if(!isOpen){
+          dd.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    document.addEventListener('click', closeAll);
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeAll();
+    });
+  })();
+</script>
+
+<script>
+  (() => {
+    const viewport = document.querySelector('.he-logo-viewport');
+    const rail = document.querySelector('.he-logo-rail');
+    const prevBtn = document.querySelector('.he-logo-arrow[aria-label="previous"]');
+    const nextBtn = document.querySelector('.he-logo-arrow[aria-label="next"]');
+
+    if(!viewport || !rail) return;
+
+    const clone = rail.cloneNode(true);
+
+    const wrap = document.createElement('div');
+    wrap.className = 'he-logo-wrap';
+    wrap.style.display = 'flex';
+    wrap.style.alignItems = 'center';
+    wrap.style.gap = '38px';
+    wrap.style.width = 'max-content';
+
+    wrap.appendChild(rail);
+    wrap.appendChild(clone);
+
+    viewport.innerHTML = '';
+    viewport.appendChild(wrap);
+
+    let speed = 0.4;
+    let paused = false;
+    let position = 0;
+
+    function animate(){
+      if(!paused){
+        position += speed;
+        if(position >= wrap.scrollWidth / 2){
+          position = 0;
+        }
+        wrap.style.transform = `translateX(-${position}px)`;
+      }
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+
+    viewport.addEventListener('mouseenter', () => paused = true);
+    viewport.addEventListener('mouseleave', () => paused = false);
+
+    if(prevBtn){
+      prevBtn.addEventListener('click', () => {
+        position -= 250;
+      });
+    }
+
+    if(nextBtn){
+      nextBtn.addEventListener('click', () => {
+        position += 250;
+      });
+    }
+  })();
+</script>
+<script>
+(() => {
+  const contentWrap = document.querySelector('.content-wrap');
+  const fab = document.querySelector('.he-ai-fab');
+  const overlay = document.querySelector('.he-ai-overlay');
+  const decline = document.querySelector('.he-ai-decline');
+
+  if(!contentWrap || !fab || !overlay || !decline) return;
+
+  const positionFab = () => {
+    const rect = contentWrap.getBoundingClientRect();
+    const rightGap = Math.max(10, window.innerWidth - rect.right);
+    const offset = window.innerWidth <= 768 ? 1 : 15;
+    fab.style.right = (rightGap - offset) + 'px';
+  };
+
+  const openOverlay = () => {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeOverlay = () => {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  positionFab();
+  window.addEventListener('resize', positionFab);
+
+  fab.addEventListener('click', openOverlay);
+  decline.addEventListener('click', closeOverlay);
+
+  overlay.addEventListener('click', (e) => {
+    if(e.target === overlay) closeOverlay();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeOverlay();
+  });
+})();
+</script>
+
+</body>
+</html>
