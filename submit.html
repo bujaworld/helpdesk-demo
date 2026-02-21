@@ -1302,7 +1302,7 @@
   .he-board-head{ align-items:flex-start; flex-direction:column; }
   .he-board-search{ width:100%; min-width:unset; }
 
-  /* 본문 행만 2줄 레이아웃 */
+  /* 모바일: 본문 행만 2줄 레이아웃 (No + Title / 아래줄 meta) */
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
@@ -1327,10 +1327,25 @@
     padding:16px 20px;
   }
 
-  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{ grid-area:num; }
-  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{ grid-area:title; font-weight:800; }
-  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{ grid-area:meta; }
-  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.views{ grid-area:meta; justify-self:end; }
+  /* 핵심: No가 무조건 보이도록 강제 */
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{
+    grid-area:num;
+    display:block !important;
+  }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{
+    grid-area:title;
+    font-weight:800;
+    display:block;
+  }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{
+    grid-area:meta;
+    display:inline-block;
+  }
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.views{
+    grid-area:meta;
+    justify-self:end;
+    display:inline-block;
+  }
 
   /* 헤더/추가행은 PC처럼 1줄 유지 */
   .he-board-row-head,
@@ -1341,15 +1356,16 @@
   }
 }
 
+/* 추가행(하단 New Question 줄) */
 .he-board-row-action{
   background:#f7f8fd;
-  min-height:90px;       /* 추가 행도 90 */
+  min-height:90px;
 }
 .he-board-row-action .he-board-cell.views{
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  padding-right:4px; /* 버튼이 테두리에 붙어 보이는 느낌 제거 */
+  padding-right:4px;
 }
 </style>
 
