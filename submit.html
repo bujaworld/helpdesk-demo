@@ -1324,28 +1324,36 @@
 
   /* 모바일 리스트 행 상하 여백 */
   .he-board-row{
-    padding:16px 20px;
+    padding:22px 20px;
   }
 
-  /* 핵심: No가 무조건 보이도록 강제 */
+  /* 핵심: grid-template-areas를 썼으면, 각 셀에 grid-area를 반드시 매핑 */
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{
-    display:block !important;
+    grid-area:num;
+    display:flex !important;
+    align-items:flex-start;
     visibility:visible !important;
     opacity:1 !important;
   }
+
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{
+    grid-area:title;
     display:block !important;
     visibility:visible !important;
     opacity:1 !important;
+    font-weight:800;
+    min-width:0;
   }
+
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{
     grid-area:meta;
     display:inline-block;
   }
+
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.views{
     grid-area:meta;
-    justify-self:end;
     display:inline-block;
+    justify-self:end;
   }
 
   /* 헤더/추가행은 PC처럼 1줄 유지 */
