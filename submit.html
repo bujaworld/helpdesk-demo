@@ -1306,9 +1306,10 @@
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
-    "num title"
-    "num meta";
+      "num title"
+      "num meta";
     row-gap:6px;
+  }
 
   /* 모바일 헤더: Title만 표시 */
   .he-board-row-head .he-board-cell.num,
@@ -1334,8 +1335,8 @@
   /* 헤더/추가행은 PC처럼 1줄 유지 */
   .he-board-row-head,
   .he-board-row-action{
-    background:#fff;
-    min-height:80px;
+    background:#f7f8fd;
+    min-height:90px;
     padding:0 30px;
   }
 }
