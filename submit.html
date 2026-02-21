@@ -318,7 +318,7 @@
 @media(max-width:768px){
   /* layout */
   .he-header{padding:18px 20px 8px}
-  .he-hero-inner{grid-template-columns:1fr; padding:12px 20px 0; gap:14px;}
+  .he-hero-inner{grid-template-columns:1fr; padding:12px 20px -10px; gap:14px;}
   .he-title{font-size:42px}
   .he-cards{grid-template-columns:1fr}
 
@@ -334,7 +334,9 @@
   .he-subtitle{margin:10px 0 12px;}
 
   /* 이미지 위/아래 여백 줄이기 */
-  .he-hero-img{bottom:-14px; width:min(220px,100%);}
+  .he-hero-img{bottom:-6px; width:min(220px,100%);}
+
+  .top-wrap{ margin-bottom:16px; }  /* 필요하면 10px까지 */
 }
 
 /* RESOURCES (자료실) */
