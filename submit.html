@@ -43,13 +43,22 @@
   }
 }
 
+/* 기존 .top-wrap 통째로 교체 */
 .top-wrap{
-  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
-  border-radius:30px;          /* 하단 좌우 둥글게 포함 */
-  overflow:hidden;           /* 이미지 걸치게 */
+  background:transparent;
+  border-radius:0;
+  overflow:visible;
   position:relative;
   z-index:1;
-  margin-bottom:80px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
+  margin-bottom:80px;
+}
+
+/* 새로 추가: 라운딩/그라데이션/클리핑은 여기서 처리 */
+.top-clip{
+  background:linear-gradient(to bottom,#f5f8fd,#e6ebf3);
+  border-radius:30px;
+  overflow:hidden;      /* 하단 좌우 둥글게 “반드시” 보이게 */
+  position:relative;
 }
 
 
@@ -1362,7 +1371,7 @@
     <div class="content-wrap">
 
       <div class="top-wrap">
-
+        <div class="top-clip">
         <header class="he-header">
           <a class="he-brand" href="#">
             <img class="he-brand-img" src="images/brand-logo.svg">
@@ -1595,7 +1604,7 @@
   </div>
 </section>
 <!-- /PARTNER LOGO STRIP -->
-
+</div> 
 </div>
 <footer class="he-footer">
   <div class="he-footer-inner">
