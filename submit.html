@@ -1304,7 +1304,7 @@
 
   /* 모바일: 본문 행만 2줄 레이아웃 (No + Title / 아래줄 meta) */
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
-    grid-template-columns:60px 1fr;
+    grid-template-columns:60px minmax(0,1fr);
     grid-template-areas:
       "num title"
       "num meta";
@@ -1324,7 +1324,7 @@
 
   /* 모바일 리스트 행 상하 여백 */
   .he-board-row{
-    padding:22px 20px;
+    padding:22px 12px;   /* 좌우 패딩 줄이기 */
   }
 
   /* 핵심: grid-template-areas를 썼으면, 각 셀에 grid-area를 반드시 매핑 */
