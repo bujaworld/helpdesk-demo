@@ -1302,66 +1302,57 @@
   .he-board-head{ align-items:flex-start; flex-direction:column; }
   .he-board-search{ width:100%; min-width:unset; }
 
-  /* 모바일: 본문 행만 2줄 레이아웃 (No + Title / 아래줄 meta) */
-  .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
-    grid-template-columns:60px minmax(0,1fr);
-    grid-template-areas:
-      "num title"
-      "num meta";
-    row-gap:6px;
+  /* 모바일: 헤더는 No + Title만 */
+  .he-board-row-head{
+    grid-template-columns:60px 1fr;
   }
-
-  /* 모바일 헤더: Title만 표시 */
-  .he-board-row-head .he-board-cell.num,
   .he-board-row-head .he-board-cell.date,
   .he-board-row-head .he-board-cell.views{
     display:none;
   }
 
-  .he-board-row-head{
-    grid-template-columns:1fr;
+  /* 모바일: 본문 행은 2줄 (No+Title / No+meta) */
+  .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
+    grid-template-columns:60px 1fr;
+    grid-template-areas:
+      "num title"
+      "num meta";
+    row-gap:6px;
+    padding:16px 20px;
   }
 
-  /* 모바일 리스트 행 상하 여백 */
-  .he-board-row{
-    padding:22px 12px;   /* 좌우 패딩 줄이기 */
-  }
-
-  /* 핵심: grid-template-areas를 썼으면, 각 셀에 grid-area를 반드시 매핑 */
+  /* 핵심: grid-template-areas를 썼으면 grid-area 지정이 반드시 필요 */
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.num{
     grid-area:num;
-    display:flex !important;
-    align-items:flex-start;
-    visibility:visible !important;
-    opacity:1 !important;
+    display:block;
+    visibility:visible;
+    opacity:1;
+    align-self:start; /* 위에 붙게 */
   }
 
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.title{
     grid-area:title;
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
     font-weight:800;
     min-width:0;
   }
 
+  /* Date/Views는 아래줄 meta로 묶어서 표시 */
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.date{
     grid-area:meta;
     display:inline-block;
   }
-
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action) .he-board-cell.views{
     grid-area:meta;
     display:inline-block;
     justify-self:end;
   }
 
-  /* 헤더/추가행은 PC처럼 1줄 유지 */
+  /* 헤더/추가행은 1줄 유지 */
   .he-board-row-head,
   .he-board-row-action{
     background:#f7f8fd;
     min-height:90px;
-    padding:0 30px;
+    padding:0 20px;
   }
 }
 
