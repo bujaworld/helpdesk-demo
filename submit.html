@@ -234,6 +234,7 @@
 }
 
 /* 모바일 오버레이 nav (PC에서는 숨김) */
+/* 모바일 오버레이 nav (PC에서는 숨김) */
 .he-nav-mobile{
   display:none;
   position:fixed;
@@ -324,7 +325,21 @@
     padding:18px 20px 0;                            /* 좌우 20px 유지 */
     align-items:stretch;
   }
-  .he-title{font-size:30px}
+  .he-title{
+    font-size:28px;
+    letter-spacing:-0.6px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .he-subtitle{
+    font-size:13px;
+    margin:10px 0 12px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
   .he-cards{grid-template-columns:1fr}
 
   /* nav: PC 메뉴 숨김 + 햄버거/오버레이 사용 */
@@ -338,17 +353,15 @@
     margin-right:-6px;         /* 오른쪽이 넓어 보이는 현상 보정 */
   }
   .he-nav-mobile{display:flex;}
-  .he-subtitle{font-size:14px; margin:10px 0 12px;}                 /* 두 줄 유도 줄이기 */
 
   /* 로고 70% */
   .he-brand-img{height:13px; width:auto;}
 
   /* 이미지 위/아래 여백 줄이기 */
   .he-hero-media{justify-content:flex-start;}       /* 이미지 좌측 정렬 */
-  .he-hero-img{bottom:0; width:min(240px,100%);}
+  .he-hero-img{bottom:-14px; width:min(240px,100%);}
 
   .top-wrap{ margin-bottom:12px; }  /* 필요하면 10px까지 */
-  .he-board{ padding-top:22px; }     /* 기존 50px이면 22px로 */
 }
 
 /* RESOURCES (자료실) */
@@ -710,15 +723,7 @@
 /* 모바일(터치기기)에서는 가로/세로 상관없이 항상 햄버거 모드 유지 */
 @media (hover: none) and (pointer: coarse){
   .he-nav{display:none !important;}
-.he-menu-btn{
-  padding:0;
-  width:40px;
-  height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-right:0;   /* -6px 삭제 */
-}
+  .he-menu-btn{display:flex !important;}
   .he-nav-mobile{display:flex !important;}
 }
 
@@ -1658,7 +1663,7 @@
   decline.addEventListener('click', closeOverlay);
 
   overlay.addEventListener('click', (e) => {
-    if(e.target === overlay) closeOverlay;
+    if(e.target === overlay) closeOverlay();
   });
 
   document.addEventListener('keydown', (e) => {

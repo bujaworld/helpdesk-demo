@@ -1827,7 +1827,7 @@
   decline.addEventListener('click', closeOverlay);
 
   overlay.addEventListener('click', (e) => {
-    if(e.target === overlay) closeOverlay;
+    if(e.target === overlay) closeOverlay();
   });
 
   document.addEventListener('keydown', (e) => {
