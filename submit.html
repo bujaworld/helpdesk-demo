@@ -332,9 +332,9 @@
   .he-title{
     font-size:28px;
     letter-spacing:-0.6px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
   }
 
   .he-subtitle{
@@ -1115,8 +1115,8 @@
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
-      "num title"
-      "num meta";
+    "num title"
+    "num meta";
     row-gap:6px;
     padding:16px 20px;
   }
@@ -1192,14 +1192,14 @@
             <a href="#">FAQ</a>
             <a href="#">주요 행사</a>
           </nav>
-<nav class="he-nav-mobile" aria-label="mobile menu">
-  <div class="he-nav-mobile-panel">
-    <a class="he-mnav-btn" href="#">질문하기</a>
-    <a class="he-mnav-btn" href="#">자료실</a>
-    <a class="he-mnav-btn" href="#">FAQ</a>
-    <a class="he-mnav-btn" href="#">주요 행사</a>
-  </div>
-</nav>
+          <nav class="he-nav-mobile" aria-label="mobile menu">
+            <div class="he-nav-mobile-panel">
+              <a class="he-mnav-btn" href="#">질문하기</a>
+              <a class="he-mnav-btn" href="#">자료실</a>
+              <a class="he-mnav-btn" href="#">FAQ</a>
+              <a class="he-mnav-btn" href="#">주요 행사</a>
+            </div>
+          </nav>
         </header>
 
         <section class="he-hero">
@@ -1222,131 +1222,131 @@
       </div>
 
 
-        <section class="he-section he-board" aria-label="question board">
-          <div class="he-board-head">
-            <div class="he-board-title">Recent Questions</div>
-            <div class="he-board-actions">
-              <div class="he-board-search">
-                <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
-                <input class="he-board-input" type="search" placeholder="Search by keyword">
-              </div>
-              <a class="he-board-btn" href="#">✏️ New Question</a>
+      <section class="he-section he-board" aria-label="question board">
+        <div class="he-board-head">
+          <div class="he-board-title">Recent Questions</div>
+          <div class="he-board-actions">
+            <div class="he-board-search">
+              <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
+              <input class="he-board-input" type="search" placeholder="Search by keyword">
             </div>
+            <a class="he-board-btn" href="#">✏️ New Question</a>
+          </div>
+        </div>
+
+        <div class="he-board-table" role="table" aria-label="questions">
+          <div class="he-board-row he-board-row-head" role="row">
+            <div class="he-board-cell num" role="columnheader">No</div>
+            <div class="he-board-cell title" role="columnheader">Title</div>
+            <div class="he-board-cell date" role="columnheader">Date</div>
+            <div class="he-board-cell views" role="columnheader">Views</div>
           </div>
 
-          <div class="he-board-table" role="table" aria-label="questions">
-            <div class="he-board-row he-board-row-head" role="row">
-              <div class="he-board-cell num" role="columnheader">No</div>
-              <div class="he-board-cell title" role="columnheader">Title</div>
-              <div class="he-board-cell date" role="columnheader">Date</div>
-              <div class="he-board-cell views" role="columnheader">Views</div>
-            </div>
+          <!-- 기존 메인 3개 + 추가 12개 (총 15개) -->
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">15</div>
+            <div class="he-board-cell title">Horizon Europe Eligibility for Research Institutes</div>
+            <div class="he-board-cell date">22 Mar 2026</div>
+            <div class="he-board-cell views">124</div>
+          </a>
 
-            <!-- 기존 메인 3개 + 추가 12개 (총 15개) -->
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">15</div>
-              <div class="he-board-cell title">Horizon Europe Eligibility for Research Institutes</div>
-              <div class="he-board-cell date">22 Mar 2026</div>
-              <div class="he-board-cell views">124</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">14</div>
+            <div class="he-board-cell title">Partner Search for Cluster 4 Proposal</div>
+            <div class="he-board-cell date">14 Mar 2026</div>
+            <div class="he-board-cell views">89</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">14</div>
-              <div class="he-board-cell title">Partner Search for Cluster 4 Proposal</div>
-              <div class="he-board-cell date">14 Mar 2026</div>
-              <div class="he-board-cell views">89</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">13</div>
+            <div class="he-board-cell title">Budget Rules for Personnel Costs</div>
+            <div class="he-board-cell date">04 Mar 2026</div>
+            <div class="he-board-cell views">156</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">13</div>
-              <div class="he-board-cell title">Budget Rules for Personnel Costs</div>
-              <div class="he-board-cell date">04 Mar 2026</div>
-              <div class="he-board-cell views">156</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">12</div>
+            <div class="he-board-cell title">How to Validate PIC and Organisation Data in the Participant Register</div>
+            <div class="he-board-cell date">28 Feb 2026</div>
+            <div class="he-board-cell views">203</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">12</div>
-              <div class="he-board-cell title">How to Validate PIC and Organisation Data in the Participant Register</div>
-              <div class="he-board-cell date">28 Feb 2026</div>
-              <div class="he-board-cell views">203</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">11</div>
+            <div class="he-board-cell title">Consortium Minimum Requirements for Collaborative Calls</div>
+            <div class="he-board-cell date">22 Feb 2026</div>
+            <div class="he-board-cell views">177</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">11</div>
-              <div class="he-board-cell title">Consortium Minimum Requirements for Collaborative Calls</div>
-              <div class="he-board-cell date">22 Feb 2026</div>
-              <div class="he-board-cell views">177</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">10</div>
+            <div class="he-board-cell title">Common Proposal Mistakes in “Impact” Section and How to Avoid Them</div>
+            <div class="he-board-cell date">18 Feb 2026</div>
+            <div class="he-board-cell views">312</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">10</div>
-              <div class="he-board-cell title">Common Proposal Mistakes in “Impact” Section and How to Avoid Them</div>
-              <div class="he-board-cell date">18 Feb 2026</div>
-              <div class="he-board-cell views">312</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">9</div>
+            <div class="he-board-cell title">Ethics Self-Assessment: When Is It Required?</div>
+            <div class="he-board-cell date">12 Feb 2026</div>
+            <div class="he-board-cell views">98</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">9</div>
-              <div class="he-board-cell title">Ethics Self-Assessment: When Is It Required?</div>
-              <div class="he-board-cell date">12 Feb 2026</div>
-              <div class="he-board-cell views">98</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">8</div>
+            <div class="he-board-cell title">Eligible Subcontracting vs. Purchase of Services</div>
+            <div class="he-board-cell date">06 Feb 2026</div>
+            <div class="he-board-cell views">141</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">8</div>
-              <div class="he-board-cell title">Eligible Subcontracting vs. Purchase of Services</div>
-              <div class="he-board-cell date">06 Feb 2026</div>
-              <div class="he-board-cell views">141</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">7</div>
+            <div class="he-board-cell title">Lump Sum Pilot Calls: Reporting Expectations in Practice</div>
+            <div class="he-board-cell date">01 Feb 2026</div>
+            <div class="he-board-cell views">220</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">7</div>
-              <div class="he-board-cell title">Lump Sum Pilot Calls: Reporting Expectations in Practice</div>
-              <div class="he-board-cell date">01 Feb 2026</div>
-              <div class="he-board-cell views">220</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">6</div>
+            <div class="he-board-cell title">Do Associated Countries Count Toward the “Three Countries” Rule?</div>
+            <div class="he-board-cell date">27 Jan 2026</div>
+            <div class="he-board-cell views">164</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">6</div>
-              <div class="he-board-cell title">Do Associated Countries Count Toward the “Three Countries” Rule?</div>
-              <div class="he-board-cell date">27 Jan 2026</div>
-              <div class="he-board-cell views">164</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">5</div>
+            <div class="he-board-cell title">How to Structure Work Packages for a Cluster Proposal (Demo Template)</div>
+            <div class="he-board-cell date">21 Jan 2026</div>
+            <div class="he-board-cell views">287</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">5</div>
-              <div class="he-board-cell title">How to Structure Work Packages for a Cluster Proposal (Demo Template)</div>
-              <div class="he-board-cell date">21 Jan 2026</div>
-              <div class="he-board-cell views">287</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">4</div>
+            <div class="he-board-cell title">Data Management Plan: What Reviewers Usually Look For</div>
+            <div class="he-board-cell date">15 Jan 2026</div>
+            <div class="he-board-cell views">116</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">4</div>
-              <div class="he-board-cell title">Data Management Plan: What Reviewers Usually Look For</div>
-              <div class="he-board-cell date">15 Jan 2026</div>
-              <div class="he-board-cell views">116</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">3</div>
+            <div class="he-board-cell title">Indirect Costs (25% Flat Rate): What Can Be Included?</div>
+            <div class="he-board-cell date">10 Jan 2026</div>
+            <div class="he-board-cell views">355</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">3</div>
-              <div class="he-board-cell title">Indirect Costs (25% Flat Rate): What Can Be Included?</div>
-              <div class="he-board-cell date">10 Jan 2026</div>
-              <div class="he-board-cell views">355</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">2</div>
+            <div class="he-board-cell title">Timesheets and Time Records: Minimum Requirements for Audits</div>
+            <div class="he-board-cell date">05 Jan 2026</div>
+            <div class="he-board-cell views">268</div>
+          </a>
 
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">2</div>
-              <div class="he-board-cell title">Timesheets and Time Records: Minimum Requirements for Audits</div>
-              <div class="he-board-cell date">05 Jan 2026</div>
-              <div class="he-board-cell views">268</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">1</div>
-              <div class="he-board-cell title">Where to Find Official Work Programme Documents and Call Templates</div>
-              <div class="he-board-cell date">02 Jan 2026</div>
-              <div class="he-board-cell views">402</div>
-            </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">1</div>
+            <div class="he-board-cell title">Where to Find Official Work Programme Documents and Call Templates</div>
+            <div class="he-board-cell date">02 Jan 2026</div>
+            <div class="he-board-cell views">402</div>
+          </a>
 <!-- ACTION ROW (추가 행) : ✅ 반드시 he-board-table 안 -->
 <div class="he-board-row he-board-row-action" role="row">
   <div class="he-board-cell num"></div>
@@ -1634,47 +1634,47 @@
   })();
 </script>
 <script>
-(() => {
-  const contentWrap = document.querySelector('.content-wrap');
-  const fab = document.querySelector('.he-ai-fab');
-  const overlay = document.querySelector('.he-ai-overlay');
-  const decline = document.querySelector('.he-ai-decline');
+  (() => {
+    const contentWrap = document.querySelector('.content-wrap');
+    const fab = document.querySelector('.he-ai-fab');
+    const overlay = document.querySelector('.he-ai-overlay');
+    const decline = document.querySelector('.he-ai-decline');
 
-  if(!contentWrap || !fab || !overlay || !decline) return;
+    if(!contentWrap || !fab || !overlay || !decline) return;
 
-  const positionFab = () => {
-    const rect = contentWrap.getBoundingClientRect();
-    const rightGap = Math.max(10, window.innerWidth - rect.right);
-    const offset = window.innerWidth <= 768 ? 1 : 15;
-    fab.style.right = (rightGap - offset) + 'px';
-  };
+    const positionFab = () => {
+      const rect = contentWrap.getBoundingClientRect();
+      const rightGap = Math.max(10, window.innerWidth - rect.right);
+      const offset = window.innerWidth <= 768 ? 1 : 15;
+      fab.style.right = (rightGap - offset) + 'px';
+    };
 
-  const openOverlay = () => {
-    overlay.classList.add('active');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
+    const openOverlay = () => {
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
 
-  const closeOverlay = () => {
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
+    const closeOverlay = () => {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
 
-  positionFab();
-  window.addEventListener('resize', positionFab);
+    positionFab();
+    window.addEventListener('resize', positionFab);
 
-  fab.addEventListener('click', openOverlay);
-  decline.addEventListener('click', closeOverlay);
+    fab.addEventListener('click', openOverlay);
+    decline.addEventListener('click', closeOverlay);
 
-  overlay.addEventListener('click', (e) => {
-    if(e.target === overlay) closeOverlay();
-  });
+    overlay.addEventListener('click', (e) => {
+      if(e.target === overlay) closeOverlay();
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') closeOverlay();
-  });
-})();
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeOverlay();
+    });
+  })();
 </script>
 
 </body>
