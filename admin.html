@@ -80,6 +80,31 @@ body {
   margin-top: 10px;
   font-size: 24px;
 }
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.recent-table th,
+.recent-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.recent-table th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+.recent-table tr:last-child td {
+  border-bottom: none;
+}
 </style>
 </head>
 <body>
@@ -125,6 +150,57 @@ body {
 </div>
   </div>
 </div>
+
+<h3 style="margin-top:40px;">최근 질문</h3>
+
+<table class="recent-table">
+  <thead>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>접수일</th>
+      <th>상태</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>128</td>
+      <td>Horizon Europe 파트너 조건 문의</td>
+      <td>김OO</td>
+      <td>2026-02-22</td>
+      <td>답변 대기</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>예산 작성 가이드 관련 질문</td>
+      <td>이OO</td>
+      <td>2026-02-22</td>
+      <td>답변 완료</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Grant Agreement 체결 절차 문의</td>
+      <td>박OO</td>
+      <td>2026-02-21</td>
+      <td>답변 완료</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>파트너 매칭 지원 여부</td>
+      <td>정OO</td>
+      <td>2026-02-20</td>
+      <td>답변 대기</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>평가 기준 관련 문의</td>
+      <td>최OO</td>
+      <td>2026-02-19</td>
+      <td>답변 완료</td>
+    </tr>
+  </tbody>
+</table>
 
 </body>
 </html>
