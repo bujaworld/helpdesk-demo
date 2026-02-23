@@ -318,6 +318,7 @@
 @media(max-width:768px){
   /* layout */
   .he-header{padding:30px 20px 15px}
+  .he-hero-media{ justify-content:center; }
   .he-hero-inner{grid-template-columns:1fr; padding:30px 20px 0;}
   .he-title{font-size:42px}
   .he-cards{grid-template-columns:1fr}
@@ -329,6 +330,11 @@
 
   /* 로고 70% */
   .he-brand-img{height:13px; width:auto;}
+  .he-hero-img{
+    width:min(380px, 100%);  /* 모바일 크기 */
+    bottom:-18px;            /* 필요시 조절 */
+    margin:0 auto;           /* 가로 중앙 */
+  }
 }
 
 /* RESOURCES (자료실) */
@@ -1272,7 +1278,7 @@
             </p>
             <div class="he-card-foot">
               <div class="he-views">124 views</div>
-              <a class="he-read" href="detail.html">Read ›</a>
+              <a class="he-read" href="submit.html">Read ›</a>
             </div>
           </article>
 
@@ -1284,7 +1290,7 @@
             </p>
             <div class="he-card-foot">
               <div class="he-views">89 views</div>
-              <a class="he-read" href="detail.html">Read ›</a>
+              <a class="he-read" href="submit.html">Read ›</a>
             </div>
           </article>
 
@@ -1296,7 +1302,7 @@
             </p>
             <div class="he-card-foot">
               <div class="he-views">156 views</div>
-              <a class="he-read" href="detail.html">Read ›</a>
+              <a class="he-read" href="submit.html">Read ›</a>
             </div>
           </article>
 
