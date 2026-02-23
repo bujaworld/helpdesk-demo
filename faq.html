@@ -1115,8 +1115,8 @@
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
-      "num title"
-      "num meta";
+    "num title"
+    "num meta";
     row-gap:6px;
     padding:16px 20px;
   }
@@ -1330,14 +1330,14 @@
             <a href="#" class="active">FAQ</a>
             <a href="#">주요 행사</a>
           </nav>
-<nav class="he-nav-mobile" aria-label="mobile menu">
-  <div class="he-nav-mobile-panel">
-    <a class="he-mnav-btn" href="#">질문하기</a>
-    <a class="he-mnav-btn" href="#">자료실</a>
-    <a class="he-mnav-btn" href="#">FAQ</a>
-    <a class="he-mnav-btn" href="#">주요 행사</a>
-  </div>
-</nav>
+          <nav class="he-nav-mobile" aria-label="mobile menu">
+            <div class="he-nav-mobile-panel">
+              <a class="he-mnav-btn" href="#">질문하기</a>
+              <a class="he-mnav-btn" href="#">자료실</a>
+              <a class="he-mnav-btn" href="#">FAQ</a>
+              <a class="he-mnav-btn" href="#">주요 행사</a>
+            </div>
+          </nav>
         </header>
 
         <section class="he-hero">
@@ -1360,298 +1360,285 @@
       </div>
 
 
-<section class="he-faq he-section" id="faq">
+      <section class="he-faq he-section" id="faq">
+        <div class="he-faq-list">
 
-  <div class="he-faq-head">
-    <div class="he-faq-head-text">
-      <h2 class="he-faq-title">Frequently Asked Questions</h2>
-      <p class="he-faq-sub">Quick answers to common inquiries about Horizon Europe participation and funding.</p>
-    </div>
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  64. What are the eligibility criteria for research institutes applying to Horizon Europe calls?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
 
-    <!-- 나중에 실제 링크로 바꾸기 쉽도록 유지 -->
-    <a class="he-faq-page-btn" href="#">
-      Go to FAQ Page
-    </a>
-  </div>
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Research institutes must comply with the general eligibility rules defined in the Horizon Europe Work Programme. In most collaborative calls, at least three independent legal entities from three different EU Member States or Associated Countries are required. Research institutes may participate either as coordinators or partners, depending on the specific call conditions.
+              </p>
+              <p>
+                Applicants must ensure that their organisation is properly registered in the EU Participant Register and holds a valid PIC (Participant Identification Code). Financial and operational capacity may be assessed during the evaluation phase. In addition, certain calls may impose specific eligibility requirements such as technology readiness level (TRL), thematic scope, or geographic balance.
+              </p>
+              <p>
+                For detailed legal and financial eligibility conditions, please refer to the official Horizon Europe Work Programme documentation.
+              </p>
 
-  <div class="he-faq-list">
+              <a class="he-faq-link" href="#">Download Eligibility Guidelines (PDF)</a>
+            </div>
+          </article>
 
-    <article class="he-faq-item">
-      <div class="he-faq-qrow">
-        <div class="he-faq-left">
-          <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-          <h3 class="he-faq-qtext">
-            64. What are the eligibility criteria for research institutes applying to Horizon Europe calls?
-          </h3>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  63. How should personnel costs be calculated under Horizon Europe funding rules?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Personnel costs must be calculated in accordance with the rules outlined in the Annotated Grant Agreement. Beneficiaries must use their usual accounting practices to determine hourly rates, ensuring that costs are actual, recorded in the beneficiary’s accounts, and incurred during the project implementation period.
+              </p>
+              <p>
+                The calculation typically involves dividing annual personnel costs by the number of productive hours per year. Only costs directly linked to project activities are eligible. Overtime payments, bonuses, and additional allowances may be eligible if they are part of the organisation’s standard remuneration policy.
+              </p>
+              <p>
+                All personnel costs must be properly documented and supported by time records. During audits, beneficiaries may be required to provide payroll records, employment contracts, and timesheets.
+              </p>
+
+              <a class="he-faq-link" href="#">View Financial Rules Document</a>
+            </div>
+          </article>
+
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  3. What documents are required before submitting a collaborative proposal?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Before submission, the coordinating institution must ensure that all consortium members have completed their legal registration and validated their Participant Identification Code (PIC). A draft Consortium Agreement is strongly recommended prior to submission, even though it is formally signed after grant award.
+              </p>
+              <p>
+                The proposal itself must include the administrative forms (Part A) and the technical annex (Part B), structured according to the call template. This includes excellence, impact, and implementation sections. Ethical self-assessment, data management planning, and gender dimension considerations may also be required depending on the call.
+              </p>
+              <p>
+                It is advisable to review the official proposal template and submission guidelines well in advance of the deadline to avoid technical or compliance issues.
+              </p>
+
+              <a class="he-faq-link" href="#">Download Proposal Template</a>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  62. What is the difference between lump sum and actual cost funding models?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Under the lump sum model, beneficiaries receive a fixed amount defined in the Grant Agreement for completing specific work packages. Payments are linked to the achievement of deliverables rather than the actual costs incurred.
+              </p>
+              <p>
+                In contrast, the actual cost model reimburses eligible costs based on real expenses recorded in the beneficiary’s accounts. This requires detailed financial reporting and supporting documentation.
+              </p>
+              <p>
+                Applicants should carefully review the call conditions to determine which funding model applies and adjust their budgeting strategy accordingly.
+              </p>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  61. How is the evaluation process structured for Horizon Europe proposals?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Proposals are evaluated by independent experts against three main criteria: Excellence, Impact, and Quality & Efficiency of Implementation.
+              </p>
+              <p>
+                Each criterion is scored individually, and threshold values must be met. The final ranking is determined by the total score and available budget under the specific call.
+              </p>
+              <p>
+                Evaluation summaries are provided to applicants, outlining strengths, weaknesses, and the overall assessment.
+              </p>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  60. What is a Participant Identification Code (PIC) and why is it required?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                The PIC is a unique 9-digit identifier assigned to organisations registered in the EU Participant Register.
+              </p>
+              <p>
+                It ensures that legal and financial information is validated before grant preparation. Without a valid PIC, organisations cannot participate in Horizon Europe proposals.
+              </p>
+              <p>
+                Coordinators should verify all partners’ PIC status well before the submission deadline.
+              </p>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  59. Are indirect costs automatically covered under Horizon Europe?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Yes. Indirect costs are generally calculated as a flat rate of 25% of eligible direct costs, excluding subcontracting and certain third-party expenses.
+              </p>
+              <p>
+                Beneficiaries do not need to justify actual indirect cost amounts, as the flat rate is automatically applied.
+              </p>
+              <p>
+                This simplified approach reduces administrative burden while ensuring transparent financial management.
+              </p>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  58. When is an Ethics Self-Assessment required?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                An Ethics Self-Assessment is mandatory if the proposed research involves human participants, personal data, animal testing, or sensitive technologies.
+              </p>
+              <p>
+                Applicants must identify potential ethical issues and describe mitigation measures in the proposal.
+              </p>
+              <p>
+                Additional documentation may be requested during the grant preparation phase.
+              </p>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  57. What is the role of the project coordinator?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                The coordinator acts as the primary contact point with the European Commission and manages overall project administration.
+              </p>
+              <p>
+                Responsibilities include submitting reports, distributing EU funding to partners, and ensuring compliance with contractual obligations.
+              </p>
+              <p>
+                Strong organisational capacity and clear internal communication are essential for successful coordination.
+              </p>
+            </div>
+          </article>
+
+          <article class="he-faq-item">
+            <div class="he-faq-qrow">
+              <div class="he-faq-left">
+                <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
+                <h3 class="he-faq-qtext">
+                  56. Can organisations from non-EU countries participate in Horizon Europe?
+                </h3>
+              </div>
+              <button class="he-faq-btn" type="button" aria-expanded="false">
+                <span class="he-faq-icon">▼</span>
+              </button>
+            </div>
+
+            <div class="he-faq-a" data-collapsed="true">
+              <p>
+                Yes. Organisations from Associated Countries can participate under similar conditions as EU Member States.
+              </p>
+              <p>
+                Entities from other third countries may participate if allowed under the call conditions, but funding eligibility may vary.
+              </p>
+              <p>
+                Applicants should carefully review the specific call documentation to confirm eligibility rules.
+              </p>
+            </div>
+          </article>
+          <div class="he-board-pager" aria-label="pagination">
+            <a class="he-board-page" href="#">‹</a>
+            <a class="he-board-page active" href="#">1</a>
+            <a class="he-board-page" href="#">2</a>
+            <a class="he-board-page" href="#">3</a>
+            <a class="he-board-page" href="#">›</a>
+          </div>
         </div>
-        <button class="he-faq-btn" type="button" aria-expanded="false">
-          <span class="he-faq-icon">▼</span>
-        </button>
-      </div>
-
-      <div class="he-faq-a" data-collapsed="true">
-        <p>
-          Research institutes must comply with the general eligibility rules defined in the Horizon Europe Work Programme. In most collaborative calls, at least three independent legal entities from three different EU Member States or Associated Countries are required. Research institutes may participate either as coordinators or partners, depending on the specific call conditions.
-        </p>
-        <p>
-          Applicants must ensure that their organisation is properly registered in the EU Participant Register and holds a valid PIC (Participant Identification Code). Financial and operational capacity may be assessed during the evaluation phase. In addition, certain calls may impose specific eligibility requirements such as technology readiness level (TRL), thematic scope, or geographic balance.
-        </p>
-        <p>
-          For detailed legal and financial eligibility conditions, please refer to the official Horizon Europe Work Programme documentation.
-        </p>
-
-        <a class="he-faq-link" href="#">Download Eligibility Guidelines (PDF)</a>
-      </div>
-    </article>
-
-
-    <article class="he-faq-item">
-      <div class="he-faq-qrow">
-        <div class="he-faq-left">
-          <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-          <h3 class="he-faq-qtext">
-            63. How should personnel costs be calculated under Horizon Europe funding rules?
-          </h3>
-        </div>
-        <button class="he-faq-btn" type="button" aria-expanded="false">
-          <span class="he-faq-icon">▼</span>
-        </button>
-      </div>
-
-      <div class="he-faq-a" data-collapsed="true">
-        <p>
-          Personnel costs must be calculated in accordance with the rules outlined in the Annotated Grant Agreement. Beneficiaries must use their usual accounting practices to determine hourly rates, ensuring that costs are actual, recorded in the beneficiary’s accounts, and incurred during the project implementation period.
-        </p>
-        <p>
-          The calculation typically involves dividing annual personnel costs by the number of productive hours per year. Only costs directly linked to project activities are eligible. Overtime payments, bonuses, and additional allowances may be eligible if they are part of the organisation’s standard remuneration policy.
-        </p>
-        <p>
-          All personnel costs must be properly documented and supported by time records. During audits, beneficiaries may be required to provide payroll records, employment contracts, and timesheets.
-        </p>
-
-        <a class="he-faq-link" href="#">View Financial Rules Document</a>
-      </div>
-    </article>
-
-
-    <article class="he-faq-item">
-      <div class="he-faq-qrow">
-        <div class="he-faq-left">
-          <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-          <h3 class="he-faq-qtext">
-            3. What documents are required before submitting a collaborative proposal?
-          </h3>
-        </div>
-        <button class="he-faq-btn" type="button" aria-expanded="false">
-          <span class="he-faq-icon">▼</span>
-        </button>
-      </div>
-
-      <div class="he-faq-a" data-collapsed="true">
-        <p>
-          Before submission, the coordinating institution must ensure that all consortium members have completed their legal registration and validated their Participant Identification Code (PIC). A draft Consortium Agreement is strongly recommended prior to submission, even though it is formally signed after grant award.
-        </p>
-        <p>
-          The proposal itself must include the administrative forms (Part A) and the technical annex (Part B), structured according to the call template. This includes excellence, impact, and implementation sections. Ethical self-assessment, data management planning, and gender dimension considerations may also be required depending on the call.
-        </p>
-        <p>
-          It is advisable to review the official proposal template and submission guidelines well in advance of the deadline to avoid technical or compliance issues.
-        </p>
-
-        <a class="he-faq-link" href="#">Download Proposal Template</a>
-      </div>
-    </article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        62. What is the difference between lump sum and actual cost funding models?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Under the lump sum model, beneficiaries receive a fixed amount defined in the Grant Agreement for completing specific work packages. Payments are linked to the achievement of deliverables rather than the actual costs incurred.
-    </p>
-    <p>
-      In contrast, the actual cost model reimburses eligible costs based on real expenses recorded in the beneficiary’s accounts. This requires detailed financial reporting and supporting documentation.
-    </p>
-    <p>
-      Applicants should carefully review the call conditions to determine which funding model applies and adjust their budgeting strategy accordingly.
-    </p>
-  </div>
-</article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        61. How is the evaluation process structured for Horizon Europe proposals?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Proposals are evaluated by independent experts against three main criteria: Excellence, Impact, and Quality & Efficiency of Implementation.
-    </p>
-    <p>
-      Each criterion is scored individually, and threshold values must be met. The final ranking is determined by the total score and available budget under the specific call.
-    </p>
-    <p>
-      Evaluation summaries are provided to applicants, outlining strengths, weaknesses, and the overall assessment.
-    </p>
-  </div>
-</article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        60. What is a Participant Identification Code (PIC) and why is it required?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      The PIC is a unique 9-digit identifier assigned to organisations registered in the EU Participant Register.
-    </p>
-    <p>
-      It ensures that legal and financial information is validated before grant preparation. Without a valid PIC, organisations cannot participate in Horizon Europe proposals.
-    </p>
-    <p>
-      Coordinators should verify all partners’ PIC status well before the submission deadline.
-    </p>
-  </div>
-</article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        59. Are indirect costs automatically covered under Horizon Europe?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Yes. Indirect costs are generally calculated as a flat rate of 25% of eligible direct costs, excluding subcontracting and certain third-party expenses.
-    </p>
-    <p>
-      Beneficiaries do not need to justify actual indirect cost amounts, as the flat rate is automatically applied.
-    </p>
-    <p>
-      This simplified approach reduces administrative burden while ensuring transparent financial management.
-    </p>
-  </div>
-</article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        58. When is an Ethics Self-Assessment required?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      An Ethics Self-Assessment is mandatory if the proposed research involves human participants, personal data, animal testing, or sensitive technologies.
-    </p>
-    <p>
-      Applicants must identify potential ethical issues and describe mitigation measures in the proposal.
-    </p>
-    <p>
-      Additional documentation may be requested during the grant preparation phase.
-    </p>
-  </div>
-</article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        57. What is the role of the project coordinator?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      The coordinator acts as the primary contact point with the European Commission and manages overall project administration.
-    </p>
-    <p>
-      Responsibilities include submitting reports, distributing EU funding to partners, and ensuring compliance with contractual obligations.
-    </p>
-    <p>
-      Strong organisational capacity and clear internal communication are essential for successful coordination.
-    </p>
-  </div>
-</article>
-
-<article class="he-faq-item">
-  <div class="he-faq-qrow">
-    <div class="he-faq-left">
-      <img src="images/faq-circle.svg" class="he-faq-circle" alt="">
-      <h3 class="he-faq-qtext">
-        56. Can organisations from non-EU countries participate in Horizon Europe?
-      </h3>
-    </div>
-    <button class="he-faq-btn" type="button" aria-expanded="false">
-      <span class="he-faq-icon">▼</span>
-    </button>
-  </div>
-
-  <div class="he-faq-a" data-collapsed="true">
-    <p>
-      Yes. Organisations from Associated Countries can participate under similar conditions as EU Member States.
-    </p>
-    <p>
-      Entities from other third countries may participate if allowed under the call conditions, but funding eligibility may vary.
-    </p>
-    <p>
-      Applicants should carefully review the specific call documentation to confirm eligibility rules.
-    </p>
-  </div>
-</article>
-<div class="he-board-pager" aria-label="pagination">
-  <a class="he-board-page" href="#">‹</a>
-  <a class="he-board-page active" href="#">1</a>
-  <a class="he-board-page" href="#">2</a>
-  <a class="he-board-page" href="#">3</a>
-  <a class="he-board-page" href="#">›</a>
-</div>
-  </div>
-</section>
+      </section>
 
 
 <!-- PARTNER LOGO STRIP -->
@@ -1922,47 +1909,47 @@
   })();
 </script>
 <script>
-(() => {
-  const contentWrap = document.querySelector('.content-wrap');
-  const fab = document.querySelector('.he-ai-fab');
-  const overlay = document.querySelector('.he-ai-overlay');
-  const decline = document.querySelector('.he-ai-decline');
+  (() => {
+    const contentWrap = document.querySelector('.content-wrap');
+    const fab = document.querySelector('.he-ai-fab');
+    const overlay = document.querySelector('.he-ai-overlay');
+    const decline = document.querySelector('.he-ai-decline');
 
-  if(!contentWrap || !fab || !overlay || !decline) return;
+    if(!contentWrap || !fab || !overlay || !decline) return;
 
-  const positionFab = () => {
-    const rect = contentWrap.getBoundingClientRect();
-    const rightGap = Math.max(10, window.innerWidth - rect.right);
-    const offset = window.innerWidth <= 768 ? 1 : 15;
-    fab.style.right = (rightGap - offset) + 'px';
-  };
+    const positionFab = () => {
+      const rect = contentWrap.getBoundingClientRect();
+      const rightGap = Math.max(10, window.innerWidth - rect.right);
+      const offset = window.innerWidth <= 768 ? 1 : 15;
+      fab.style.right = (rightGap - offset) + 'px';
+    };
 
-  const openOverlay = () => {
-    overlay.classList.add('active');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
+    const openOverlay = () => {
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
 
-  const closeOverlay = () => {
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
+    const closeOverlay = () => {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
 
-  positionFab();
-  window.addEventListener('resize', positionFab);
+    positionFab();
+    window.addEventListener('resize', positionFab);
 
-  fab.addEventListener('click', openOverlay);
-  decline.addEventListener('click', closeOverlay);
+    fab.addEventListener('click', openOverlay);
+    decline.addEventListener('click', closeOverlay);
 
-  overlay.addEventListener('click', (e) => {
-    if(e.target === overlay) closeOverlay();
-  });
+    overlay.addEventListener('click', (e) => {
+      if(e.target === overlay) closeOverlay();
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') closeOverlay();
-  });
-})();
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeOverlay();
+    });
+  })();
 </script>
 
 </body>
