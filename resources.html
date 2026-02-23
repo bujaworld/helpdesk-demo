@@ -329,13 +329,13 @@
     padding:18px 20px 0;                            /* 좌우 20px 유지 */
     align-items:stretch;
   }
-.he-title{
-  font-size:28px;
-  letter-spacing:-0.6px;
-  white-space:normal;
-  overflow:visible;
-  text-overflow:unset;
-}
+  .he-title{
+    font-size:28px;
+    letter-spacing:-0.6px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+  }
 
   .he-subtitle{
     font-size:16px;
@@ -1115,8 +1115,8 @@
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:80px 1fr;
     grid-template-areas:
-      "num title"
-      "num meta";
+    "num title"
+    "num meta";
     row-gap:6px;
     padding:16px 20px;
   }
@@ -1180,37 +1180,36 @@
       <div class="top-wrap">
 
         <header class="he-header">
-          <a class="he-brand" href="#">
+          <a class="he-brand" href="index.html">
             <img class="he-brand-img" src="images/brand-logo.svg">
           </a>
 
           <button class="he-menu-btn" aria-label="menu">☰</button>
-
           <nav class="he-nav">
-            <a href="#">질문하기</a>
-            <a href="#" class="active">자료실</a>
-            <a href="#">FAQ</a>
-            <a href="#">주요 행사</a>
+            <a href="submit.html">질문하기</a>
+            <a href="resources.html" class="active">자료실</a>
+            <a href="faq.html">FAQ</a>
+            <a href="event.html">주요 행사</a>
           </nav>
-<nav class="he-nav-mobile" aria-label="mobile menu">
-  <div class="he-nav-mobile-panel">
-    <a class="he-mnav-btn" href="#">질문하기</a>
-    <a class="he-mnav-btn" href="#">자료실</a>
-    <a class="he-mnav-btn" href="#">FAQ</a>
-    <a class="he-mnav-btn" href="#">주요 행사</a>
-  </div>
-</nav>
+          <nav class="he-nav-mobile" aria-label="mobile menu">
+            <div class="he-nav-mobile-panel">
+              <a class="he-mnav-btn" href="submit.html">질문하기</a>
+              <a class="he-mnav-btn" href="resources.html">자료실</a>
+              <a class="he-mnav-btn" href="faq.html">FAQ</a>
+              <a class="he-mnav-btn" href="event.html">주요 행사</a>
+            </div>
+          </nav>
         </header>
 
         <section class="he-hero">
           <div class="he-hero-inner">
 
-<div>
-  <h1 class="he-title">Resource Library</h1>
-  <p class="he-subtitle">
-    Explore official Horizon Europe documents, templates, and financial guidance in one place.
-  </p>
-</div>
+            <div>
+              <h1 class="he-title">Resource Library</h1>
+              <p class="he-subtitle">
+                Explore official Horizon Europe documents, templates, and financial guidance in one place.
+              </p>
+            </div>
 
             <div class="he-hero-media">
               <img class="he-hero-img" src="images/resources_main.svg">
@@ -1222,131 +1221,131 @@
       </div>
 
 
-        <section class="he-section he-board" aria-label="question board">
-          <div class="he-board-head">
-            <div class="he-board-title">Featured Resources</div>
-            <div class="he-board-actions">
-              <div class="he-board-search">
-                <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
-                <input class="he-board-input" type="search" placeholder="Search documents, templates, keywords">
-              </div>
-              <a class="he-board-btn" href="#">⬆️ Upload Resource</a>
+      <section class="he-section he-board" aria-label="question board">
+        <div class="he-board-head">
+          <div class="he-board-title">Featured Resources</div>
+          <div class="he-board-actions">
+            <div class="he-board-search">
+              <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
+              <input class="he-board-input" type="search" placeholder="Search documents, templates, keywords">
             </div>
+            <a class="he-board-btn" href="#">⬆️ Upload Resource</a>
+          </div>
+        </div>
+
+        <div class="he-board-table" role="table" aria-label="questions">
+          <div class="he-board-row he-board-row-head" role="row">
+            <div class="he-board-cell num" role="columnheader">Type</div>
+            <div class="he-board-cell title" role="columnheader">Document</div>
+            <div class="he-board-cell date" role="columnheader">Updated</div>
+            <div class="he-board-cell views" role="columnheader">Size</div>
           </div>
 
-          <div class="he-board-table" role="table" aria-label="questions">
-<div class="he-board-row he-board-row-head" role="row">
-  <div class="he-board-cell num" role="columnheader">Type</div>
-  <div class="he-board-cell title" role="columnheader">Document</div>
-  <div class="he-board-cell date" role="columnheader">Updated</div>
-  <div class="he-board-cell views" role="columnheader">Size</div>
-</div>
+          <!-- 기존 메인 3개 + 추가 12개 (총 15개) -->
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">PDF</div>
+            <div class="he-board-cell title">Horizon Europe Proposal Submission Guide 2026</div>
+            <div class="he-board-cell date">15 Mar 2026</div>
+            <div class="he-board-cell views">2.4 MB</div>
+          </a>
 
-            <!-- 기존 메인 3개 + 추가 12개 (총 15개) -->
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">PDF</div>
-      <div class="he-board-cell title">Horizon Europe Proposal Submission Guide 2026</div>
-      <div class="he-board-cell date">15 Mar 2026</div>
-      <div class="he-board-cell views">2.4 MB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Template</div>
+            <div class="he-board-cell title">Consortium Agreement Template</div>
+            <div class="he-board-cell date">11 Mar 2026</div>
+            <div class="he-board-cell views">850 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Template</div>
-      <div class="he-board-cell title">Consortium Agreement Template</div>
-      <div class="he-board-cell date">11 Mar 2026</div>
-      <div class="he-board-cell views">850 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Eligible Costs and Budget Calculation Rules</div>
+            <div class="he-board-cell date">07 Mar 2026</div>
+            <div class="he-board-cell views">1.8 MB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Eligible Costs and Budget Calculation Rules</div>
-      <div class="he-board-cell date">07 Mar 2026</div>
-      <div class="he-board-cell views">1.8 MB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">PDF</div>
+            <div class="he-board-cell title">Horizon Europe Work Programme 2026–2027 Overview</div>
+            <div class="he-board-cell date">28 Feb 2026</div>
+            <div class="he-board-cell views">3.1 MB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">PDF</div>
-      <div class="he-board-cell title">Horizon Europe Work Programme 2026–2027 Overview</div>
-      <div class="he-board-cell date">28 Feb 2026</div>
-      <div class="he-board-cell views">3.1 MB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Template</div>
+            <div class="he-board-cell title">Proposal Part B Structure (Short Guide)</div>
+            <div class="he-board-cell date">22 Feb 2026</div>
+            <div class="he-board-cell views">420 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Template</div>
-      <div class="he-board-cell title">Proposal Part B Structure (Short Guide)</div>
-      <div class="he-board-cell date">22 Feb 2026</div>
-      <div class="he-board-cell views">420 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Common Proposal Pitfalls and Reviewer Expectations</div>
+            <div class="he-board-cell date">18 Feb 2026</div>
+            <div class="he-board-cell views">1.2 MB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Common Proposal Pitfalls and Reviewer Expectations</div>
-      <div class="he-board-cell date">18 Feb 2026</div>
-      <div class="he-board-cell views">1.2 MB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Ethics Self-Assessment Checklist</div>
+            <div class="he-board-cell date">12 Feb 2026</div>
+            <div class="he-board-cell views">560 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Ethics Self-Assessment Checklist</div>
-      <div class="he-board-cell date">12 Feb 2026</div>
-      <div class="he-board-cell views">560 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Subcontracting vs. Purchase of Services – Eligibility Notes</div>
+            <div class="he-board-cell date">06 Feb 2026</div>
+            <div class="he-board-cell views">740 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Subcontracting vs. Purchase of Services – Eligibility Notes</div>
-      <div class="he-board-cell date">06 Feb 2026</div>
-      <div class="he-board-cell views">740 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">PDF</div>
+            <div class="he-board-cell title">Lump Sum Projects – Reporting and Payment Basics</div>
+            <div class="he-board-cell date">01 Feb 2026</div>
+            <div class="he-board-cell views">1.0 MB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">PDF</div>
-      <div class="he-board-cell title">Lump Sum Projects – Reporting and Payment Basics</div>
-      <div class="he-board-cell date">01 Feb 2026</div>
-      <div class="he-board-cell views">1.0 MB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Consortium Eligibility – Countries Rule Explained</div>
+            <div class="he-board-cell date">27 Jan 2026</div>
+            <div class="he-board-cell views">680 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Consortium Eligibility – Countries Rule Explained</div>
-      <div class="he-board-cell date">27 Jan 2026</div>
-      <div class="he-board-cell views">680 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Template</div>
+            <div class="he-board-cell title">Work Package Planning Template (Example)</div>
+            <div class="he-board-cell date">21 Jan 2026</div>
+            <div class="he-board-cell views">390 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Template</div>
-      <div class="he-board-cell title">Work Package Planning Template (Example)</div>
-      <div class="he-board-cell date">21 Jan 2026</div>
-      <div class="he-board-cell views">390 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Data Management Plan – What Reviewers Check</div>
+            <div class="he-board-cell date">15 Jan 2026</div>
+            <div class="he-board-cell views">910 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Data Management Plan – What Reviewers Check</div>
-      <div class="he-board-cell date">15 Jan 2026</div>
-      <div class="he-board-cell views">910 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Indirect Costs (25% Flat Rate) – What’s Included</div>
+            <div class="he-board-cell date">10 Jan 2026</div>
+            <div class="he-board-cell views">520 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Indirect Costs (25% Flat Rate) – What’s Included</div>
-      <div class="he-board-cell date">10 Jan 2026</div>
-      <div class="he-board-cell views">520 KB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">Guide</div>
+            <div class="he-board-cell title">Timesheets and Time Records – Minimum Audit Requirements</div>
+            <div class="he-board-cell date">05 Jan 2026</div>
+            <div class="he-board-cell views">610 KB</div>
+          </a>
 
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">Guide</div>
-      <div class="he-board-cell title">Timesheets and Time Records – Minimum Audit Requirements</div>
-      <div class="he-board-cell date">05 Jan 2026</div>
-      <div class="he-board-cell views">610 KB</div>
-    </a>
-
-    <a class="he-board-row" role="row" href="detail.html">
-      <div class="he-board-cell num">PDF</div>
-      <div class="he-board-cell title">Official Call Documents and Templates – Where to Find Them</div>
-      <div class="he-board-cell date">02 Jan 2026</div>
-      <div class="he-board-cell views">1.5 MB</div>
-    </a>
+          <a class="he-board-row" role="row" href="detail.html">
+            <div class="he-board-cell num">PDF</div>
+            <div class="he-board-cell title">Official Call Documents and Templates – Where to Find Them</div>
+            <div class="he-board-cell date">02 Jan 2026</div>
+            <div class="he-board-cell views">1.5 MB</div>
+          </a>
 <!-- ACTION ROW (추가 행) : ✅ 반드시 he-board-table 안 -->
 <div class="he-board-row he-board-row-action" role="row">
   <div class="he-board-cell num"></div>
@@ -1634,47 +1633,47 @@
   })();
 </script>
 <script>
-(() => {
-  const contentWrap = document.querySelector('.content-wrap');
-  const fab = document.querySelector('.he-ai-fab');
-  const overlay = document.querySelector('.he-ai-overlay');
-  const decline = document.querySelector('.he-ai-decline');
+  (() => {
+    const contentWrap = document.querySelector('.content-wrap');
+    const fab = document.querySelector('.he-ai-fab');
+    const overlay = document.querySelector('.he-ai-overlay');
+    const decline = document.querySelector('.he-ai-decline');
 
-  if(!contentWrap || !fab || !overlay || !decline) return;
+    if(!contentWrap || !fab || !overlay || !decline) return;
 
-  const positionFab = () => {
-    const rect = contentWrap.getBoundingClientRect();
-    const rightGap = Math.max(10, window.innerWidth - rect.right);
-    const offset = window.innerWidth <= 768 ? 1 : 15;
-    fab.style.right = (rightGap - offset) + 'px';
-  };
+    const positionFab = () => {
+      const rect = contentWrap.getBoundingClientRect();
+      const rightGap = Math.max(10, window.innerWidth - rect.right);
+      const offset = window.innerWidth <= 768 ? 1 : 15;
+      fab.style.right = (rightGap - offset) + 'px';
+    };
 
-  const openOverlay = () => {
-    overlay.classList.add('active');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
+    const openOverlay = () => {
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
 
-  const closeOverlay = () => {
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
+    const closeOverlay = () => {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
 
-  positionFab();
-  window.addEventListener('resize', positionFab);
+    positionFab();
+    window.addEventListener('resize', positionFab);
 
-  fab.addEventListener('click', openOverlay);
-  decline.addEventListener('click', closeOverlay);
+    fab.addEventListener('click', openOverlay);
+    decline.addEventListener('click', closeOverlay);
 
-  overlay.addEventListener('click', (e) => {
-    if(e.target === overlay) closeOverlay();
-  });
+    overlay.addEventListener('click', (e) => {
+      if(e.target === overlay) closeOverlay();
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') closeOverlay();
-  });
-})();
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeOverlay();
+    });
+  })();
 </script>
 
 </body>
