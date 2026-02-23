@@ -49,7 +49,7 @@
   overflow:visible;            /* 이미지 걸치게 */
   position:relative;
   z-index:1;
-  margin-bottom:30px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
+  margin-bottom:60px;          /* ⬅ 박스 밖 여백 (회색 박스 길이 안 늘어남) */
 }
 
 /* HEADER */
@@ -73,6 +73,10 @@
 }
 .he-nav a{text-decoration:none; opacity:.9}
 .he-nav a:hover{opacity:1; text-decoration:underline}
+.he-nav a.active{
+  font-weight:900;
+  color:#0018f8;
+}
 
 /* HERO */
 .he-hero{position:relative; z-index:1;}
@@ -167,7 +171,7 @@
 /* HERO IMAGE */
 .he-hero-media{
   display:flex;
-  justify-content:center;
+  justify-content:flex-end; /* PC에서 우측 끝으로 붙임 */
   align-items:center;
   position:relative;
 }
@@ -325,13 +329,13 @@
     padding:18px 20px 0;                            /* 좌우 20px 유지 */
     align-items:stretch;
   }
-.he-title{
-  font-size:28px;
-  letter-spacing:-0.6px;
-  white-space:normal;
-  overflow:visible;
-  text-overflow:unset;
-}
+  .he-title{
+    font-size:28px;
+    letter-spacing:-0.6px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+  }
 
   .he-subtitle{
     font-size:16px;
@@ -358,173 +362,10 @@
   .he-brand-img{height:13px; width:auto;}
 
   /* 이미지 위/아래 여백 줄이기 */
-  .he-hero-media{justify-content:flex-start;}       /* 이미지 좌측 정렬 */
+  .he-hero-media{justify-content:center;}  /* 모바일에서는 가로 중앙 */
   .he-hero-img{bottom:-30px; width:min(240px,100%);}
 
-  .top-wrap{ margin-bottom:12px; }  /* 필요하면 10px까지 */
-}
-
-/* RESOURCES (자료실) */
-.he-resources{
-  margin-top:0;      /* 34px 제거 */
-  margin-bottom:0;   /* 불필요 여백 제거 */
-  padding:0;         /* 공통 .he-section이 담당 */
-}
-
-.he-resources-panel{
-  background:#10172a;
-  border-radius:22px;
-  overflow:hidden;
-  padding:18px 0 0;
-}
-
-.he-res-item{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  padding:18px 30px;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-.he-res-item:first-child{border-top:none;}
-
-.he-res-left{flex:1; min-width:0;}
-
-.he-res-kicker{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  align-items:center;
-  margin-bottom:8px;
-}
-
-.he-res-type{
-  color:#cbd5e1;
-  font-size:12px;
-  font-weight:700;
-}
-
-.he-res-tag{
-  font-size:12px;
-  font-weight:800;
-  color:#fff;
-  background:#0018f8;
-  padding:3px 10px;
-  border-radius:999px;
-}
-
-.he-res-updated{
-  font-size:12px;
-  font-weight:800;
-  color:#fff;
-  background:#f80029;
-  padding:3px 10px;
-  border-radius:999px;
-}
-
-.he-res-lang{
-  font-size:12px;
-  font-weight:800;
-  color:#e2e8f0;
-  border:1px solid rgba(226,232,240,.25);
-  padding:3px 10px;
-  border-radius:999px;
-}
-
-.he-res-name{
-  margin:0 0 8px;
-  color:#fff;
-  font-size:18px;
-  font-weight:800;
-  letter-spacing:-.2px;
-}
-
-.he-res-desc{
-  margin:0;
-  color:rgba(255,255,255,.72);
-  font-size:14px;
-  line-height:1.45;
-  max-width:62ch;
-}
-
-.he-res-right{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  justify-content:center;
-  gap:10px;
-  min-width:240px;
-}
-
-.he-res-meta{
-  display:grid;
-  grid-auto-flow:column;
-  gap:10px;
-  justify-content:end;
-  color:rgba(255,255,255,.55);
-  font-size:12px;
-  font-weight:600;
-  text-align:right;
-}
-
-.he-res-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  background:#0018f8;
-  color:#fff;
-  padding:10px 14px;
-  border-radius:999px;
-  font-weight:800;
-  font-size:13px;
-  cursor:pointer;
-  white-space:nowrap;
-}
-
-.he-res-btn:hover{filter:brightness(.95);}
-
-/* bottom action bar */
-.he-res-action{
-  margin-top:18px;
-  background:#0018f8;
-  border-radius:0 0 22px 22px;
-  padding:28px 30px 32px;   /* 위/아래 여백 증가 */
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.he-res-action-left{
-  color:#fff;
-  font-size:16px;
-  font-weight:900;
-  letter-spacing:-.2px;
-}
-
-.he-res-action-btn{
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.35);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:999px;
-  font-weight:800;
-  text-decoration:none;
-}
-
-.he-res-action-btn:hover{filter:brightness(.98);}
-
-/* Responsive */
-@media(max-width:768px){
-  .he-res-item{flex-direction:column; align-items:flex-start;}
-  .he-res-right{align-items:flex-start; min-width:auto;}
-  .he-res-meta{justify-content:start; text-align:left;}
-
-  .he-res-action{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;              /* ✅ Resource Library ↔ 버튼 간 여백 */
-  }
+  .top-wrap{ margin-bottom:40px; }  /* 필요하면 10px까지 */
 }
 
 
@@ -1111,8 +952,8 @@
   .he-board-row:not(.he-board-row-head):not(.he-board-row-action){
     grid-template-columns:60px 1fr;
     grid-template-areas:
-      "num title"
-      "num meta";
+    "num title"
+    "num meta";
     row-gap:6px;
     padding:16px 20px;
   }
@@ -1164,6 +1005,106 @@
   justify-content:flex-end;
   padding-right:4px;
 }
+
+/* EVENTS (주요행사) */
+.he-events{ background:#fff; }
+
+.he-events-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.he-events-head-text{ max-width:700px; }
+
+.he-events-title{
+  margin:0 0 8px;
+  font-size:28px;
+}
+
+.he-events-sub{
+  margin:0;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.he-events-page-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 18px;
+  border-radius:999px;
+  background:#f7f8fd;
+  border:1px solid var(--line);
+  text-decoration:none;
+  font-weight:600;
+  white-space:nowrap;
+  cursor:pointer;
+}
+.he-events-page-btn:hover{
+  background:#eef1ff;
+  border-color:#dde2ff;
+}
+
+.he-events-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.he-event-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:0;              /* 상단/좌우 여백 제거 */
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;        /* 모서리 맞춤 */
+}
+
+.he-event-img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:0;      /* ← 이것이 좌우 여백처럼 보이게 만드는 원인 */
+}
+
+.he-event-name{
+  margin:18px 18px 14px;
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:-.2px;
+}
+
+.he-event-btn{
+  margin-top:auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  background:#0018f8;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  width:fit-content;
+  margin:0 18px 18px;
+}
+.he-event-btn:hover{ filter:brightness(.95); }
+
+@media(max-width:768px){
+  .he-events-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .he-events-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 
 </head>
@@ -1185,31 +1126,31 @@
           <nav class="he-nav">
             <a href="#">질문하기</a>
             <a href="#">자료실</a>
-            <a href="#">FAQ</a>
+            <a href="#" class="active">FAQ</a>
             <a href="#">주요 행사</a>
           </nav>
-<nav class="he-nav-mobile" aria-label="mobile menu">
-  <div class="he-nav-mobile-panel">
-    <a class="he-mnav-btn" href="#">질문하기</a>
-    <a class="he-mnav-btn" href="#">자료실</a>
-    <a class="he-mnav-btn" href="#">FAQ</a>
-    <a class="he-mnav-btn" href="#">주요 행사</a>
-  </div>
-</nav>
+          <nav class="he-nav-mobile" aria-label="mobile menu">
+            <div class="he-nav-mobile-panel">
+              <a class="he-mnav-btn" href="#">질문하기</a>
+              <a class="he-mnav-btn" href="#">자료실</a>
+              <a class="he-mnav-btn" href="#">FAQ</a>
+              <a class="he-mnav-btn" href="#">주요 행사</a>
+            </div>
+          </nav>
         </header>
 
         <section class="he-hero">
           <div class="he-hero-inner">
 
             <div>
-              <h1 class="he-title">Submit a Question</h1>
+              <h1 class="he-title">Key Events & Programs</h1>
               <p class="he-subtitle">
-                Browse submitted questions and track updates across Horizon Europe topics.
+                Discover upcoming Horizon Europe info days, workshops, networking forums, and strategic R&D collaboration programs.
               </p>
             </div>
 
             <div class="he-hero-media">
-              <img class="he-hero-img" src="images/events_main.svg">
+              <img class="he-hero-img" src="images/faq_main.svg">
             </div>
 
           </div>
@@ -1218,149 +1159,90 @@
       </div>
 
 
-        <section class="he-section he-board" aria-label="question board">
-          <div class="he-board-head">
-            <div class="he-board-title">Recent Questions</div>
-            <div class="he-board-actions">
-              <div class="he-board-search">
-                <img src="images/icon-search.svg" alt="" style="width:16px;height:16px;opacity:.6">
-                <input class="he-board-input" type="search" placeholder="Search by keyword">
-              </div>
-              <a class="he-board-btn" href="#">✏️ New Question</a>
-            </div>
+      <section class="he-events he-section" id="events">
+
+        <div class="he-events-grid">
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main01.jpg" alt="Horizon Europe Info Day 2026">
+            <h3 class="he-event-name">Horizon Europe Info Day 2026</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main02.jpg" alt="Proposal Writing Workshop">
+            <h3 class="he-event-name">Proposal Writing Workshop</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main03.jpg" alt="EU–Korea Research Networking Forum">
+            <h3 class="he-event-name">EU–Korea Research Networking Forum</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main01.jpg" alt="Horizon Europe Info Day 2026">
+            <h3 class="he-event-name">Horizon Europe Info Day 2026</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main02.jpg" alt="Proposal Writing Workshop">
+            <h3 class="he-event-name">Proposal Writing Workshop</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main03.jpg" alt="EU–Korea Research Networking Forum">
+            <h3 class="he-event-name">EU–Korea Research Networking Forum</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main04.jpg" alt="Cluster 4 Digital & Industry Brokerage Event">
+            <h3 class="he-event-name">Cluster 4 Digital & Industry Brokerage Event</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main05.jpg" alt="Marie Skłodowska-Curie Actions Seminar">
+            <h3 class="he-event-name">Marie Skłodowska-Curie Actions Seminar</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main06.jpg" alt="Horizon Europe Financial Management Training">
+            <h3 class="he-event-name">Horizon Europe Financial Management Training</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main07.jpg" alt="ERC Grant Preparation Masterclass">
+            <h3 class="he-event-name">ERC Grant Preparation Masterclass</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main08.jpg" alt="EU Missions & Partnerships Briefing Session">
+            <h3 class="he-event-name">EU Missions & Partnerships Briefing Session</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+
+          <article class="he-event-card">
+            <img class="he-event-img" src="images/event-main09.jpg" alt="International R&D Collaboration Strategy Forum">
+            <h3 class="he-event-name">International R&D Collaboration Strategy Forum</h3>
+            <a class="he-event-btn" href="#">View</a>
+          </article>
+        </div>
+          <div class="he-board-pager" aria-label="pagination">
+            <a class="he-board-page" href="#">‹</a>
+            <a class="he-board-page active" href="#">1</a>
+            <a class="he-board-page" href="#">2</a>
+            <a class="he-board-page" href="#">3</a>
+            <a class="he-board-page" href="#">›</a>
           </div>
+      </section>
 
-          <div class="he-board-table" role="table" aria-label="questions">
-            <div class="he-board-row he-board-row-head" role="row">
-              <div class="he-board-cell num" role="columnheader">No</div>
-              <div class="he-board-cell title" role="columnheader">Title</div>
-              <div class="he-board-cell date" role="columnheader">Date</div>
-              <div class="he-board-cell views" role="columnheader">Views</div>
-            </div>
-
-            <!-- 기존 메인 3개 + 추가 12개 (총 15개) -->
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">15</div>
-              <div class="he-board-cell title">Horizon Europe Eligibility for Research Institutes</div>
-              <div class="he-board-cell date">22 Mar 2026</div>
-              <div class="he-board-cell views">124</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">14</div>
-              <div class="he-board-cell title">Partner Search for Cluster 4 Proposal</div>
-              <div class="he-board-cell date">14 Mar 2026</div>
-              <div class="he-board-cell views">89</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">13</div>
-              <div class="he-board-cell title">Budget Rules for Personnel Costs</div>
-              <div class="he-board-cell date">04 Mar 2026</div>
-              <div class="he-board-cell views">156</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">12</div>
-              <div class="he-board-cell title">How to Validate PIC and Organisation Data in the Participant Register</div>
-              <div class="he-board-cell date">28 Feb 2026</div>
-              <div class="he-board-cell views">203</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">11</div>
-              <div class="he-board-cell title">Consortium Minimum Requirements for Collaborative Calls</div>
-              <div class="he-board-cell date">22 Feb 2026</div>
-              <div class="he-board-cell views">177</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">10</div>
-              <div class="he-board-cell title">Common Proposal Mistakes in “Impact” Section and How to Avoid Them</div>
-              <div class="he-board-cell date">18 Feb 2026</div>
-              <div class="he-board-cell views">312</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">9</div>
-              <div class="he-board-cell title">Ethics Self-Assessment: When Is It Required?</div>
-              <div class="he-board-cell date">12 Feb 2026</div>
-              <div class="he-board-cell views">98</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">8</div>
-              <div class="he-board-cell title">Eligible Subcontracting vs. Purchase of Services</div>
-              <div class="he-board-cell date">06 Feb 2026</div>
-              <div class="he-board-cell views">141</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">7</div>
-              <div class="he-board-cell title">Lump Sum Pilot Calls: Reporting Expectations in Practice</div>
-              <div class="he-board-cell date">01 Feb 2026</div>
-              <div class="he-board-cell views">220</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">6</div>
-              <div class="he-board-cell title">Do Associated Countries Count Toward the “Three Countries” Rule?</div>
-              <div class="he-board-cell date">27 Jan 2026</div>
-              <div class="he-board-cell views">164</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">5</div>
-              <div class="he-board-cell title">How to Structure Work Packages for a Cluster Proposal (Demo Template)</div>
-              <div class="he-board-cell date">21 Jan 2026</div>
-              <div class="he-board-cell views">287</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">4</div>
-              <div class="he-board-cell title">Data Management Plan: What Reviewers Usually Look For</div>
-              <div class="he-board-cell date">15 Jan 2026</div>
-              <div class="he-board-cell views">116</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">3</div>
-              <div class="he-board-cell title">Indirect Costs (25% Flat Rate): What Can Be Included?</div>
-              <div class="he-board-cell date">10 Jan 2026</div>
-              <div class="he-board-cell views">355</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">2</div>
-              <div class="he-board-cell title">Timesheets and Time Records: Minimum Requirements for Audits</div>
-              <div class="he-board-cell date">05 Jan 2026</div>
-              <div class="he-board-cell views">268</div>
-            </a>
-
-            <a class="he-board-row" role="row" href="detail.html">
-              <div class="he-board-cell num">1</div>
-              <div class="he-board-cell title">Where to Find Official Work Programme Documents and Call Templates</div>
-              <div class="he-board-cell date">02 Jan 2026</div>
-              <div class="he-board-cell views">402</div>
-            </a>
-<!-- ACTION ROW (추가 행) : ✅ 반드시 he-board-table 안 -->
-<div class="he-board-row he-board-row-action" role="row">
-  <div class="he-board-cell num"></div>
-  <div class="he-board-cell title"></div>
-  <div class="he-board-cell date"></div>
-  <div class="he-board-cell views">
-    <a class="he-board-btn" href="#">✏️ New Question</a>
-  </div>
-</div>
-</div>
-<div class="he-board-pager" aria-label="pagination">
-  <a class="he-board-page" href="#">‹</a>
-  <a class="he-board-page active" href="#">1</a>
-  <a class="he-board-page" href="#">2</a>
-  <a class="he-board-page" href="#">3</a>
-  <a class="he-board-page" href="#">›</a>
-</div>
-</section>
 
 <!-- PARTNER LOGO STRIP -->
 <section class="he-partners-strip he-section" aria-label="기관 로고">
@@ -1630,47 +1512,47 @@
   })();
 </script>
 <script>
-(() => {
-  const contentWrap = document.querySelector('.content-wrap');
-  const fab = document.querySelector('.he-ai-fab');
-  const overlay = document.querySelector('.he-ai-overlay');
-  const decline = document.querySelector('.he-ai-decline');
+  (() => {
+    const contentWrap = document.querySelector('.content-wrap');
+    const fab = document.querySelector('.he-ai-fab');
+    const overlay = document.querySelector('.he-ai-overlay');
+    const decline = document.querySelector('.he-ai-decline');
 
-  if(!contentWrap || !fab || !overlay || !decline) return;
+    if(!contentWrap || !fab || !overlay || !decline) return;
 
-  const positionFab = () => {
-    const rect = contentWrap.getBoundingClientRect();
-    const rightGap = Math.max(10, window.innerWidth - rect.right);
-    const offset = window.innerWidth <= 768 ? 1 : 15;
-    fab.style.right = (rightGap - offset) + 'px';
-  };
+    const positionFab = () => {
+      const rect = contentWrap.getBoundingClientRect();
+      const rightGap = Math.max(10, window.innerWidth - rect.right);
+      const offset = window.innerWidth <= 768 ? 1 : 15;
+      fab.style.right = (rightGap - offset) + 'px';
+    };
 
-  const openOverlay = () => {
-    overlay.classList.add('active');
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
+    const openOverlay = () => {
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
 
-  const closeOverlay = () => {
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
+    const closeOverlay = () => {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
 
-  positionFab();
-  window.addEventListener('resize', positionFab);
+    positionFab();
+    window.addEventListener('resize', positionFab);
 
-  fab.addEventListener('click', openOverlay);
-  decline.addEventListener('click', closeOverlay);
+    fab.addEventListener('click', openOverlay);
+    decline.addEventListener('click', closeOverlay);
 
-  overlay.addEventListener('click', (e) => {
-    if(e.target === overlay) closeOverlay();
-  });
+    overlay.addEventListener('click', (e) => {
+      if(e.target === overlay) closeOverlay();
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') closeOverlay();
-  });
-})();
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeOverlay();
+    });
+  })();
 </script>
 
 </body>

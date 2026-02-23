@@ -368,169 +368,6 @@
   .top-wrap{ margin-bottom:40px; }  /* 필요하면 10px까지 */
 }
 
-/* RESOURCES (자료실) */
-.he-resources{
-  margin-top:0;      /* 34px 제거 */
-  margin-bottom:0;   /* 불필요 여백 제거 */
-  padding:0;         /* 공통 .he-section이 담당 */
-}
-
-.he-resources-panel{
-  background:#10172a;
-  border-radius:22px;
-  overflow:hidden;
-  padding:18px 0 0;
-}
-
-.he-res-item{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  padding:18px 30px;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-.he-res-item:first-child{border-top:none;}
-
-.he-res-left{flex:1; min-width:0;}
-
-.he-res-kicker{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  align-items:center;
-  margin-bottom:8px;
-}
-
-.he-res-type{
-  color:#cbd5e1;
-  font-size:12px;
-  font-weight:700;
-}
-
-.he-res-tag{
-  font-size:12px;
-  font-weight:800;
-  color:#fff;
-  background:#0018f8;
-  padding:3px 10px;
-  border-radius:999px;
-}
-
-.he-res-updated{
-  font-size:12px;
-  font-weight:800;
-  color:#fff;
-  background:#f80029;
-  padding:3px 10px;
-  border-radius:999px;
-}
-
-.he-res-lang{
-  font-size:12px;
-  font-weight:800;
-  color:#e2e8f0;
-  border:1px solid rgba(226,232,240,.25);
-  padding:3px 10px;
-  border-radius:999px;
-}
-
-.he-res-name{
-  margin:0 0 8px;
-  color:#fff;
-  font-size:18px;
-  font-weight:800;
-  letter-spacing:-.2px;
-}
-
-.he-res-desc{
-  margin:0;
-  color:rgba(255,255,255,.72);
-  font-size:14px;
-  line-height:1.45;
-  max-width:62ch;
-}
-
-.he-res-right{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  justify-content:center;
-  gap:10px;
-  min-width:240px;
-}
-
-.he-res-meta{
-  display:grid;
-  grid-auto-flow:column;
-  gap:10px;
-  justify-content:end;
-  color:rgba(255,255,255,.55);
-  font-size:12px;
-  font-weight:600;
-  text-align:right;
-}
-
-.he-res-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  background:#0018f8;
-  color:#fff;
-  padding:10px 14px;
-  border-radius:999px;
-  font-weight:800;
-  font-size:13px;
-  cursor:pointer;
-  white-space:nowrap;
-}
-
-.he-res-btn:hover{filter:brightness(.95);}
-
-/* bottom action bar */
-.he-res-action{
-  margin-top:18px;
-  background:#0018f8;
-  border-radius:0 0 22px 22px;
-  padding:28px 30px 32px;   /* 위/아래 여백 증가 */
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.he-res-action-left{
-  color:#fff;
-  font-size:16px;
-  font-weight:900;
-  letter-spacing:-.2px;
-}
-
-.he-res-action-btn{
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.35);
-  color:#fff;
-  padding:12px 18px;
-  border-radius:999px;
-  font-weight:800;
-  text-decoration:none;
-}
-
-.he-res-action-btn:hover{filter:brightness(.98);}
-
-/* Responsive */
-@media(max-width:768px){
-  .he-res-item{flex-direction:column; align-items:flex-start;}
-  .he-res-right{align-items:flex-start; min-width:auto;}
-  .he-res-meta{justify-content:start; text-align:left;}
-
-  .he-res-action{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;              /* ✅ Resource Library ↔ 버튼 간 여백 */
-  }
-}
-
 
 /* FOOTER */
 .he-footer{
@@ -1630,6 +1467,7 @@
               </p>
             </div>
           </article>
+        </div>
           <div class="he-board-pager" aria-label="pagination">
             <a class="he-board-page" href="#">‹</a>
             <a class="he-board-page active" href="#">1</a>
@@ -1637,7 +1475,6 @@
             <a class="he-board-page" href="#">3</a>
             <a class="he-board-page" href="#">›</a>
           </div>
-        </div>
       </section>
 
 
